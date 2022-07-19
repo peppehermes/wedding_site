@@ -1,12 +1,12 @@
 <script lang="ts">
     let photos = [
-        // "/photos/001.jpeg",
-        // "/photos/002.jpeg",
-        // "/photos/003.jpg",
+        // { title: '', src: '/photos/001.jpeg' },
+        // { title: '', src: '/photos/002.jpeg' },
+        // { title: '', src: '/photos/003.jpg' },
         { title: 'Korea - 2018', src: '/photos/004.jpg' },
         { title: 'Apple Orchard - 2021', src: '/photos/005.jpeg' },
         { title: 'Proposal - 2021', src: '/photos/006.jpeg' },
-        // "/photos/007.png",
+        // { title: '', src: '/photos/007.png' },
         { title: "New Year's Eve - 2022", src: '/photos/008.jpeg' },
         { title: '💍 - 2022', src: '/photos/009.png' },
     ]

@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    // import { scrollRef } from "svelte-scrolling";
     import { city, venueName } from "$data/data";
+    import config from '$data/config';
 
     export let ref: string;
 
@@ -9,24 +9,13 @@
 
     onMount(() => {
         heroVideo.loop = true;
-        // if (typeof heroVideo.loop == "boolean") {
-        // } else {
-        //     heroVideo.on(
-        //         "ended",
-        //         () => {
-        //             this.currentTime = 0;
-        //             this.play();
-        //         },
-        //         false
-        //     );
-        // }
     });
 </script>
 
-<section class="showcase max-h-[35vh]" id={ref}>
+<section class="showcase max-h-[500px] md:max-h-[600px] lg:max-h-[80vh]" id={ref}>
     <div class="video-container">
         <video
-            src="/oakHill.mp4"
+            src={config.venue.video}
             autoplay
             muted
             playsinline

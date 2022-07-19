@@ -54,6 +54,7 @@ export function scrollIntoView({ target }: any): void {
     el.scrollIntoView({
         behavior: 'smooth',
     })
+    target.blur();
 }
 
 export function scrollToTop() {

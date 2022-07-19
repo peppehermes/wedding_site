@@ -1,8 +1,7 @@
 <script lang="ts">
-    import Hero from '$lib/components/layout/Hero.svelte'
-    import Footer from '$com/layout/Footer.svelte';
     import { toggleSections } from '$data/toggles'
-
+    
+    import Hero from '$lib/components/layout/Hero.svelte'
     import SaveTheDate from '$com/sections/SaveTheDate.svelte'
     import OurStory from '$com/sections/OurStory.svelte'
     import Events from '$com/sections/Events.svelte'
@@ -34,4 +33,3 @@
 {#if toggleSections.rsvp}
     <Rsvp />
 {/if}
-<Footer />

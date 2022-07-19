@@ -2,6 +2,7 @@
     import { scrollIntoView, scrollToTop } from '$src/data/functions'
     import { toggleSections, canRsvp } from '$data/toggles'
     import MenuIcon from '$icon/menu.svg?component'
+    import { browser } from '$app/env'
 
     let navIconSize = 28
 
@@ -62,6 +63,8 @@
 
     $: scrollDirection = deriveDirection(currentY)
     $: offscreen = scrollDirection === 'down' && currentY > clientHeight * 4
+
+    $: activeElement = document.activeElement as HTMLElement;
 </script>
 
 <svelte:window bind:scrollY={currentY} />
@@ -90,7 +93,7 @@
                                 <a
                                     {href}
                                     class="hover:cursor-pointer"
-                                    on:click|preventDefault={scrollIntoView}>{label}</a
+                                    on:click|preventDefault={(e) => scrollIntoView(e)}>{label}</a
                                 >
                             </li>
                         {/if}
@@ -100,10 +103,7 @@
         {/if}
 
         <!-- svelte-ignore a11y-missing-attribute -->
-        <a
-            class="btn btn-ghost rounded-full opacity-70"
-            on:click|preventDefault={scrollToTop}
-        >
+        <a class="btn btn-ghost rounded-full opacity-70" on:click|preventDefault={scrollToTop}>
             <div class="rounded-full w-8">
                 <img src="/moon.png" height={navIconSize} width={navIconSize} alt="Nav Logo" />
             </div>
