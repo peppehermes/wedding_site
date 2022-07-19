@@ -1,0 +1,142 @@
+<script>
+// @ts-nocheck
+
+    import FormField from '$com/elements/FormField.svelte'
+    import GroupRadio from '$com/elements/GroupRadio.svelte'
+    import FormButton from '$com/elements/FormButton.svelte'
+    import GuestMealInput from '$com/elements/GuestMealInput.svelte'
+
+    import { lodging, rsvpUrl, guestMealsInitial } from '$data/data'
+    import { toastMessages } from '$data/strings'
+    import { rsvpSubmitIsDisabled, showNotification } from '$data/functions'
+
+    let name = ''
+    let email = ''
+    let phone = ''
+    let numGuests
+    let transportation = null
+    let guestMeals = guestMealsInitial
+    let loading = false
+
+    const transportationModal = 'transportation-info-modal'
+
+    function resetForm() {
+        name = ''
+        email = ''
+        phone = ''
+        numGuests = undefined
+        guestMeals = guestMealsInitial
+        transportation = null
+    }
+
+    function click() {
+        loading = true
+        const form = document.forms['submit-rsvp-to-google-sheet']
+
+        console.log(form)
+
+        fetch(rsvpUrl, { method: 'POST', body: new FormData(form) })
+            .then((response) => {
+                console.log('Success!', response)
+                showNotification('success', toastMessages.rsvp.success)
+                loading = false
+                resetForm()
+            })
+            .catch((error) => {
+                console.error('Error!', error.message)
+                showNotification('error', toastMessages.rsvp.failure)
+                loading = false
+                resetForm()
+            })
+    }
+
+    $: disabled =
+        rsvpSubmitIsDisabled(
+            name,
+            email,
+            phone,
+            numGuests || 0,
+            guestMeals,
+            transportation || false,
+        ) || loading
+
+    $: yesRadioLabel = `Yes, ${
+        numGuests == 1 || numGuests == null ? "I'd" : "We'd"
+    } love to use the provided transportation.`
+</script>
+
+<form class="w-full max-w-lg mx-auto" name="submit-rsvp-to-google-sheet">
+    <div class="flex flex-wrap -mx-3 mb-4">
+        <FormField bind:data={name} label="Name" fieldType="text" />
+        <FormField bind:data={email} label="Email" fieldType="text" />
+    </div>
+    <div class="flex flex-wrap -mx-3 mb-4">
+        <FormField bind:data={phone} label="Phone" fieldType="text" />
+        <FormField bind:data={numGuests} label="Guests" fieldType="number" />
+    </div>
+    <!-- transportation -->
+    <p class="text-center mb-6 text-black-60">
+        Please indicate if you intend to use the complimentary shuttle service between our wedding
+        hotels and Oak Hill Farm. For more information,
+        <label
+            for={transportationModal}
+            class="text-lavender-900 hover:text-raspberry cursor-pointer">click here</label
+        >.
+    </p>
+    <!-- transportation radios -->
+    <div class="flex flex-wrap -mx-3 mb-4 justify-center">
+        <div class="w-full px-3">
+            <GroupRadio
+                bind:group={transportation}
+                name="Transportation"
+                value="Yes"
+                label={yesRadioLabel}
+            />
+            <GroupRadio
+                bind:group={transportation}
+                name="Transportation"
+                value="No"
+                label="No, thanks."
+            />
+        </div>
+    </div>
+    <!-- guest meals -->
+    {#if numGuests != undefined}
+        <p class="text-center font-semibold font-serif text-lg mb-8">Your Party</p>
+        {#each Array(numGuests) as _, index}
+            <GuestMealInput
+                bind:name={guestMeals[index]['name']}
+                bind:meal={guestMeals[index]['meal']}
+                {index}
+            />
+        {/each}
+    {/if}
+    <FormButton {loading} {disabled} {click} />
+</form>
+
+<!-- Transportation modal -->
+<input type="checkbox" id={transportationModal} class="modal-toggle" />
+<div class="modal modal-bottom sm:modal-middle bg-lavender bg-opacity-50">
+    <div class="modal-box">
+        <h3 class="font-bold text-lg text-black-87">Transportation</h3>
+        <p class="py-4 text-black-60">
+            Transportation will be provided for all to the ceremony and reception at Oak Hill Farm
+            on Sunday, October 8th. No hotel stay required for transportation. It departs from {lodging.length ==
+            1
+                ? 'this'
+                : 'these'}
+            {lodging.length}
+            {lodging.length == 1 ? 'location' : 'locations'}:
+        </p>
+        <ul>
+            {#each lodging as l}
+                <li>{l.name}</li>
+            {/each}
+        </ul>
+        <div class="modal-action">
+            <label for={transportationModal} class="btn hover:bg-lavender hover:text-white"
+                >Close</label
+            >
+        </div>
+    </div>
+</div>
