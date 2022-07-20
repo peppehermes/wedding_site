@@ -116,7 +116,7 @@
 
 <!-- Transportation modal -->
 <input type="checkbox" id={transportationModal} class="modal-toggle" />
-<div class="modal modal-bottom sm:modal-middle bg-lavender bg-opacity-50">
+<div class="modal modal-bottom sm:modal-middle bg-lavender/50">
     <div class="modal-box">
         <h3 class="font-bold text-lg text-black-87">Transportation</h3>
         <p class="py-4 text-black-60">

@@ -6,7 +6,7 @@
 </script>
 
 <footer
-    class="footer footer-center p-10 text-primary-content bg-primary bg-opacity-20 border-t border-primary"
+    class="footer footer-center p-10 text-primary-content bg-primary/20 border-t border-primary"
 >
     <div>
         {#if showToTop}
