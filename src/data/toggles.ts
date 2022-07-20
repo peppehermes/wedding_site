@@ -1,4 +1,4 @@
-export const canRsvp = false;
+export const canRsvp = false
 
 export const toggleSections = {
     saveTheDate: true,
@@ -8,4 +8,4 @@ export const toggleSections = {
     registry: false,
     map: true,
     rsvp: true,
-};
+}

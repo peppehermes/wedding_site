@@ -1,4 +1,11 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+const wilder = {
+    name: 'Wilder Mansion',
+    address: '211 S Prospect Ave, Elmhurst, IL 60126',
+    video: '/adler.mp4',
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const adler = {
     name: 'Adler Planetarium',
     address: '1300 S DuSable Lake Shore Dr, Chicago, IL 60605',
@@ -18,8 +25,7 @@ export default {
         wedding: '2023-10-08',
         rsvp: '2023-08-08',
     },
-    // venue: adler,
-    venue: oakHill,
+    venue: adler,
     catering: {
         meals: ['N.Y. Strip', 'Stuffed Chicken Caprese', 'Atlantic Salmon', 'Vegetarian'],
     },

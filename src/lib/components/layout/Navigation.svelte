@@ -2,9 +2,7 @@
     import { scrollIntoView, scrollToTop } from '$src/data/functions'
     import { toggleSections, canRsvp } from '$data/toggles'
     import MenuIcon from '$icon/menu.svg?component'
-    import { browser } from '$app/env'
-
-    let navIconSize = 28
+    import MoonIcon from '$icon/moon.svg?component'
 
     type navItem = {
         label: string
@@ -63,8 +61,6 @@
 
     $: scrollDirection = deriveDirection(currentY)
     $: offscreen = scrollDirection === 'down' && currentY > clientHeight * 4
-
-    $: activeElement = document.activeElement as HTMLElement;
 </script>
 
 <svelte:window bind:scrollY={currentY} />
@@ -78,8 +74,7 @@
         {#if items.filter((e) => e.display).length != 0}
             <div class="dropdown" id="dropdown-container">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
-                <label tabindex="0" class="btn btn-ghost lg:hidden" id="menu-button">
-                    <!-- <MaterialIcon icon="menu" /> -->
+                <label tabindex="0" class="btn btn-ghost btn-circle lg:hidden" id="menu-button">
                     <MenuIcon class="w-6" />
                 </label>
                 <ul
@@ -103,9 +98,10 @@
         {/if}
 
         <!-- svelte-ignore a11y-missing-attribute -->
-        <a class="btn btn-ghost rounded-full opacity-70" on:click|preventDefault={scrollToTop}>
+        <a class="btn btn-ghost btn-circle rounded-full opacity-70" on:click|preventDefault={scrollToTop}>
             <div class="rounded-full w-8">
-                <img src="/moon.png" height={navIconSize} width={navIconSize} alt="Nav Logo" />
+                <MoonIcon />
+                <!-- <img src="/moon.png" height={navIconSize} width={navIconSize} alt="Nav Logo" /> -->
             </div>
         </a>
     </div>

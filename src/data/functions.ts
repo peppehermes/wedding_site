@@ -1,15 +1,15 @@
 import { success, failure } from './toasts'
 
-export const showNotification = (_class: string, message: string) => {
+export const showNotification = (_class: string, _message: string) => {
     function icon() {
         return `<span style="font-size: 0.8rem;" class="material-symbols-rounded">${
             _class == 'success' ? 'check_circle' : 'error'
         }</span>`
     }
     if (_class == 'success') {
-        success(`${icon()} ${message}`)
+        success(`${icon()} ${_message}`)
     } else {
-        failure(`${icon()} ${message}`)
+        failure(`${icon()} ${_message}`)
     }
 }
 
@@ -28,12 +28,8 @@ export const rsvpSubmitIsDisabled = (
         }
     }
 
-    const n = name == '' || name == null
-    const e = email == '' || email == null
-    const p = phone == '' || phone == null
     const g = numGuests < 1 || numGuests == undefined
-    const t = transportation == null
-    if (n || e || p || g || t || arrayHasNull) {
+    if (!name || !email || !phone || g || transportation == null || arrayHasNull) {
         return true
     } else {
         return false
@@ -41,22 +37,23 @@ export const rsvpSubmitIsDisabled = (
 }
 
 export const emailListSubmitIsDisabled = (name: string, email: string) => {
-    if (name == '' || email == '' || name == null || email == null) {
+    if (!name || !email) {
         return true
     } else {
         return false
     }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function scrollIntoView({ target }: any): void {
     const el = document.querySelector(target.getAttribute('href'))
     if (!el) return
     el.scrollIntoView({
         behavior: 'smooth',
     })
-    target.blur();
+    target.blur()
 }
 
 export function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'smooth' })
 }
