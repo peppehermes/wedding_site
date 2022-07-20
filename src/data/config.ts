@@ -25,7 +25,7 @@ export default {
         wedding: '2023-09-17',
         rsvp: '2023-08-08',
     },
-    venue: adler,
+    venue: oakHill,
     catering: {
         meals: ['N.Y. Strip', 'Stuffed Chicken Caprese', 'Atlantic Salmon', 'Vegetarian'],
     },
