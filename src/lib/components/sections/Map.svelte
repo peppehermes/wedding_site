@@ -53,7 +53,7 @@
     on:click|preventDefault={openMap}
 >
     {#if overlay}
-        <div class="hero-overlay bg-opacity-30 bg-periwinkle" transition:fade />
+        <div class="hero-overlay bg-periwinkle/40" transition:fade />
     {/if}
     {#if !overlay}
         <div

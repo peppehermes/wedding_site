@@ -2,8 +2,8 @@
     import dayjs from 'dayjs'
     import PageSection from '$com/layout/PageSection.svelte'
     import { saveTheDate } from '$data/strings'
+    import { weddingDay } from '$data/data'
 
-    const weddingDay = dayjs('2023-10-08')
     let today = dayjs()
     let diff = weddingDay.diff(today, 'days') + 1
     let dayDays = diff == 1 ? 'day' : 'days'

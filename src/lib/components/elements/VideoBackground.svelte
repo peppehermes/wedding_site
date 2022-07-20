@@ -22,7 +22,7 @@
             bind:this={heroVideo}
         />
     </div>
-    <div class="content hero text-white bg-eucalyptus bg-opacity-30">
+    <div class="content hero text-white bg-eucalyptus-900/40">
         <div class="hero-content text-center">
             <div class="max-w-md">
                 <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
