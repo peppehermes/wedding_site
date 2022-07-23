@@ -63,7 +63,7 @@
         >
             <div class="card-body items-center text-center p-2">
                 <button class="btn btn-ghost w-full gap-2" on:click|preventDefault={toggleOverlay}>
-                    <InfoIcon class="w-6 fill-black-87" />Show Info</button
+                    <InfoIcon class="w-6 fill-black/70" />Show Info</button
                 >
             </div>
         </div>

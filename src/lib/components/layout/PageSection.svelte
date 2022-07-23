@@ -1,4 +1,6 @@
 <script lang="ts">
+    import MoonBg from '$icon/moon-bg.svg?component'
+
     export let ref: string
     export let classes: string = ''
     export let title: string | undefined = undefined
@@ -31,7 +33,7 @@
 
 <section
     id={ref}
-    class="{classes} {paddingClasses()}"
+    class="{classes} {paddingClasses()} relative"
     class:bg-primary={primary}
     class:bg-raspberry={raspberry}
     class:bg-eucalyptus={eucalyptus}
@@ -50,13 +52,15 @@
         </h2>
     {/if}
     <slot />
+    {#if image}
+        <div
+            class="absolute bottom-0 right-0 w-full -z-10 flex justify-end fill-lavender"
+            class:fill-lavender={primary}
+            class:fill-raspberry={raspberry}
+            class:fill-eucalyptus={eucalyptus}
+            class:fill-peach={peach || (!primary && !raspberry && !eucalyptus)}
+        >
+            <MoonBg class="w-[275px] mr-0 sm:mr-4 md:mr-12 lg:mr-24 opacity-60" />
+        </div>
+    {/if}
 </section>
-
-<style>
-    .bg-image {
-        background-image: url(/moon.svg);
-        background-repeat: no-repeat;
-        background-position: bottom right;
-        background-size: 250px;
-    }
-</style>

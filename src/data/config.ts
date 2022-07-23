@@ -22,7 +22,7 @@ const oakHill = {
 export default {
     parties: ['Joni', 'Cory'],
     dates: {
-        wedding: '2023-09-17',
+        wedding: '2023-10-08',
         rsvp: '2023-08-08',
     },
     venue: oakHill,
