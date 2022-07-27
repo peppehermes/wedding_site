@@ -11,6 +11,7 @@
     import type { ConfigObject } from '$lib/repos/config'
 
     export let config: ConfigObject
+    export let story: string
 </script>
 
 <svelte:head>
@@ -23,7 +24,7 @@
     <SaveTheDate {config} />
 {/if}
 {#if config.showStory}
-    <OurStory />
+    <OurStory {story} />
 {/if}
 {#if config.showEvents}
     <Events />

@@ -2,12 +2,15 @@
     import PageSection from '../layout/PageSection.svelte'
     import EmailListForm from '$com/forms/EmailListForm.svelte'
     import RsvpForm from '$com/forms/RsvpForm.svelte'
-    import type { ConfigObject } from '$lib/repos/config';
+    import type { ConfigObject } from '$lib/repos/config'
     import { paragraphClasses } from '$data/classes'
-    import { rsvpCutoffDate, formatDate } from '$data/data'
+    import { formatDate } from '$data/data'
     import { rsvpTitles } from '$data/strings'
+    import dayjs from 'dayjs'
 
     export let config: ConfigObject
+
+    const rsvpCutoffDate = dayjs(config.rsvpDate)
 
     $: sectionTitle = config.canRsvp ? rsvpTitles.canRsvp : rsvpTitles.canNotRsvp
 </script>
