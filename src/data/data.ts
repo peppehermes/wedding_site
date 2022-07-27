@@ -8,13 +8,15 @@ dayjs.extend(advancedFormat)
 export const parties = config.parties
 
 // dates
-export const weddingDay = dayjs(config.dates.wedding)
+// export const weddingDay = dayjs(config.dates.wedding)
 export const rsvpCutoffDate = dayjs(config.dates.rsvp)
 
 // venue
 export const venueName = config.venue.name
 export const venueAddress = config.venue.address
+
 const parsedAddress = parseLocation(venueAddress)
+
 export const city = `${parsedAddress.city}, ${parsedAddress.state}`
 export const venueDisplayAddress = venueAddress.replace(', ', '<br />')
 export const venueMapAddress = venueAddress.replaceAll(' ', '+')

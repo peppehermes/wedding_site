@@ -1,4 +1,4 @@
-import { toggleSections } from './toggles'
+import type { ConfigObject } from '$lib/repos/config'
 
 export type navItem = {
     label: string
@@ -6,36 +6,34 @@ export type navItem = {
     display: boolean
 }
 
-export const allNavItems: navItem[] = [
+export const allNavItems = (config: ConfigObject): navItem[] => [
     // our story
     {
         label: 'Our Story',
         href: '#our-story',
-        display: toggleSections.story,
+        display: config.showStory,
     },
     // events
     {
         label: 'Events',
         href: '#events',
-        display: toggleSections.events,
+        display: config.showEvents,
     },
     // photos
     {
         label: 'Photos',
         href: '#photos',
-        display: toggleSections.photos,
+        display: config.showPictures,
     },
     // registry
     {
         label: 'Registry',
         href: '#registry',
-        display: toggleSections.registry,
+        display: config.showRegistry,
     },
     {
         label: 'Venue',
         href: '#venue',
-        display: toggleSections.map,
+        display: config.showMap,
     },
 ]
-
-export const navItems = allNavItems.filter((e) => e.display)

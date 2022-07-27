@@ -2,11 +2,19 @@
     import dayjs from 'dayjs'
     import PageSection from '$com/layout/PageSection.svelte'
     import { saveTheDate } from '$data/strings'
-    import { weddingDay } from '$data/data'
+    import type { ConfigObject } from '$lib/repos/config';
+    // import { weddingDay } from '$data/data'
+
+    export let config: ConfigObject
+
+    
+    let weddingDay = dayjs(config.weddingDate)
 
     let today = dayjs()
     let diff = weddingDay.diff(today, 'days') + 1
     let dayDays = diff == 1 ? 'day' : 'days'
+
+    
 </script>
 
 <PageSection ref="saveTheDate" lg primary bordered>

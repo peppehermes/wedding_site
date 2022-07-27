@@ -1,11 +1,15 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
-    import { venueMapAddress, venueDisplayAddress, venueName } from '$data/data'
+    import { venueName, venueAddress } from '$data/data'
     // import MaterialIcon from "../elements/MaterialIcon.svelte";
     import InfoIcon from '$icon/info.svg?component'
     import PageSection from '../layout/PageSection.svelte'
     import VideoBackground from '$com/elements/VideoBackground.svelte'
     import { mapMessages } from '$data/strings'
+    import type { ConfigObject } from '$lib/repos/config'
+    import { venueDisplayAddress, venueMapAddress } from '$src/data/functions'
+
+    export let config: ConfigObject
 
     const mapWidth = 700
     const mapHeight = 300
@@ -13,7 +17,11 @@
     const mapZoom = 9
     const markerColor = 'af95d7'
 
-    const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${venueMapAddress}&zoom=${mapZoom}&scale=${mapScale}&size=${mapWidth}x${mapHeight}&maptype=roadmap&key=AIzaSyC1cwhvB47ptmFsAW-ox5e4AOCWL9smAz8&format=png&visual_refresh=true&markers=size:small%7Ccolor:0x${markerColor}%7Clabel:%7C${venueMapAddress}`
+    const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${venueMapAddress(
+        config.venueAddress,
+    )}&zoom=${mapZoom}&scale=${mapScale}&size=${mapWidth}x${mapHeight}&maptype=roadmap&key=AIzaSyC1cwhvB47ptmFsAW-ox5e4AOCWL9smAz8&format=png&visual_refresh=true&markers=size:small%7Ccolor:0x${markerColor}%7Clabel:%7C${venueMapAddress(
+        config.venueAddress,
+    )}`
 
     // const mapUrl = "/staticmap.png";
 
@@ -39,7 +47,7 @@
 </script>
 
 <div>
-    <VideoBackground ref="venue" />
+    <VideoBackground ref="venue" {config} />
 </div>
 <PageSection title={mapMessages.title} ref="venue" sm>
     <p class="text-center">{mapMessages.subtitle}</p>
@@ -77,9 +85,9 @@
                     out:fade={fadeOutOptions}
                 >
                     <div class="card-body items-center text-center">
-                        <h2 class="card-title">{venueName}</h2>
+                        <h2 class="card-title">{config.venueName}</h2>
                         <p class="pb-4 text-black-60">
-                            {@html venueDisplayAddress}
+                            {@html venueDisplayAddress(config.venueAddress)}
                         </p>
                         <div class="card-actions justify-center">
                             <button

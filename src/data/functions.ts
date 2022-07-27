@@ -1,4 +1,18 @@
 import { success, failure } from './toasts'
+import { parseLocation } from 'parse-address'
+
+export const getCityState = (address: string) => {
+    const parsedAddress = parseLocation(address)
+    return `${parsedAddress.city}, ${parsedAddress.state}`
+}
+
+export const venueDisplayAddress = (address: string) => address.replace(', ', '<br />')
+export const venueMapAddress = (address: string) => address.replaceAll(' ', '+')
+
+export const parseBoolean = (value: string) => {
+    if (value.toLowerCase() === 'true') return true
+    return false
+}
 
 export const showNotification = (_class: string, _message: string) => {
     function icon() {
