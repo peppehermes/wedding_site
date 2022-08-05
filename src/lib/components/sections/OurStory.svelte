@@ -2,8 +2,6 @@
     import PageSection from '$com/layout/PageSection.svelte'
     import SvelteMarkdown from 'svelte-markdown'
 
-    import { paragraphClasses } from '$data/classes'
-
     export let story: string
 </script>
 
@@ -19,7 +17,7 @@
     }
 
     .story-markdown p {
-        @apply leading-10 text-lg font-light mb-8 indent-8;
+        @apply leading-10 text-lg font-light mb-4 md:mb-6 indent-8 max-w-prose mx-auto;
     }
 
     .story-markdown img {

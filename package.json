@@ -21,10 +21,12 @@
 		"@typescript-eslint/parser": "^5.27.0",
 		"@zerodevx/svelte-toast": "^0.7.2",
 		"autoprefixer": "^10.4.7",
+		"countup.js": "^2.3.2",
 		"dayjs": "^1.11.3",
 		"eslint": "^8.16.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^4.0.0",
+		"lodash": "^4.17.21",
 		"notion-to-md": "^2.5.3",
 		"parse-address": "^1.1.2",
 		"postcss": "^8.4.14",
@@ -33,6 +35,8 @@
 		"sotion": "^1.1.2",
 		"svelte": "^3.44.0",
 		"svelte-check": "^2.7.1",
+		"svelte-command-palette": "^1.1.6",
+		"svelte-lazy": "^1.1.0",
 		"svelte-markdown": "^0.2.2",
 		"svelte-preprocess": "^4.10.7",
 		"svelte-scrolling": "^1.2.1",
@@ -43,6 +47,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"daisyui": "^2.19.0"
+		"daisyui": "^2.19.0",
+		"motion": "^10.13.1"
 	}
 }

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { scrollIntoView, scrollToTop } from '$src/data/functions'
+    import { rsvpButtonText, scrollIntoView, scrollToTop } from '$src/data/functions'
     import MenuIcon from '$icon/menu.svg?component'
     import MoonIcon from '$icon/moon.svg?component'
     import type { ConfigObject } from '$lib/repos/config'
@@ -9,7 +9,7 @@
 
     let navItems = allNavItems(config).filter((n) => n.display)
 
-    const buttonText = config.canRsvp ? 'RSVP' : 'Stay Updated'
+    // const buttonText = config.canRsvp ? 'RSVP' : 'Stay Updated'
 
     let previousY: number
     let currentY: number
@@ -76,7 +76,7 @@
             <a
                 href="#rsvp"
                 class="btn btn-primary text-white"
-                on:click|preventDefault={scrollIntoView}>{buttonText}</a
+                on:click|preventDefault={scrollIntoView}>{rsvpButtonText(config)}</a
             >
         {/if}
     </div>

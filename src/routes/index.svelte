@@ -12,6 +12,8 @@
 
     export let config: ConfigObject
     export let story: string
+    export let photos: []
+    export let events: []
 </script>
 
 <svelte:head>
@@ -27,10 +29,10 @@
     <OurStory {story} />
 {/if}
 {#if config.showEvents}
-    <Events />
+    <Events {events} />
 {/if}
 {#if config.showPictures}
-    <Photos />
+    <Photos {photos} />
 {/if}
 {#if config.showMap}
     <Map {config} />

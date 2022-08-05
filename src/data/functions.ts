@@ -1,5 +1,8 @@
 import { success, failure } from './toasts'
 import { parseLocation } from 'parse-address'
+import type { ConfigObject } from '$lib/repos/config'
+
+export const rsvpButtonText = (config: ConfigObject) => (config.canRsvp ? 'RSVP' : 'Stay Updated')
 
 export const getCityState = (address: string) => {
     const parsedAddress = parseLocation(address)
