@@ -6,7 +6,6 @@
 
     export let ref: string
     export let config: ConfigObject
-
     let heroVideo: HTMLVideoElement
 
     onMount(() => {
@@ -16,7 +15,7 @@
 
 <section class="showcase max-h-[500px] md:max-h-[600px] lg:max-h-[80vh]" id={ref}>
     <div class="video-container">
-        <video src={oldConfig.venue.video} autoplay muted playsinline bind:this={heroVideo} />
+        <video src={config.videoUrl} autoplay muted playsinline bind:this={heroVideo} />
     </div>
     <div class="content hero text-white bg-eucalyptus-900/40">
         <div class="hero-content text-center">

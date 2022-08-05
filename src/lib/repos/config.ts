@@ -38,12 +38,50 @@ export type ConfigObject = {
     showStory: boolean
     showRsvp: boolean
     showMap: boolean
+    videoUrl: string
+}
+
+type NotionVideoResult = {
+    properties: {
+        Video: {
+            files: {
+                file: {
+                    url: string
+                }
+            }[]
+        }
+        Active: {
+            rich_text: {
+                plain_text: 'true'
+            }[]
+        }
+    }
 }
 
 class ConfigRepo {
     #client = new Client({
         auth: import.meta.env.VITE_NOTION_SECRET,
     })
+
+    getVideo = async () => {
+        const { results } = await this.#client.databases.query({
+            database_id: import.meta.env.VITE_VIDEO_DB_ID,
+        })
+
+        let videoUrl = ''
+
+        results.forEach((r) => {
+            const isActiveString = (r as unknown as NotionVideoResult).properties.Active
+                .rich_text[0].plain_text
+            const isActive = parseBoolean(isActiveString)
+
+            if (isActive) {
+                videoUrl = (r as unknown as NotionVideoResult).properties.Video.files[0].file.url
+            }
+        })
+
+        return videoUrl
+    }
 
     getConfig = async () => {
         const { results } = await this.#client.databases.query({
@@ -64,6 +102,8 @@ class ConfigRepo {
 
             _config[newKey] = newValue
         })
+
+        _config['videoUrl'] = await this.getVideo()
 
         return _config as ConfigObject
 
