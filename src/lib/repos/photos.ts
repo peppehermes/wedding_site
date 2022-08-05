@@ -1,4 +1,5 @@
 import { Client } from '@notionhq/client'
+import _ from 'lodash'
 
 type NotionPhotosResult = {
     properties: {
@@ -14,18 +15,21 @@ type NotionPhotosResult = {
                 plain_text: 'Korea - 2018'
             }[]
         }
+        Order: { number: number }
     }
 }
 
 export type PhotoItem = {
     name: string
     url: string
+    order: number
 }
 
-const notionToPhoto = (notionItem: NotionPhotosResult)  => {
+const notionToPhoto = (notionItem: NotionPhotosResult) => {
     return {
         name: notionItem.properties.Name.title[0].plain_text,
-        url: notionItem.properties.Photo.files[0].file.url
+        url: notionItem.properties.Photo.files[0].file.url,
+        order: notionItem.properties.Order.number,
     }
 }
 
@@ -40,13 +44,13 @@ class PhotosRepo {
 
         const items = results as unknown as NotionPhotosResult[]
 
-        const photos: PhotoItem[] = []
+        let photos: PhotoItem[] = []
 
         items.forEach((i) => {
-            // console.log(i.properties.Name.title[0].plain_text)
-            // console.log(i.properties.Photo.files[0].file.url)
             photos.push(notionToPhoto(i))
         })
+
+        photos = _.orderBy(photos, ['order'], ['asc'])
 
         return photos
     }
