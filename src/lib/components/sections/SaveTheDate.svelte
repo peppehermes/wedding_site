@@ -1,6 +1,6 @@
 <script lang="ts">
     import dayjs from 'dayjs'
-    import PageSection from '$com/layout/PageSection.svelte'
+    import PageSection from '$lib/components/layout/PageSection.svelte'
     import { saveTheDate } from '$data/strings'
     import type { ConfigObject } from '$lib/repos/config'
     import { CountUp } from 'countup.js'

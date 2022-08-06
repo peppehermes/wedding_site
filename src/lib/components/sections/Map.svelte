@@ -1,10 +1,8 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
-    import { venueName, venueAddress } from '$data/data'
-    // import MaterialIcon from "../elements/MaterialIcon.svelte";
-    import InfoIcon from '$icon/info.svg?component'
+    import InfoIcon from '$lib/icons/info.svg'
     import PageSection from '../layout/PageSection.svelte'
-    import VideoBackground from '$com/elements/VideoBackground.svelte'
+    import VideoBackground from '$lib/components/elements/VideoBackground.svelte'
     import { mapMessages } from '$data/strings'
     import type { ConfigObject } from '$lib/repos/config'
     import { venueDisplayAddress, venueMapAddress } from '$src/data/functions'
@@ -23,8 +21,6 @@
         config.venueAddress,
     )}`
 
-    // const mapUrl = "/staticmap.png";
-
     const googleMapsUrl =
         'https://www.google.com/maps/place/Oak+Hill+Farm/@42.4889488,-90.1215362,15z/data=!4m5!3m4!1s0x0:0x98e0a8a1ca4adea6!8m2!3d42.4889488!4d-90.1215362'
 
@@ -32,6 +28,7 @@
     let overlayClasses = true
     let fadeInOptions = { delay: 250, duration: 200 }
     let fadeOutOptions = { duration: 200 }
+
     function toggleOverlay() {
         overlay = !overlay
         setTimeout(() => {

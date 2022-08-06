@@ -1,12 +1,12 @@
 <script lang="ts">
-    import PageSection from '../layout/PageSection.svelte'
-    import EmailListForm from '$com/forms/EmailListForm.svelte'
-    import RsvpForm from '$com/forms/RsvpForm.svelte'
-    import type { ConfigObject } from '$lib/repos/config'
-    import { paragraphClasses } from '$data/classes'
-    import { formatDate } from '$data/data'
-    import { rsvpTitles } from '$data/strings'
     import dayjs from 'dayjs'
+    import type { ConfigObject } from '$lib/repos/config'
+    import PageSection from '$lib/components/layout/PageSection.svelte'
+    import EmailListForm from '$lib/components/forms/EmailListForm.svelte'
+    import RsvpForm from '$lib/components/forms/RsvpForm.svelte'
+    import { paragraphClasses } from '$data/classes'
+    import { formatDate } from '$data/functions'
+    import { rsvpTitles } from '$data/strings'
 
     export let config: ConfigObject
 
@@ -36,9 +36,9 @@
         {/if}
     </div>
 
-    {#if !config.canRsvp}
-        <EmailListForm />
-    {:else}
+    {#if config.canRsvp}
         <RsvpForm />
+    {:else}
+        <EmailListForm />
     {/if}
 </PageSection>

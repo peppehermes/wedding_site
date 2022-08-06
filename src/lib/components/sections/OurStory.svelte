@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PageSection from '$com/layout/PageSection.svelte'
+    import PageSection from '$lib/components/layout/PageSection.svelte'
     import SvelteMarkdown from 'svelte-markdown'
 
     export let story: string

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { formatDate } from '$data/data'
+    import { formatDate } from '$data/functions'
     import { getCityState } from '$src/data/functions'
     import type { ConfigObject } from '$lib/repos/config'
     import dayjs from 'dayjs'

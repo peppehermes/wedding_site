@@ -1,7 +1,7 @@
 <script>
     import { scrollToTop } from '$src/data/functions'
-    import ToTopIcon from '$icon/to-top.svg?component'
-    import HeartIcon from '$icon/heart.svg?component'
+    import ToTopIcon from '$lib/icons/to-top.svg'
+    import HeartIcon from '$lib/icons/heart.svg'
 </script>
 
 <footer

@@ -1,6 +1,12 @@
-import { success, failure } from './toasts'
 import { parseLocation } from 'parse-address'
 import type { ConfigObject } from '$lib/repos/config'
+import dayjs, { Dayjs } from 'dayjs'
+import advancedFormat from 'dayjs/plugin/advancedFormat.js'
+dayjs.extend(advancedFormat)
+
+export const formatDate = (date: Dayjs, format: string) => {
+    return date.format(format)
+}
 
 export const rsvpButtonText = (config: ConfigObject) => (config.canRsvp ? 'RSVP' : 'Stay Updated')
 
@@ -13,21 +19,8 @@ export const venueDisplayAddress = (address: string) => address.replace(', ', '<
 export const venueMapAddress = (address: string) => address.replaceAll(' ', '+')
 
 export const parseBoolean = (value: string) => {
-    if (value.toLowerCase() === 'true') return true
+    if (value.trim().toLowerCase() === 'true') return true
     return false
-}
-
-export const showNotification = (_class: string, _message: string) => {
-    function icon() {
-        return `<span style="font-size: 0.8rem;" class="material-symbols-rounded">${
-            _class == 'success' ? 'check_circle' : 'error'
-        }</span>`
-    }
-    if (_class == 'success') {
-        success(`${icon()} ${_message}`)
-    } else {
-        failure(`${icon()} ${_message}`)
-    }
 }
 
 export const rsvpSubmitIsDisabled = (

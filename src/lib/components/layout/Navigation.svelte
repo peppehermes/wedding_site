@@ -1,13 +1,13 @@
 <script lang="ts">
     import { rsvpButtonText, scrollIntoView, scrollToTop } from '$src/data/functions'
-    import MenuIcon from '$icon/menu.svg?component'
-    import MoonIcon from '$icon/moon.svg?component'
+    import MenuIcon from '$lib/icons/menu.svg'
+    import MoonIcon from '$lib/icons/moon.svg'
     import type { ConfigObject } from '$lib/repos/config'
     import { allNavItems } from '$src/data/nav'
 
-    export let config: ConfigObject
+    export let config: ConfigObject | undefined
 
-    let navItems = allNavItems(config).filter((n) => n.display)
+    let navItems = config === undefined ? [] : allNavItems(config!).filter((n) => n.display)
 
     // const buttonText = config.canRsvp ? 'RSVP' : 'Stay Updated'
 
@@ -33,25 +33,27 @@
     bind:clientHeight
 >
     <div class="navbar-start">
-        {#if navItems.length != 0}
-            <div class="dropdown" id="dropdown-container">
-                <!-- svelte-ignore a11y-label-has-associated-control -->
-                <label tabindex="0" class="btn btn-ghost btn-circle lg:hidden" id="menu-button">
-                    <MenuIcon class="w-6" />
-                </label>
-                <ul
-                    tabindex="0"
-                    id="dropdown-menu"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-                >
-                    <!-- dropdown menu -->
-                    {#each navItems as { label, href }}
-                        <li>
-                            <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
-                        </li>
-                    {/each}
-                </ul>
-            </div>
+        {#if config !== undefined}
+            {#if navItems.length != 0}
+                <div class="dropdown" id="dropdown-container">
+                    <!-- svelte-ignore a11y-label-has-associated-control -->
+                    <label tabindex="0" class="btn btn-ghost btn-circle lg:hidden" id="menu-button">
+                        <MenuIcon class="w-6" />
+                    </label>
+                    <ul
+                        tabindex="0"
+                        id="dropdown-menu"
+                        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+                    >
+                        <!-- dropdown menu -->
+                        {#each navItems as { label, href }}
+                            <li>
+                                <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
+                            </li>
+                        {/each}
+                    </ul>
+                </div>
+            {/if}
         {/if}
 
         <!-- svelte-ignore a11y-missing-attribute -->
@@ -63,21 +65,25 @@
         </a>
     </div>
     <div class="navbar-center hidden lg:flex">
-        <ul class="menu menu-horizontal p-0">
-            {#each navItems as { label, href }}
-                <li>
-                    <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
-                </li>
-            {/each}
-        </ul>
+        {#if config !== undefined}
+            <ul class="menu menu-horizontal p-0">
+                {#each navItems as { label, href }}
+                    <li>
+                        <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
+                    </li>
+                {/each}
+            </ul>
+        {/if}
     </div>
     <div class="navbar-end text-right">
-        {#if config.showRsvp}
-            <a
-                href="#rsvp"
-                class="btn btn-primary text-white"
-                on:click|preventDefault={scrollIntoView}>{rsvpButtonText(config)}</a
-            >
+        {#if config !== undefined}
+            {#if config.showRsvp}
+                <a
+                    href="#rsvp"
+                    class="btn btn-primary text-white"
+                    on:click|preventDefault={scrollIntoView}>{rsvpButtonText(config)}</a
+                >
+            {/if}
         {/if}
     </div>
 </div>

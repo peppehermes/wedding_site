@@ -1,5 +1,5 @@
 <script>
-    import PageSection from '$com/layout/PageSection.svelte'
+    import PageSection from '$lib/components/layout/PageSection.svelte'
     import { paragraphClasses } from '$data/classes'
     import config from '$data/config'
 </script>

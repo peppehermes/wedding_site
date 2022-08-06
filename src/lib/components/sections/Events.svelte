@@ -1,6 +1,6 @@
 <script lang="ts">
-    import PageSection from '$com/layout/PageSection.svelte'
-    import EventsItem from '$com/elements/EventsItem.svelte'
+    import PageSection from '$lib/components/layout/PageSection.svelte'
+    import EventsItem from '$lib/components/elements/EventsItem.svelte'
     import { eventsLeftColClasses, eventsRightColClasses } from '$data/classes'
     import { animate, stagger, inView, spring } from 'motion'
     import { onMount } from 'svelte'

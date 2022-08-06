@@ -1,5 +1,5 @@
 <script lang="ts">
-    import MoonBg from '$icon/moon-bg.svg?component'
+    import MoonBg from '$lib/icons/moon-bg.svg'
 
     export let ref: string
     export let classes: string = ''

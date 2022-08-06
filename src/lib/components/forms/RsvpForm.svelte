@@ -1,14 +1,15 @@
 <script>
 // @ts-nocheck
 
-    import FormField from '$com/elements/FormField.svelte'
-    import GroupRadio from '$com/elements/GroupRadio.svelte'
-    import FormButton from '$com/elements/FormButton.svelte'
-    import GuestMealInput from '$com/elements/GuestMealInput.svelte'
+    import FormField from '$lib/components/elements/FormField.svelte'
+    import GroupRadio from '$lib/components/elements/GroupRadio.svelte'
+    import FormButton from '$lib/components/elements/FormButton.svelte'
+    import GuestMealInput from '$lib/components/elements/GuestMealInput.svelte'
 
     import { lodging, rsvpUrl, guestMealsInitial } from '$data/data'
     import { toastMessages } from '$data/strings'
-    import { rsvpSubmitIsDisabled, showNotification } from '$data/functions'
+    import { rsvpSubmitIsDisabled } from '$data/functions'
+    import { showToast } from '$lib/stores/toast'
 
     let name = ''
     let email = ''
@@ -33,18 +34,16 @@
         loading = true
         const form = document.forms['submit-rsvp-to-google-sheet']
 
-        console.log(form)
-
         fetch(rsvpUrl, { method: 'POST', body: new FormData(form) })
             .then((response) => {
                 console.log('Success!', response)
-                showNotification('success', toastMessages.rsvp.success)
+                showToast('success', toastMessages.rsvp.success)
                 loading = false
                 resetForm()
             })
             .catch((error) => {
                 console.error('Error!', error.message)
-                showNotification('error', toastMessages.rsvp.failure)
+                showToast('error', toastMessages.rsvp.failure)
                 loading = false
                 resetForm()
             })

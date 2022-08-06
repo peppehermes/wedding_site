@@ -1,13 +1,13 @@
 <script lang="ts">
     import Navigation from '$lib/components/layout/Navigation.svelte'
     import Hero from '$lib/components/layout/Hero.svelte'
-    import SaveTheDate from '$com/sections/SaveTheDate.svelte'
-    import OurStory from '$com/sections/OurStory.svelte'
-    import Events from '$com/sections/Events.svelte'
-    import Photos from '$com/sections/Photos.svelte'
-    import Map from '$com/sections/Map.svelte'
-    import Registry from '$com/sections/Registry.svelte'
-    import Rsvp from '$com/sections/Rsvp.svelte'
+    import SaveTheDate from '$lib/components/sections/SaveTheDate.svelte'
+    import OurStory from '$lib/components/sections/OurStory.svelte'
+    import Events from '$lib/components/sections/Events.svelte'
+    import Photos from '$lib/components/sections/Photos.svelte'
+    import Map from '$lib/components/sections/Map.svelte'
+    import Registry from '$lib/components/sections/Registry.svelte'
+    import Rsvp from '$lib/components/sections/Rsvp.svelte'
     import type { ConfigObject } from '$lib/repos/config'
 
     export let config: ConfigObject

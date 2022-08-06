@@ -1,10 +1,13 @@
 <script lang="ts">
-    import FormField from '$com/elements/FormField.svelte'
-    import FormButton from '$com/elements/FormButton.svelte'
+    import FormField from '$lib/components/elements/FormField.svelte'
+    import FormButton from '$lib/components/elements/FormButton.svelte'
 
-    import { emailListSubmitIsDisabled, showNotification } from '$data/functions'
+    import { emailListSubmitIsDisabled } from '$data/functions'
     import { emailListUrl } from '$data/data'
     import { toastMessages } from '$data/strings'
+    import { showToast } from '$lib/stores/toast'
+
+    
 
     let name: string = ''
     let email: string = ''
@@ -22,13 +25,13 @@
         fetch(emailListUrl, { method: 'POST', body: new FormData(form) })
             .then((response) => {
                 console.log('Success!', response)
-                showNotification('success', toastMessages.email.success)
+                showToast('success', toastMessages.email.success)
                 loading = false
                 resetForm()
             })
             .catch((error) => {
                 console.error('Error!', error.message)
-                showNotification('error', toastMessages.email.failure)
+                showToast('error', toastMessages.email.failure)
                 loading = false
                 resetForm()
             })
