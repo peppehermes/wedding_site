@@ -51,8 +51,8 @@ class EventsRepo {
             const event = notionToEvent(item)
             events.push(event)
         })
+
         events = _.orderBy(events, ['time'], ['asc'])
-        // console.log(events);
         return events
     }
 }

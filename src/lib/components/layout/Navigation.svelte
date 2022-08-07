@@ -9,8 +9,6 @@
 
     let navItems = config === undefined ? [] : allNavItems(config!).filter((n) => n.display)
 
-    // const buttonText = config.canRsvp ? 'RSVP' : 'Stay Updated'
-
     let previousY: number
     let currentY: number
     let clientHeight: number

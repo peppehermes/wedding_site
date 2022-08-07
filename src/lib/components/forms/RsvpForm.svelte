@@ -1,15 +1,14 @@
 <script>
-// @ts-nocheck
-
+    // @ts-nocheck
     import FormField from '$lib/components/elements/FormField.svelte'
     import GroupRadio from '$lib/components/elements/GroupRadio.svelte'
     import FormButton from '$lib/components/elements/FormButton.svelte'
     import GuestMealInput from '$lib/components/elements/GuestMealInput.svelte'
 
-    import { lodging, rsvpUrl, guestMealsInitial } from '$data/data'
-    import { toastMessages } from '$data/strings'
+    import { lodging, guestMealsInitial } from '$data/data'
     import { rsvpSubmitIsDisabled } from '$data/functions'
-    import { showToast } from '$lib/stores/toast'
+    import { handleRsvpSubmit } from './handlers'
+    import { loading } from '$lib/stores/loading'
 
     let name = ''
     let email = ''
@@ -17,7 +16,6 @@
     let numGuests
     let transportation = null
     let guestMeals = guestMealsInitial
-    let loading = false
 
     const transportationModal = 'transportation-info-modal'
 
@@ -30,23 +28,15 @@
         transportation = null
     }
 
-    function click() {
-        loading = true
-        const form = document.forms['submit-rsvp-to-google-sheet']
-
-        fetch(rsvpUrl, { method: 'POST', body: new FormData(form) })
-            .then((response) => {
-                console.log('Success!', response)
-                showToast('success', toastMessages.rsvp.success)
-                loading = false
-                resetForm()
-            })
-            .catch((error) => {
-                console.error('Error!', error.message)
-                showToast('error', toastMessages.rsvp.failure)
-                loading = false
-                resetForm()
-            })
+    const click = async () => {
+        await handleRsvpSubmit({
+            name,
+            email,
+            guests: numGuests,
+            phone,
+            transportation,
+            meals: guestMeals,
+        }).then((_) => resetForm())
     }
 
     $: disabled =
@@ -56,11 +46,11 @@
             phone,
             numGuests || 0,
             guestMeals,
-            transportation || false,
-        ) || loading
+            transportation,
+        ) || $loading
 
     $: yesRadioLabel = `Yes, ${
-        numGuests == 1 || numGuests == null ? "I'd" : "We'd"
+        numGuests === 1 || numGuests === null ? "I'd" : "We'd"
     } love to use the provided transportation.`
 </script>
 
@@ -110,7 +100,7 @@
             />
         {/each}
     {/if}
-    <FormButton {loading} {disabled} {click} />
+    <FormButton loading={$loading} {disabled} {click} />
 </form>
 
 <!-- Transportation modal -->

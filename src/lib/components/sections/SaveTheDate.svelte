@@ -22,7 +22,7 @@
     })
 </script>
 
-<PageSection ref="saveTheDate" lg primary bordered>
+<PageSection ref="saveTheDate" lg bordered primary>
     <div id="save-the-date-text" class="text-center my-10 font-serif font-bold text-5xl">
         <span class="save-the-date-text-item uppercase inline-block mb-2 tracking-widest"
             >{saveTheDate.title[0]}</span
