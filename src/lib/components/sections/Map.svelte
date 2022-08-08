@@ -55,8 +55,7 @@
     style="background-image: url({mapUrl}); background-size: cover;"
     class:hidden-overlay={!overlayClasses}
     class:cursor-pointer={!overlayClasses}
-    on:click|preventDefault={openMap}
->
+    on:click|preventDefault={openMap}>
     {#if overlay}
         <div class="hero-overlay bg-periwinkle/40" transition:fade />
     {/if}
@@ -64,12 +63,10 @@
         <div
             class="card bg-neutral text-neutral-content justify-start mt-2"
             in:fade={fadeInOptions}
-            out:fade={fadeOutOptions}
-        >
+            out:fade={fadeOutOptions}>
             <div class="card-body items-center text-center p-2">
                 <button class="btn btn-ghost w-full gap-2" on:click|preventDefault={toggleOverlay}>
-                    <InfoIcon class="w-6 fill-black/70" />Show Info</button
-                >
+                    <InfoIcon class="w-6 fill-black/70" />Show Info</button>
             </div>
         </div>
     {/if}
@@ -79,8 +76,7 @@
                 <div
                     class="card w-96 bg-neutral text-neutral-content"
                     in:fade={fadeInOptions}
-                    out:fade={fadeOutOptions}
-                >
+                    out:fade={fadeOutOptions}>
                     <div class="card-body items-center text-center">
                         <h2 class="card-title">{config.venueName}</h2>
                         <p class="pb-4 text-black-60">
@@ -89,13 +85,11 @@
                         <div class="card-actions justify-center">
                             <button
                                 class="btn btn-primary btn-sm"
-                                on:click|preventDefault={() => toggleOverlay()}>Show Map</button
-                            >
+                                on:click|preventDefault={() => toggleOverlay()}>Show Map</button>
                             <button
                                 class="btn btn-raspberry btn-sm"
                                 on:click|preventDefault={() => window.open(googleMapsUrl, '_blank')}
-                                >Google Maps</button
-                            >
+                                >Google Maps</button>
                         </div>
                     </div>
                 </div>

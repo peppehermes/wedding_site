@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import PageSection from '$lib/components/layout/PageSection.svelte'
     import { paragraphClasses } from '$data/classes'
     import config from '$data/config'

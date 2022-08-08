@@ -1,9 +1,8 @@
-<script>
-// @ts-nocheck
-
-    export let fieldType = 'text'
-    export let data
-    export let label
+<script lang="ts">
+    type FieldType = 'text' | 'number' | 'select'
+    export let fieldType: FieldType = 'text'
+    export let data: string | number | undefined | null
+    export let label: string
     export let min = 1
     export let max = 6
 
@@ -11,18 +10,16 @@
 </script>
 
 <div class="w-full md:w-1/2 px-3">
-    {#if fieldType == 'text'}
+    {#if fieldType === 'text'}
         <label class={formLabelClasses} for={label}>{label}</label>
         <input
             bind:value={data}
             class={formInputClasses}
-            on:input={(e) => (data = e.target.value)}
             type="text"
             placeholder={label}
-            name={label}
-        />
+            name={label} />
     {/if}
-    {#if fieldType == 'number'}
+    {#if fieldType === 'number'}
         <label class={formLabelClasses} for="Phone">{label}</label>
         <input
             bind:value={data}
@@ -31,10 +28,9 @@
             placeholder={label}
             name={label}
             {min}
-            {max}
-        />
+            {max} />
     {/if}
-    {#if fieldType == 'select'}
+    {#if fieldType === 'select'}
         <label class={formLabelClasses} for={label}>
             {label}
         </label>

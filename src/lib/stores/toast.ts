@@ -1,9 +1,11 @@
 import { writable } from 'svelte/store'
 
-export const toast = writable('')
-export const toastType = writable('success')
+export type ToastType = 'success' | 'error'
 
-export const showToast = (type: string, message: string) => {
+export const toast = writable<string>('')
+export const toastType = writable<ToastType>('success')
+
+export const showToast = (type: ToastType, message: string) => {
     toastType.update(() => type)
     toast.update(() => message)
     setTimeout(() => {

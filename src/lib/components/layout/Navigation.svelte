@@ -28,8 +28,7 @@
 <div
     class="navbar bg-base-100/80 sticky top-0 backdrop-blur-sm transition-transform ease-in z-50"
     class:motion-safe:-translate-y-full={offscreen}
-    bind:clientHeight
->
+    bind:clientHeight>
     <div class="navbar-start">
         {#if config !== undefined}
             {#if navItems.length != 0}
@@ -41,8 +40,7 @@
                     <ul
                         tabindex="0"
                         id="dropdown-menu"
-                        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
-                    >
+                        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <!-- dropdown menu -->
                         {#each navItems as { label, href }}
                             <li>
@@ -57,8 +55,7 @@
         <!-- svelte-ignore a11y-missing-attribute -->
         <a
             class="btn btn-ghost btn-circle rounded-full opacity-70"
-            on:click|preventDefault={scrollToTop}
-        >
+            on:click|preventDefault={scrollToTop}>
             <MoonIcon class="w-8" />
         </a>
     </div>
@@ -79,8 +76,7 @@
                 <a
                     href="#rsvp"
                     class="btn btn-primary text-white"
-                    on:click|preventDefault={scrollIntoView}>{rsvpButtonText(config)}</a
-                >
+                    on:click|preventDefault={scrollIntoView}>{rsvpButtonText(config)}</a>
             {/if}
         {/if}
     </div>

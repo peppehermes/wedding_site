@@ -16,24 +16,11 @@
 
     export let bordered: boolean = false
     export let image: boolean = false
-
-    const paddingClasses = () => {
-        if (sm) {
-            return 'py-12 px-6'
-        }
-        if (md) {
-            return 'py-12 px-6 md:py-24 md:px-11 lg:py-36 lg:px-16'
-        }
-        if (lg) {
-            return 'py-12 px-6 md:py-18 md:px-39 lg:py-24 lg:px-72'
-        }
-        return ''
-    }
 </script>
 
 <section
     id={ref}
-    class="{classes} {paddingClasses()} relative"
+    class="{classes} relative"
     class:bg-primary={primary}
     class:bg-raspberry={raspberry}
     class:bg-eucalyptus={eucalyptus}
@@ -44,8 +31,17 @@
     class:border-error={bordered && raspberry}
     class:border-success={bordered && eucalyptus}
     class:border-warning={bordered && peach}
-    class:bg-image={image}
->
+    class:py-12={sm || md || lg}
+    class:px-6={sm || md || lg}
+    class:md:py-24={md}
+    class:md:px-11={md}
+    class:lg:py-36={md}
+    class:lg:px-16={md}
+    class:md:py-18={lg}
+    class:md:px-39={lg}
+    class:lg:py-24={lg}
+    class:lg:px-72={lg}
+    class:bg-image={image}>
     {#if title != undefined}
         <h2 class="text-center text-3xl font-serif font-semibold mb-8">
             {title}
@@ -54,12 +50,11 @@
     <slot />
     {#if image}
         <div
-            class="absolute bottom-0 right-0 w-full -z-10 flex justify-end fill-lavender"
+            class="absolute bottom-0 right-0 w-full -z-10 flex justify-end"
             class:fill-lavender={primary}
             class:fill-raspberry={raspberry}
             class:fill-eucalyptus={eucalyptus}
-            class:fill-peach={peach || (!primary && !raspberry && !eucalyptus)}
-        >
+            class:fill-peach={peach || (!primary && !raspberry && !eucalyptus)}>
             <MoonBg class="w-[275px] mr-0 sm:mr-4 md:mr-12 lg:mr-24 opacity-60" />
         </div>
     {/if}

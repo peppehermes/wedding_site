@@ -25,8 +25,7 @@
             <div
                 class="event-item mx-auto {i < events.length / 2
                     ? eventsLeftColClasses
-                    : eventsRightColClasses}"
-            >
+                    : eventsRightColClasses}">
                 <EventsItem {event} />
             </div>
         {/each}

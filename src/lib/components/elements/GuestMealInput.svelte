@@ -1,8 +1,8 @@
 <script lang="ts">
     import FormField from './FormField.svelte'
     import { meals } from '$data/data'
-    export let name: string
-    export let meal: string
+    export let name: string | number | undefined | null
+    export let meal: string | number | undefined | null
     export let index: number
 </script>
 

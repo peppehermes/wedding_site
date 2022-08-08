@@ -1,8 +1,8 @@
 import { Client } from '@notionhq/client'
 
 export type RsvpGuest = {
-    name: string
-    meal: string
+    name: string | null
+    meal: string | null
 }
 
 export type RsvpData = {
@@ -14,7 +14,7 @@ export type RsvpData = {
     meals: RsvpGuest[]
 }
 
-const guestName = (name: string) => {
+const guestName = (name: string | null) => {
     return {
         rich_text: [
             {
@@ -26,7 +26,7 @@ const guestName = (name: string) => {
     }
 }
 
-const guestMeal = (meal: string) => {
+const guestMeal = (meal: string | null) => {
     return {
         select: { name: meal === null ? '' : meal }
       }

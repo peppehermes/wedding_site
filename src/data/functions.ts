@@ -2,6 +2,7 @@ import { parseLocation } from 'parse-address'
 import type { ConfigObject } from '$lib/repos/config'
 import dayjs, { Dayjs } from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat.js'
+import type { RsvpGuest } from '$lib/repos/rsvp'
 dayjs.extend(advancedFormat)
 
 export const formatDate = (date: Dayjs, format: string) => {
@@ -28,8 +29,8 @@ export const rsvpSubmitIsDisabled = (
     email: string,
     phone: string,
     numGuests: number,
-    guestMeals: { name: string; meal: string }[],
-    transportation: boolean,
+    guestMeals: RsvpGuest[],
+    transportation: string | null,
 ) => {
     let arrayHasNull = false
     for (let i = 0; i < numGuests; i++) {
@@ -39,7 +40,7 @@ export const rsvpSubmitIsDisabled = (
     }
 
     const g = numGuests < 1 || numGuests == undefined
-    if (!name || !email || !phone || g || transportation == null || arrayHasNull) {
+    if (!name || !email || !phone || g || transportation === null || arrayHasNull) {
         return true
     } else {
         return false

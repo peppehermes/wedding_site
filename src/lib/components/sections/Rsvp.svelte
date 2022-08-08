@@ -37,7 +37,7 @@
     </div>
 
     {#if config.canRsvp}
-        <RsvpForm />
+        <RsvpForm {config} />
     {:else}
         <EmailListForm />
     {/if}

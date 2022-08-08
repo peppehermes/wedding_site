@@ -25,15 +25,12 @@
 <PageSection ref="saveTheDate" lg bordered primary>
     <div id="save-the-date-text" class="text-center my-10 font-serif font-bold text-5xl">
         <span class="save-the-date-text-item uppercase inline-block mb-2 tracking-widest"
-            >{saveTheDate.title[0]}</span
-        >
+            >{saveTheDate.title[0]}</span>
         <br />
         <span class="save-the-date-text-item italic lowercase inline-block"
-            >{saveTheDate.title[1]}</span
-        >
+            >{saveTheDate.title[1]}</span>
         <span class="save-the-date-text-item uppercase inline-block tracking-wider"
-            >{saveTheDate.title[2]}</span
-        >
+            >{saveTheDate.title[2]}</span>
     </div>
     <div class="text-center font-serif font-semibold text-3xl uppercase mb-10 text-black-60">
         <span>{saveTheDate.subtitle}</span>

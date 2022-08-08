@@ -5,9 +5,7 @@
     import CheckIcon from '$lib/icons/check.svg'
     import CloseIcon from '$lib/icons/close.svg'
 
-    const resetToast = () => {
-        toast.update(() => '')
-    }
+    const resetToast = () => toast.update(() => '')
 </script>
 
 {#if $toast !== ''}
@@ -17,25 +15,25 @@
             class:border-success-content={$toastType === 'success'}
             class:border-error-content={$toastType === 'error'}
             class:alert-success={$toastType === 'success'}
-            class:alert-error={$toastType === 'error'}
-        >
+            class:alert-error={$toastType === 'error'}>
             <div class="flex justify-between w-full md:w-auto">
                 <!-- icon and message -->
                 <span class="inline-block">
-                    {#if $toastType === 'success'}
-                        <CheckIcon class="w-5 inline-block" />
-                    {:else}
-                        <WarnIcon class="w-5 inline-block" />
-                    {/if}
-                    {$toast}
+                    <span class="inline-block align-bottom">
+                        {#if $toastType === 'success'}
+                            <CheckIcon class="w-5 mb-1 inline-block fill-success-content" />
+                        {:else}
+                            <WarnIcon class="w-5 mb-1 inline-block fill-warning-content" />
+                        {/if}
+                    </span>
+                    <span class="inline-block align-bottom">{$toast}</span>
                 </span>
                 <!-- close -->
                 <span>
                     <span class="inline-block ml-8">
                         <button
                             class="btn btn-ghost btn-circle btn-xs align-bottom"
-                            on:click={resetToast}
-                        >
+                            on:click={resetToast}>
                             <CloseIcon class="w-4" />
                         </button>
                     </span>
