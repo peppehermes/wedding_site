@@ -1,7 +1,7 @@
 <script lang="ts">
     import { formatDate } from '$data/functions'
     import { getCityState } from '$src/data/functions'
-    import type { ConfigObject } from '$lib/repos/config'
+    import type { ConfigObject } from '$lib/types'
     import dayjs from 'dayjs'
     import { animate, stagger, spring } from 'motion'
     import { onMount } from 'svelte'

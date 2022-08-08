@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { PhotoItem } from '$lib/repos/photos'
+    import type { PhotoItem } from '$lib/types'
     import Lazy from 'svelte-lazy'
     export const name = 'wedding-photos'
     export let photos: PhotoItem[]

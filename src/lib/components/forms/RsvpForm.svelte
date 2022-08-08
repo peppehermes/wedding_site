@@ -9,7 +9,7 @@
     import { handleRsvpSubmit } from './handlers'
     import { loading } from '$lib/stores/loading'
     import dayjs from 'dayjs'
-    import type { ConfigObject } from '$lib/repos/config'
+    import type { ConfigObject } from '$lib/types'
 
     export let config: ConfigObject
 

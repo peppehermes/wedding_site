@@ -1,8 +1,7 @@
 import { parseLocation } from 'parse-address'
-import type { ConfigObject } from '$lib/repos/config'
+import type { ConfigObject, RsvpGuest } from '$lib/types'
 import dayjs, { Dayjs } from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat.js'
-import type { RsvpGuest } from '$lib/repos/rsvp'
 dayjs.extend(advancedFormat)
 
 export const formatDate = (date: Dayjs, format: string) => {

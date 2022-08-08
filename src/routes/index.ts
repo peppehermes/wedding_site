@@ -1,11 +1,11 @@
 import { configRepo } from '$lib/repos/config'
 import { eventsRepo } from '$lib/repos/events'
 import { photosRepo } from '$lib/repos/photos'
-import { rsvpRepo, type RsvpData } from '$lib/repos/rsvp'
+import { rsvpRepo } from '$lib/repos/rsvp'
 import { storyRepo } from '$lib/repos/story'
+import type { RsvpData } from '$lib/types'
 import type { RequestHandler } from '@sveltejs/kit'
 
-/* GET /ideas */
 export const GET: RequestHandler = async () => {
     const config = await configRepo.getConfig()
     const story = await storyRepo.getStory()

@@ -13,6 +13,7 @@
     export let raspberry: boolean = false
     export let eucalyptus: boolean = false
     export let peach: boolean = false
+    export let periwinkle: boolean = false
 
     export let bordered: boolean = false
     export let image: boolean = false
@@ -20,17 +21,19 @@
 
 <section
     id={ref}
-    class="{classes} relative"
+    class="{classes} relative bg-opacity-12"
     class:bg-primary={primary}
     class:bg-raspberry={raspberry}
     class:bg-eucalyptus={eucalyptus}
     class:bg-peach={peach}
-    class:bg-opacity-10={primary || raspberry || eucalyptus || peach}
+    class:bg-periwinkle={periwinkle}
+    class:bg-base-100={!primary && !raspberry && !eucalyptus && !peach && !periwinkle}
     class:border-y={bordered}
     class:border-primary={bordered && primary}
     class:border-error={bordered && raspberry}
     class:border-success={bordered && eucalyptus}
     class:border-warning={bordered && peach}
+    class:border-info={bordered && periwinkle}
     class:py-12={sm || md || lg}
     class:px-6={sm || md || lg}
     class:md:py-24={md}
@@ -41,6 +44,11 @@
     class:md:px-39={lg}
     class:lg:py-24={lg}
     class:lg:px-72={lg}
+    class:text-primary-content={primary || (!peach && !eucalyptus && !raspberry && !periwinkle)}
+    class:text-warning-content={peach}
+    class:text-error-content={raspberry}
+    class:text-success-content={eucalyptus}
+    class:text-info-content={periwinkle}
     class:bg-image={image}>
     {#if title != undefined}
         <h2 class="text-center text-3xl font-serif font-semibold mb-8">
@@ -54,6 +62,7 @@
             class:fill-lavender={primary}
             class:fill-raspberry={raspberry}
             class:fill-eucalyptus={eucalyptus}
+            class:fill-periwinkle={periwinkle}
             class:fill-peach={peach || (!primary && !raspberry && !eucalyptus)}>
             <MoonBg class="w-[275px] mr-0 sm:mr-4 md:mr-12 lg:mr-24 opacity-60" />
         </div>

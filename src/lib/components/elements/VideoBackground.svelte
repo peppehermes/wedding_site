@@ -1,7 +1,6 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import oldConfig from '$data/config'
-    import type { ConfigObject } from '$lib/repos/config'
+    import type { ConfigObject } from '$lib/types'
     import { getCityState } from '$src/data/functions'
 
     export let ref: string

@@ -1,11 +1,10 @@
 <script lang="ts">
     import PageSection from '$lib/components/layout/PageSection.svelte'
-    import { paragraphClasses } from '$data/classes'
     import config from '$data/config'
 </script>
 
-<PageSection title="Registry" ref="registry" lg primary>
-    <p class="{paragraphClasses} indent-8">
+<PageSection title="Registry" ref="registry" lg bordered>
+    <p class="leading-10 text-lg font-light mb-8 indent-8">
         We are thrilled that you are coming to celebrate with us — and that's the best gift of all!
         But, if you feel like you would like to help us spruce up our place, we've registered with
         the following:

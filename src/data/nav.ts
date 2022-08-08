@@ -1,12 +1,6 @@
-import type { ConfigObject } from '$lib/repos/config'
+import type { ConfigObject, NavItem } from '$lib/types'
 
-export type navItem = {
-    label: string
-    href: string
-    display: boolean
-}
-
-export const allNavItems = (config: ConfigObject): navItem[] => [
+export const allNavItems = (config: ConfigObject): NavItem[] => [
     // our story
     {
         label: 'Our Story',

@@ -4,7 +4,7 @@
     import PageSection from '../layout/PageSection.svelte'
     import VideoBackground from '$lib/components/elements/VideoBackground.svelte'
     import { mapMessages } from '$data/strings'
-    import type { ConfigObject } from '$lib/repos/config'
+    import type { ConfigObject } from '$lib/types'
     import { venueDisplayAddress, venueMapAddress } from '$src/data/functions'
 
     export let config: ConfigObject
@@ -46,7 +46,7 @@
 <div>
     <VideoBackground ref="venue" {config} />
 </div>
-<PageSection title={mapMessages.title} ref="venue" sm>
+<PageSection title={mapMessages.title} ref="venue" sm periwinkle>
     <p class="text-center">{mapMessages.subtitle}</p>
 </PageSection>
 
@@ -57,7 +57,7 @@
     class:cursor-pointer={!overlayClasses}
     on:click|preventDefault={openMap}>
     {#if overlay}
-        <div class="hero-overlay bg-periwinkle/40" transition:fade />
+        <div class="hero-overlay bg-periwinkle bg-opacity-40" transition:fade />
     {/if}
     {#if !overlay}
         <div

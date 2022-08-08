@@ -1,7 +1,7 @@
 import { showToast } from '$lib/stores/toast'
 import { loading } from '$lib/stores/loading'
 import { toastMessages } from '$src/data/strings'
-import type { RsvpData } from '$lib/repos/rsvp'
+import type { RsvpData } from '$lib/types'
 
 export const handleRsvpSubmit = async (data: RsvpData) => {
     loading.set(true)

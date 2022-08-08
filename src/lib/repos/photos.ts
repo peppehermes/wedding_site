@@ -1,29 +1,6 @@
+import type { NotionPhotosResult, PhotoItem } from '$lib/types'
 import { Client } from '@notionhq/client'
 import _ from 'lodash'
-
-type NotionPhotosResult = {
-    properties: {
-        Photo: {
-            files: {
-                file: {
-                    url: string
-                }
-            }[]
-        }
-        Name: {
-            title: {
-                plain_text: 'Korea - 2018'
-            }[]
-        }
-        Order: { number: number }
-    }
-}
-
-export type PhotoItem = {
-    name: string
-    url: string
-    order: number
-}
 
 const notionToPhoto = (notionItem: NotionPhotosResult) => {
     return {

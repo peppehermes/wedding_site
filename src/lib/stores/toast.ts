@@ -1,6 +1,5 @@
 import { writable } from 'svelte/store'
-
-export type ToastType = 'success' | 'error'
+import type { ToastType } from '$lib/types'
 
 export const toast = writable<string>('')
 export const toastType = writable<ToastType>('success')

@@ -8,12 +8,12 @@
     import Map from '$lib/components/sections/Map.svelte'
     import Registry from '$lib/components/sections/Registry.svelte'
     import Rsvp from '$lib/components/sections/Rsvp.svelte'
-    import type { ConfigObject } from '$lib/repos/config'
+    import type { EventItem, PhotoItem, ConfigObject } from '$lib/types'
 
     export let config: ConfigObject
     export let story: string
-    export let photos: []
-    export let events: []
+    export let photos: PhotoItem[]
+    export let events: EventItem[]
 </script>
 
 <svelte:head>

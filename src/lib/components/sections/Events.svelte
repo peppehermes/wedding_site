@@ -1,10 +1,9 @@
 <script lang="ts">
     import PageSection from '$lib/components/layout/PageSection.svelte'
     import EventsItem from '$lib/components/elements/EventsItem.svelte'
-    import { eventsLeftColClasses, eventsRightColClasses } from '$data/classes'
     import { animate, stagger, inView, spring } from 'motion'
     import { onMount } from 'svelte'
-    import type { EventItem } from '$lib/repos/events'
+    import type { EventItem } from '$lib/types'
 
     onMount(() => {
         inView('#events-container .event-item', (info) => {
@@ -24,10 +23,20 @@
         {#each events as event, i}
             <div
                 class="event-item mx-auto {i < events.length / 2
-                    ? eventsLeftColClasses
-                    : eventsRightColClasses}">
+                    ? 'event-left-col'
+                    : 'event-right-col'}">
                 <EventsItem {event} />
             </div>
         {/each}
     </div>
 </PageSection>
+
+<style lang="postcss">
+    .event-left-col {
+        @apply mx-auto md:ml-auto md:mr-0 md:border-r md:border-opacity-50 md:border-lavender text-center md:text-right;
+    }
+
+    .event-right-col {
+        @apply mx-auto md:mr-auto md:ml-0 text-center md:text-left;
+    }
+</style>

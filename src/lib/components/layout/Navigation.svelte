@@ -2,7 +2,7 @@
     import { rsvpButtonText, scrollIntoView, scrollToTop } from '$src/data/functions'
     import MenuIcon from '$lib/icons/menu.svg'
     import MoonIcon from '$lib/icons/moon.svg'
-    import type { ConfigObject } from '$lib/repos/config'
+    import type { ConfigObject } from '$lib/types'
     import { allNavItems } from '$src/data/nav'
 
     export let config: ConfigObject | undefined
@@ -34,8 +34,11 @@
             {#if navItems.length != 0}
                 <div class="dropdown" id="dropdown-container">
                     <!-- svelte-ignore a11y-label-has-associated-control -->
-                    <label tabindex="0" class="btn btn-ghost btn-circle lg:hidden" id="menu-button">
-                        <MenuIcon class="w-6" />
+                    <label
+                        tabindex="0"
+                        class="btn btn-ghost btn-circle lg:hidden swap swap-rotate"
+                        id="menu-button">
+                        <MenuIcon class="w-6 fill-base-content" />
                     </label>
                     <ul
                         tabindex="0"
@@ -86,3 +89,4 @@
         {/if}
     </div>
 </div>
+<!-- <progress class="progress w-full rounded-none progress-primary p-0 m-0" /> -->

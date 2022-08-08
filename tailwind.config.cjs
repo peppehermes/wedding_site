@@ -115,6 +115,15 @@ const colors = {
     },
 }
 
+const makeOpacity = () => {
+    let o = {}
+    for (let i = 0; i < 100; i++) {
+        o[`${i}`] = `${i/100}`
+    }
+    console.log(o)
+    return o
+}
+
 module.exports = {
     content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
@@ -123,7 +132,12 @@ module.exports = {
             sans: ["Josefin Sans", "sans-serif"],
             serif: ["Playfair Display", "serif"],
         },
-        extend: {},
+        extend: {
+            // opacity: {
+            //     '15': '.15',
+            //   }
+            opacity: makeOpacity()
+        },
     },
     daisyui: {
         themes: [
@@ -138,6 +152,7 @@ module.exports = {
                     success: colors.eucalyptus.DEFAULT,
                     warning: colors.peach.DEFAULT,
                     error: colors.raspberry.DEFAULT,
+                    raspberry: colors.raspberry.DEFAULT
                 },
             },
         ],

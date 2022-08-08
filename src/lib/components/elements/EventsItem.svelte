@@ -1,5 +1,5 @@
 <script lang="ts">
-    import type { EventItem } from '$lib/repos/events'
+    import type { EventItem } from '$lib/types'
     import dayjs from 'dayjs'
 
     export let event: EventItem
