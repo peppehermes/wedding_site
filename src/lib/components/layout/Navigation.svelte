@@ -52,12 +52,17 @@
             {/if}
         {/if}
 
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <a
-            class="btn btn-ghost btn-circle rounded-full opacity-70"
-            on:click|preventDefault={scrollToTop}>
-            <MoonIcon class="w-8" />
-        </a>
+        {#if config !== undefined}
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <a
+                class="btn btn-ghost btn-circle rounded-full opacity-70"
+                on:click|preventDefault={scrollToTop}>
+                <MoonIcon class="w-8" />
+            </a>
+        {:else}
+            <a class="btn btn-ghost btn-circle rounded-full opacity-70" href="/"
+                ><MoonIcon class="w-8" /></a>
+        {/if}
     </div>
     <div class="navbar-center hidden lg:flex">
         {#if config !== undefined}
