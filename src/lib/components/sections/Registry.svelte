@@ -1,23 +1,28 @@
 <script lang="ts">
     import PageSection from '$lib/components/layout/PageSection.svelte'
-    import type { ConfigObject } from '$lib/types'
-    export let config: ConfigObject
+    import SvelteMarkdown from 'svelte-markdown'
+    export let registry: string
 </script>
 
 <PageSection title="Registry" ref="registry" lg bordered>
-    <p class="leading-10 text-lg font-light mb-8 indent-8">
-        We are thrilled that you are coming to celebrate with us — and that's the best gift of all!
-        But, if you feel like you would like to help us spruce up our place, we've registered with
-        the following:
-    </p>
-    <ul class="text-center">
-        {#each config.registry as p}
-            <li class="leading-8">
-                <a href={p.url}>
-                    <span class="text-lavender-900 hover:text-raspberry-600">{p.name}</span>
-                    <span class="font-light"> — {p.description}</span>
-                </a>
-            </li>
-        {/each}
-    </ul>
+    <div class="registry-markdown">
+        <SvelteMarkdown source={registry} />
+    </div>
 </PageSection>
+
+<style lang="postcss" global>
+    .registry-markdown p {
+        @apply leading-10 text-lg font-light mb-8 indent-8;
+    }
+
+    .registry-markdown ul {
+        @apply text-center;
+    }
+    .registry-markdown ul li {
+        @apply leading-8 font-light;
+    }
+    .registry-markdown ul li a {
+        @apply font-normal text-lavender-900 hover:text-raspberry-600;
+    }
+
+</style>

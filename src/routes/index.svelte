@@ -14,6 +14,7 @@
     export let story: string
     export let photos: PhotoItem[]
     export let events: EventItem[]
+    export let registry: string
 </script>
 
 <svelte:head>
@@ -37,9 +38,9 @@
 {#if config.showMap}
     <Map {config} />
 {/if}
-{#if config.showRegistry}
-    <Registry {config} />
-{/if}
+<!-- {#if config.showRegistry} -->
+    <Registry {registry} />
+<!-- {/if} -->
 {#if config.showRsvp}
     <Rsvp {config} />
 {/if}

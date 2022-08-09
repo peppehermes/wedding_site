@@ -1,12 +1,6 @@
 import type { EventItem, NotionEventResult } from './events'
 import type { PhotoItem, NotionPhotosResult } from './photos'
-import type {
-    ConfigObject,
-    NotionConfigResult,
-    NotionVideoResult,
-    NotionRegistryResult,
-    RegistryItem,
-} from './config'
+import type { ConfigObject, NotionConfigResult, NotionVideoResult } from './config'
 import type { RsvpGuest, RsvpData } from './rsvp'
 import type { NavItem } from './nav'
 import type { FieldType, ToastType } from './components'
@@ -24,6 +18,4 @@ export {
     NavItem,
     FieldType,
     ToastType,
-    NotionRegistryResult,
-    RegistryItem,
 }

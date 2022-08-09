@@ -36,7 +36,6 @@ export type ConfigObject = {
     showRsvp: boolean
     showMap: boolean
     videoUrl: string
-    registry: RegistryItem[]
 }
 
 export type NotionVideoResult = {
@@ -54,28 +53,4 @@ export type NotionVideoResult = {
             }[]
         }
     }
-}
-
-export type NotionRegistryResult = {
-    properties: {
-        Link: {
-            url: string
-        }
-        Description: {
-            rich_text: {
-                plain_text: string
-            }[]
-        }
-        Name: {
-            title: {
-                plain_text: string
-            }[]
-        }
-    }
-}
-
-export type RegistryItem = {
-    url: string,
-    name: string,
-    description: string
 }
