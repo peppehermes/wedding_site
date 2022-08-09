@@ -38,7 +38,7 @@
     <Map {config} />
 {/if}
 {#if config.showRegistry}
-    <Registry />
+    <Registry {config} />
 {/if}
 {#if config.showRsvp}
     <Rsvp {config} />
