@@ -28,7 +28,6 @@ const buildMeals = (data: RsvpData) => {
             meals[`Guest ${i + 1} Meal`] = guestMeal(data.meals[i].meal)
         }
     }
-    console.log(meals)
     return meals
 }
 
@@ -39,7 +38,6 @@ class RsvpRepo {
     })
 
     addToRsvpList = async (data: RsvpData) => {
-        console.log(data)
         const response = await this.#client.pages.create({
             parent: {
                 database_id: import.meta.env.VITE_RSVP_DB_ID,

@@ -12,8 +12,7 @@ export const handleRsvpSubmit = async (data: RsvpData) => {
             'Content-Type': 'application/json',
         },
     })
-        .then((res) => {
-            console.log('Success!', res)
+        .then(() => {
             showToast('success', toastMessages.rsvp.success)
             loading.set(false)
         })
@@ -33,8 +32,7 @@ export const handleEmailListSubmit = async (name: string, email: string) => {
             'Content-Type': 'application/json',
         },
     })
-        .then((res) => {
-            console.log('Success!', res)
+        .then(() => {
             showToast('success', toastMessages.email.success)
             loading.set(false)
         })

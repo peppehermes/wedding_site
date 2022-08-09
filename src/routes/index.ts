@@ -30,8 +30,7 @@ export const POST: RequestHandler = async ({ request }) => {
             transportation: json.data.transportation,
             meals: json.data.meals,
         }
-        console.log(data)
-
+        
         const res = await rsvpRepo.addToRsvpList(data)
         if (res.object === 'page') {
             return {
