@@ -38,9 +38,9 @@
 {#if config.showMap}
     <Map {config} />
 {/if}
-<!-- {#if config.showRegistry} -->
+{#if config.showRegistry}
     <Registry {registry} />
-<!-- {/if} -->
+{/if}
 {#if config.showRsvp}
     <Rsvp {config} />
 {/if}
