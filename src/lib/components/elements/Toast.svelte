@@ -11,7 +11,7 @@
 {#if $toast !== ''}
     <div transition:fade class="toast toast-end z-[999] w-full md:w-auto">
         <div
-            class="alert shadow-2xl border border-opacity-40 pb-0 px-0 overflow-hidden"
+            class="alert shadow-2xl border border-opacity-40 pb-0 px-0 overflow-hidden flex-col"
             class:border-success-content={$toastType === 'success'}
             class:border-error-content={$toastType === 'error'}
             class:alert-success={$toastType === 'success'}
