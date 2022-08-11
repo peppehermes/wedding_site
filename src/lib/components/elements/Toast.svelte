@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { toast, toastType } from '$lib/stores/toast'
+    import { toast, toastType, progress, toastTimeoutLength } from '$lib/stores/toast'
     import { fade } from 'svelte/transition'
     import WarnIcon from '$lib/icons/warn.svg'
     import CheckIcon from '$lib/icons/check.svg'
@@ -11,12 +11,12 @@
 {#if $toast !== ''}
     <div transition:fade class="toast toast-end z-[999] w-full md:w-auto">
         <div
-            class="alert shadow-2xl border border-opacity-40"
+            class="alert shadow-2xl border border-opacity-40 pb-0 px-0 overflow-hidden"
             class:border-success-content={$toastType === 'success'}
             class:border-error-content={$toastType === 'error'}
             class:alert-success={$toastType === 'success'}
             class:alert-error={$toastType === 'error'}>
-            <div class="flex justify-between w-full md:w-auto">
+            <div class="flex justify-between w-full md:w-auto px-4">
                 <!-- icon and message -->
                 <span class="inline-block">
                     <span class="inline-block align-bottom">
@@ -39,6 +39,11 @@
                     </span>
                 </span>
             </div>
+            <!-- svelte-ignore component-name-lowercase -->
+            <progress
+                class="progress w-full progress-success"
+                value={$progress}
+                max={toastTimeoutLength * 1000} />
         </div>
     </div>
 {/if}

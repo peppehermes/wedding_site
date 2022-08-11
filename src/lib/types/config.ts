@@ -36,6 +36,7 @@ export type ConfigObject = {
     showRsvp: boolean
     showMap: boolean
     videoUrl: string
+    venueMapsUrl: string
 }
 
 export type NotionVideoResult = {

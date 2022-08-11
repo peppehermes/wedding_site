@@ -43,6 +43,8 @@ class ConfigRepo {
             }
 
             _config[newKey] = newValue
+            // console.log(' - ', newKey, ' : ', newValue);
+            
         })
 
         _config['videoUrl'] = await this.getVideo()
