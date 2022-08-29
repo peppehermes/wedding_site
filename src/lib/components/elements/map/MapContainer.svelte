@@ -4,9 +4,33 @@
     import { mapOverlay, mapOverlayClasses } from '$lib/stores/mapOverlay'
     import type { ConfigObject } from '$lib/types'
     import { GoogleMap, GoogleMapMarker } from 'svelte-cartographer'
+    import { onMount } from 'svelte'
 
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-    const center = { lat: parseFloat(config.venueLat), lng: parseFloat(config.venueLng) }
+    type Coordinate = {
+        lat: number
+        lng: number
+    }
+    let center: Coordinate = { lat: 0, lng: 0 }
+
+    const getCoords = async () => {
+        fetch(
+            `https://maps.googleapis.com/maps/api/geocode/json?address=${config.venueAddress}&key=${apiKey}`,
+        )
+            .then((response) => {
+                return response.json()
+            })
+            .then((jsonData) => {
+                center = jsonData.results[0].geometry.location
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+    }
+
+    onMount(async () => {
+        await getCoords()
+    })
 </script>
 
 <div

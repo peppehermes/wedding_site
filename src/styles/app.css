@@ -38,10 +38,6 @@ label {
     @apply text-black-87;
 }
 
-._toastItem {
-    @apply rounded-2xl;
-}
-
 .pulse {
     animation-name: pulse;
     animation-duration: 1s;

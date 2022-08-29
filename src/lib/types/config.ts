@@ -37,8 +37,6 @@ export type ConfigObject = {
     showMap: boolean
     videoUrl: string
     venueMapsUrl: string
-    venueLat: string
-    venueLng: string
 }
 
 export type NotionVideoResult = {

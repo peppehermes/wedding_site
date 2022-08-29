@@ -1,4 +1,3 @@
-// import { showToast } from '$lib/stores/toast'
 import { loading } from '$lib/stores/loading'
 import { toastMessages } from '$src/data/strings'
 import type { RsvpData } from '$lib/types'
@@ -13,15 +12,15 @@ const toastOptions: Record<string, unknown> = {
 const successIconTheme = {
     iconTheme: {
         primary: '#789ba4',
-        secondary: '#F6F3EF'
-    }
+        secondary: '#F6F3EF',
+    },
 }
 
 const errorIconTheme = {
     iconTheme: {
         primary: '#d48c97',
-        secondary: '#F6F3EF'
-    }
+        secondary: '#F6F3EF',
+    },
 }
 
 export const handleRsvpSubmit = async (data: RsvpData) => {
@@ -34,12 +33,12 @@ export const handleRsvpSubmit = async (data: RsvpData) => {
         },
     })
         .then(() => {
-            toast.success(toastMessages.rsvp.success, {...toastOptions, ...successIconTheme})
+            toast.success(toastMessages.rsvp.success, { ...toastOptions, ...successIconTheme })
             loading.set(false)
         })
         .catch((err) => {
             console.error('Error!', err.message)
-            toast.error(toastMessages.rsvp.failure, {...toastOptions, ...errorIconTheme})
+            toast.error(toastMessages.rsvp.failure, { ...toastOptions, ...errorIconTheme })
             loading.set(false)
         })
 }
@@ -54,12 +53,12 @@ export const handleEmailListSubmit = async (name: string, email: string) => {
         },
     })
         .then(() => {
-            toast.success(toastMessages.email.success, {...toastOptions, ...successIconTheme})
+            toast.success(toastMessages.email.success, { ...toastOptions, ...successIconTheme })
             loading.set(false)
         })
         .catch((err) => {
             console.error('Error!', err.message)
-            toast.error(toastMessages.email.failure, {...toastOptions, ...errorIconTheme})
+            toast.error(toastMessages.email.failure, { ...toastOptions, ...errorIconTheme })
             loading.set(false)
         })
 }
