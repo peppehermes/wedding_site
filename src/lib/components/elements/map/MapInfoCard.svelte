@@ -10,7 +10,7 @@
 </script>
 
 <div
-    class="card w-96 bg-neutral text-neutral-content shadow-xl"
+    class="card w-96 bg-neutral text-neutral-content shadow-xl z-50"
     in:fade={fadeInOptions}
     out:fade={fadeOutOptions}>
     <div class="card-body items-center text-center">

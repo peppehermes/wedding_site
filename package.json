@@ -33,6 +33,7 @@
 		"prettier-plugin-svelte": "^2.7.0",
 		"sotion": "^1.1.2",
 		"svelte": "^3.44.0",
+		"svelte-cartographer": "^0.0.12",
 		"svelte-check": "^2.7.1",
 		"svelte-command-palette": "^1.1.6",
 		"svelte-french-toast": "^1.0.3",

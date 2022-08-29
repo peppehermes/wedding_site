@@ -5,7 +5,7 @@
     import OurStory from '$lib/components/sections/OurStory.svelte'
     import Events from '$lib/components/sections/Events.svelte'
     import Photos from '$lib/components/sections/Photos.svelte'
-    import Map from '$lib/components/sections/Map.svelte'
+    import Venue from '$lib/components/sections/Venue.svelte'
     import Registry from '$lib/components/sections/Registry.svelte'
     import Rsvp from '$lib/components/sections/Rsvp.svelte'
     import type { EventItem, PhotoItem, ConfigObject } from '$lib/types'
@@ -36,7 +36,7 @@
     <Photos {photos} />
 {/if}
 {#if config.showMap}
-    <Map {config} />
+    <Venue {config} />
 {/if}
 {#if config.showRegistry}
     <Registry {registry} />
