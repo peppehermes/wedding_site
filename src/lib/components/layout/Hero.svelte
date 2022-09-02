@@ -17,19 +17,28 @@
             { duration: 1, delay: stagger(0.3), easing: spring() },
         )
     })
+
+    let currentY: number
+    $: translateAmount = Math.floor(currentY * 0.4)
+    $: bgStyle = `transform: translateY(${translateAmount}px)`
 </script>
 
-<div class="hero min-h-screen" style="background-image: url(hero.min.png);">
-    <div class="hero-overlay -60" />
-    <div class="hero-content text-center text-neutral-content">
-        <div class="max-w-md" bind:this={heroTextContainer}>
-            <h1 class="mb-5 text-5xl font-bold font-serif">
-                {config.bride} and {config.groom}
-            </h1>
+<svelte:window bind:scrollY={currentY} />
 
-            <p class="mb-5">
-                {formatDate(weddingDay, 'MMMM Do, YYYY')} | {getCityState(config.venueAddress)}
-            </p>
+<div class="overflow-hidden">
+    <div class="hero min-h-screen relative">
+        <div class="hero-overlay z-10" />
+        <img class="absolute top-0 z-0 min-h-[100vh] min-w-[120.7vh]" src="/hero.min.png" style={bgStyle} alt="Hero" />
+        <div class="hero-content text-center text-neutral-content z-20">
+            <div class="max-w-md" bind:this={heroTextContainer}>
+                <h1 class="mb-5 text-5xl font-bold font-serif">
+                    {config.bride} and {config.groom}
+                </h1>
+
+                <p class="mb-5">
+                    {formatDate(weddingDay, 'MMMM Do, YYYY')} | {getCityState(config.venueAddress)}
+                </p>
+            </div>
         </div>
     </div>
 </div>
