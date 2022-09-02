@@ -4,21 +4,20 @@ import { photosRepo } from '$lib/repos/photos'
 import { rsvpRepo } from '$lib/repos/rsvp'
 import { copyRepo } from '$lib/repos/copy'
 import type { RsvpData } from '$lib/types'
-import type { RequestHandler } from '@sveltejs/kit'
+import type { PageServerLoad, RouteParams } from './$types'
+import type { RequestEvent } from '@sveltejs/kit'
 
-export const GET: RequestHandler = async () => {
+export const load: PageServerLoad = async () => {
     const config = await configRepo.getConfig()
     const story = await copyRepo.getStory()
     const photos = await photosRepo.getPhotos()
     const events = await eventsRepo.getEvents()
     const registry = await copyRepo.getRegistry()
 
-    return {
-        body: { config, story, photos, events, registry },
-    }
+    return { config, story, photos, events, registry }
 }
 
-export const POST: RequestHandler = async ({ request }) => {
+export const POST = async ({ request }: RequestEvent<RouteParams>) => {
     const config = await configRepo.getConfig()
     const json = await request.json()
 
@@ -33,24 +32,16 @@ export const POST: RequestHandler = async ({ request }) => {
         }
 
         const res = await rsvpRepo.addToRsvpList(data)
-        if (res.object === 'page') {
+        if (res.object !== 'page') {
             return {
                 status: 200,
-            }
-        } else {
-            return {
-                status: 400,
             }
         }
     } else {
         const res = await rsvpRepo.addToEmailList(json.name, json.email)
-        if (res.object === 'page') {
+        if (res.object !== 'page') {
             return {
                 status: 200,
-            }
-        } else {
-            return {
-                status: 400,
             }
         }
     }
