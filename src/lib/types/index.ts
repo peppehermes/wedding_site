@@ -3,9 +3,10 @@ import type { PhotoItem, NotionPhotosResult } from './photos'
 import type { ConfigObject, NotionConfigResult, NotionVideoResult } from './config'
 import type { RsvpGuest, RsvpData } from './rsvp'
 import type { NavItem } from './nav'
-import type { FieldType, ToastType } from './components'
+import type { FieldType, ToastType, Coordinate } from './components'
 
 export {
+    Coordinate,
     EventItem,
     NotionEventResult,
     PhotoItem,

@@ -23,3 +23,4 @@ declare module '*.svg?url' {
 }
 
 declare module 'parse-address'
+declare module 'lodash'

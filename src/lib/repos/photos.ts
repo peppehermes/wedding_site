@@ -1,6 +1,5 @@
 import type { NotionPhotosResult, PhotoItem } from '$lib/types'
 import { Client } from '@notionhq/client'
-import _ from 'lodash'
 
 const notionToPhoto = (notionItem: NotionPhotosResult) => {
     return {
@@ -21,13 +20,13 @@ class PhotosRepo {
 
         const items = results as unknown as NotionPhotosResult[]
 
-        let photos: PhotoItem[] = []
+        const photos: PhotoItem[] = []
 
         items.forEach((i) => {
             photos.push(notionToPhoto(i))
         })
 
-        photos = _.orderBy(photos, ['order'], ['asc'])
+        photos.sort((a, b) => a.order > b.order ? 1 : -1)
 
         return photos
     }

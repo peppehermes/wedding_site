@@ -2,15 +2,12 @@
     import { fade } from 'svelte/transition'
     export let config: ConfigObject
     import { mapOverlay, mapOverlayClasses } from '$lib/stores/mapOverlay'
-    import type { ConfigObject } from '$lib/types'
+    import type { ConfigObject, Coordinate } from '$lib/types'
     import { GoogleMap, GoogleMapMarker } from 'svelte-cartographer'
     import { onMount } from 'svelte'
 
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-    type Coordinate = {
-        lat: number
-        lng: number
-    }
+
     let center: Coordinate = { lat: 0, lng: 0 }
 
     const getCoords = async () => {
@@ -53,12 +50,7 @@
     {#if !$mapOverlay}
         <slot name="show-info-card" />
     {/if}
-    <GoogleMap
-        {apiKey}
-        options={{
-            center,
-            zoom: 10,
-        }}>
+    <GoogleMap {apiKey} options={{ center, zoom: 10 }}>
         <GoogleMapMarker lat={center.lat} lng={center.lng} />
     </GoogleMap>
 </div>
