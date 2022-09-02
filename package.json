@@ -1,5 +1,6 @@
 {
-	"name": "sveltekit-ts-tailwindcss-template",
+	"name": "wedding",
+	"description": "our wedding website",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",
