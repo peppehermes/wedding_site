@@ -1,56 +1,67 @@
-import { parseBoolean } from '$src/data/functions'
-import { Client } from '@notionhq/client'
-import type { NotionVideoResult, NotionConfigResult, ConfigObject } from '$lib/types'
+import type { ConfigObject } from '$lib/types'
 
 class ConfigRepo {
-    #client = new Client({
-        auth: import.meta.env.VITE_NOTION_SECRET,
-    })
+    #lodging = [
+        {
+            name: 'DoubleTree by Hilton',
+            map: 'https://goo.gl/maps/PKECx8u35oz6rdDGA',
+            phone: '+18476797000',
+            web: 'https://www.hilton.com/en/hotels/chiccdt-doubletree-chicago-north-shore-conference-center/?SEO_id=GMB-AMER-DH-CHICCDT&y_source=1_MTM3MjYwMS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D',
+            address: '9599 Skokie Blvd, Skokie, IL 60077',
+            refName: 'Moon Wedding (code WMR)',
+            until: 'August 1, 2023',
+        },
+    ]
 
-    getVideo = async () => {
-        const { results } = await this.#client.databases.query({
-            database_id: import.meta.env.VITE_VIDEO_DB_ID,
-        })
+    #registry = [
+        {
+            name: 'Crate & Barrel',
+            url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
+            description:
+                'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
+        },
+    ]
 
-        let videoUrl = ''
-
-        results.forEach((r) => {
-            const isActiveString = (r as unknown as NotionVideoResult).properties.Active
-                .rich_text[0].plain_text
-            const isActive = parseBoolean(isActiveString)
-
-            if (isActive) {
-                videoUrl = (r as unknown as NotionVideoResult).properties.Video.files[0].file.url
-            }
-        })
-
-        return videoUrl
+    #config: ConfigObject = {
+        venueAddress: '911 Michigan Ave, Wilmette, IL 60091',
+        venueName: 'Michigan Shores Club',
+        groom: 'Cory',
+        bride: 'Joni',
+        rsvpDate: '2023-08-08',
+        weddingDate: '2023-10-08',
+        canRsvp: false,
+        showPictures: true,
+        saveTheDate: true,
+        showRegistry: false,
+        showEvents: false,
+        showStory: false,
+        showRsvp: true,
+        showMap: true,
+        showHotel: true,
+        videoUrl: '/video/venues.mp4',
+        venueMapsUrl:
+            'https://www.google.com/maps/place/Oak+Hill+Farm/@42.4889488,-90.1237249,17z/data=!3m1!4b1!4m5!3m4!1s0x87e2adb6f05b85ef:0x98e0a8a1ca4adea6!8m2!3d42.4889488!4d-90.1215362',
     }
 
-    getConfig = async () => {
-        const { results } = await this.#client.databases.query({
-            database_id: import.meta.env.VITE_CONFIG_DB_ID,
-        })
+    #meals = ['N.Y. Strip', 'Stuffed Chicken Caprese', 'Atlantic Salmon', 'Vegetarian']
 
-        const _config: Record<string, unknown> = {}
-        const theResults: NotionConfigResult = results as NotionConfigResult
-        theResults.forEach((r) => {
-            const newKey = r.properties.Name.title[0].plain_text
-            let newValue: string | boolean = r.properties.Value.rich_text[0].plain_text
+    #guestMealsInitial = [
+        { name: null, meal: null },
+        { name: null, meal: null },
+        { name: null, meal: null },
+        { name: null, meal: null },
+        { name: null, meal: null },
+        { name: null, meal: null },
+    ]
 
-            if (newValue.toLowerCase() === 'true' || newValue.toLowerCase() === 'false') {
-                newValue = parseBoolean(newValue)
-            }
+    #events = []
 
-            _config[newKey] = newValue
-            // console.log(' - ', newKey, ' : ', newValue);
-            
-        })
-
-        _config['videoUrl'] = await this.getVideo()
-
-        return _config as ConfigObject
-    }
+    getConfig = () => this.#config
+    getLodging = () => this.#lodging
+    getRegistry = () => this.#registry
+    getMeals = () => this.#meals
+    getInitialMeals = () => this.#guestMealsInitial
+    getEvents = () => this.#events
 }
 
 export const configRepo = new ConfigRepo()
