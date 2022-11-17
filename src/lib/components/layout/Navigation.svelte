@@ -1,13 +1,14 @@
 <script lang="ts">
-    import { rsvpButtonText, scrollIntoView, scrollToTop } from '$src/data/functions'
+    import { scrollIntoView, scrollToTop } from '$lib/utils'
     import MenuIcon from '$lib/icons/menu.svg'
     import MoonIcon from '$lib/icons/moon.svg'
-    import type { ConfigObject } from '$lib/types'
-    import { allNavItems } from '$src/data/nav'
+    import { navRepo } from '$src/lib/repos/nav'
+    import { stringsRepo } from '$src/lib/repos/strings'
+    import { configRepo } from '$src/lib/repos/config'
 
-    export let config: ConfigObject | undefined
-
-    let navItems = config === undefined ? [] : allNavItems(config!).filter((n) => n.display)
+    let config = configRepo.getConfig()
+    let navItems = navRepo.getNavItems()
+    let rsvpButtonText = stringsRepo.getRsvpButtonText()
 
     let previousY: number
     let currentY: number
@@ -30,63 +31,51 @@
     class:motion-safe:-translate-y-full={offscreen}
     bind:clientHeight>
     <div class="navbar-start">
-        {#if config !== undefined}
-            {#if navItems.length != 0}
-                <div class="dropdown" id="dropdown-container">
-                    <!-- svelte-ignore a11y-label-has-associated-control -->
-                    <label
-                        tabindex="0"
-                        class="btn btn-ghost btn-circle lg:hidden swap swap-rotate"
-                        id="menu-button">
-                        <MenuIcon class="w-6 fill-base-content" />
-                    </label>
-                    <ul
-                        tabindex="0"
-                        id="dropdown-menu"
-                        class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                        <!-- dropdown menu -->
-                        {#each navItems as { label, href }}
-                            <li>
-                                <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
-                            </li>
-                        {/each}
-                    </ul>
-                </div>
-            {/if}
+        {#if navItems.length != 0}
+            <div class="dropdown" id="dropdown-container">
+                <!-- svelte-ignore a11y-label-has-associated-control -->
+                <label
+                    tabindex="0"
+                    class="btn btn-ghost btn-circle lg:hidden swap swap-rotate"
+                    id="menu-button">
+                    <MenuIcon class="w-6 fill-base-content" />
+                </label>
+                <ul
+                    tabindex="0"
+                    id="dropdown-menu"
+                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                    <!-- dropdown menu -->
+                    {#each navItems as { label, href }}
+                        <li>
+                            <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
+                        </li>
+                    {/each}
+                </ul>
+            </div>
         {/if}
 
-        {#if config !== undefined}
-            <!-- svelte-ignore a11y-missing-attribute -->
-            <a
-                class="btn btn-ghost btn-circle rounded-full opacity-70"
-                on:click|preventDefault={scrollToTop}>
-                <MoonIcon class="w-8" />
-            </a>
-        {:else}
-            <a class="btn btn-ghost btn-circle rounded-full opacity-70" href="/"
-                ><MoonIcon class="w-8" /></a>
-        {/if}
+        <!-- svelte-ignore a11y-missing-attribute -->
+        <a
+            class="btn btn-ghost btn-circle rounded-full opacity-70"
+            on:click|preventDefault={scrollToTop}>
+            <MoonIcon class="w-8" />
+        </a>
     </div>
     <div class="navbar-center hidden lg:flex">
-        {#if config !== undefined}
-            <ul class="menu menu-horizontal p-0">
-                {#each navItems as { label, href }}
-                    <li>
-                        <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
-                    </li>
-                {/each}
-            </ul>
-        {/if}
+        <ul class="menu menu-horizontal p-0">
+            {#each navItems as { label, href }}
+                <li>
+                    <a {href} on:click|preventDefault={scrollIntoView}>{label}</a>
+                </li>
+            {/each}
+        </ul>
     </div>
     <div class="navbar-end text-right">
-        {#if config !== undefined}
-            {#if config.showRsvp}
-                <a
-                    href="#rsvp"
-                    class="btn btn-primary text-white"
-                    on:click|preventDefault={scrollIntoView}>{rsvpButtonText(config)}</a>
-            {/if}
+        {#if config.showRsvp}
+            <a
+                href="#rsvp"
+                class="btn btn-primary text-white"
+                on:click|preventDefault={scrollIntoView}>{rsvpButtonText}</a>
         {/if}
     </div>
 </div>
-<!-- <progress class="progress w-full rounded-none progress-primary p-0 m-0" /> -->

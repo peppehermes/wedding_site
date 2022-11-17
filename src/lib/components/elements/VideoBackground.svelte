@@ -1,10 +1,10 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import type { ConfigObject } from '$lib/types'
-    import { getCityState } from '$src/data/functions'
+    import { getCityState } from '$lib/utils'
+    import { stringsRepo } from '$src/lib/repos/strings'
+    const venueInfo = stringsRepo.getVenueInfo()
 
     export let ref: string
-    export let config: ConfigObject
     let heroVideo: HTMLVideoElement
 
     onMount(() => {
@@ -14,15 +14,23 @@
 
 <section class="showcase max-h-[500px] md:max-h-[600px] lg:max-h-[80vh]" id={ref}>
     <div class="video-container">
-        <video src={config.videoUrl} autoplay muted playsinline bind:this={heroVideo} />
+        <video src="/video/venues.mp4" autoplay muted playsinline bind:this={heroVideo} />
     </div>
     <div class="content hero text-white bg-eucalyptus-900/40">
         <div class="hero-content text-center">
             <div class="max-w-md">
                 <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
-                    {config.venueName}
+                    {venueInfo.ceremony.name}
                 </h4>
-                <p class="font-thin text-lg text-white-90">{getCityState(config.venueAddress)}</p>
+                <p class="font-thin text-lg text-white-90 mb-6">
+                    {getCityState(venueInfo.ceremony.address)}
+                </p>
+                <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
+                    {venueInfo.reception.name}
+                </h4>
+                <p class="font-thin text-lg text-white-90">
+                    {getCityState(venueInfo.reception.address)}
+                </p>
             </div>
         </div>
     </div>

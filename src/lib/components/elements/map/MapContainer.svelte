@@ -1,33 +1,34 @@
 <script lang="ts">
     import { fade } from 'svelte/transition'
-    export let config: ConfigObject
-    import { mapOverlay, mapOverlayClasses } from '$lib/stores/mapOverlay'
-    import type { ConfigObject, Coordinate } from '$lib/types'
     import { GoogleMap, GoogleMapMarker } from 'svelte-cartographer'
-    import { onMount } from 'svelte'
+    import { mapOverlay, mapOverlayClasses } from '$lib/stores/mapOverlay'
+    import type { Coordinate } from '$lib/types'
 
     const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
-    let center: Coordinate = { lat: 0, lng: 0 }
+    const getCenter = (...args: Coordinate[]) => {
+        let lat =
+            args.reduce((acc, obj) => {
+                return acc + obj.lat
+            }, 0) / args.length
+        let lng =
+            args.reduce((acc, obj) => {
+                return acc + obj.lng
+            }, 0) / args.length
 
-    const getCoords = async () => {
-        fetch(
-            `https://maps.googleapis.com/maps/api/geocode/json?address=${config.venueAddress}&key=${apiKey}`,
-        )
-            .then((response) => {
-                return response.json()
-            })
-            .then((jsonData) => {
-                center = jsonData.results[0].geometry.location
-            })
-            .catch((error) => {
-                console.log(error)
-            })
+        let center: Coordinate = { lat, lng }
+        return center
     }
 
-    onMount(async () => {
-        await getCoords()
-    })
+    let markers: { coords: Coordinate; icon: string }[] = [
+        { coords: { lat: 42.1082596, lng: -87.7337915 }, icon: '/ceremony-marker.png' },
+        { coords: { lat: 42.080159, lng: -87.691314 }, icon: '/reception-marker.png' },
+        { coords: { lat: 42.054381, lng: -87.7456764 }, icon: '/hotel-marker.png' },
+    ]
+
+    let customMarkers = true
+
+    $: center = getCenter(...markers.map((item) => item.coords))
 </script>
 
 <div
@@ -50,8 +51,18 @@
     {#if !$mapOverlay}
         <slot name="show-info-card" />
     {/if}
-    <GoogleMap {apiKey} options={{ center, zoom: 10 }}>
-        <GoogleMapMarker lat={center.lat} lng={center.lng} />
+    <GoogleMap
+        {apiKey}
+        options={{
+            center,
+            zoom: 12,
+        }}>
+        {#each markers as marker}
+            <GoogleMapMarker
+                lat={marker.coords.lat}
+                lng={marker.coords.lng}
+                icon={customMarkers ? marker.icon : null} />
+        {/each}
     </GoogleMap>
 </div>
 

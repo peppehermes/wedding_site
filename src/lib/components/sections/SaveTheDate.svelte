@@ -2,11 +2,12 @@
     import dayjs from 'dayjs'
     import { CountUp } from 'countup.js'
     import { onMount } from 'svelte'
-    import type { ConfigObject } from '$lib/types'
-    import { saveTheDate } from '$data/strings'
     import PageSection from '$lib/components/layout/PageSection.svelte'
+    import { stringsRepo } from '$src/lib/repos/strings'
+    import { configRepo } from '$src/lib/repos/config'
 
-    export let config: ConfigObject
+    let saveTheDate = stringsRepo.getSaveTheDate()
+    let config = configRepo.getConfig()
     
     let weddingDay = dayjs(config.weddingDate)
     let today = dayjs()

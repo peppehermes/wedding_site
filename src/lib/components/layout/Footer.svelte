@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { scrollToTop } from '$src/data/functions'
+    import { scrollToTop } from '$lib/utils'
     import ToTopIcon from '$lib/icons/to-top.svg'
     import HeartIcon from '$lib/icons/heart.svg'
 </script>

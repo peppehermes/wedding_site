@@ -1,15 +1,12 @@
 <script lang="ts">
-    import dayjs from 'dayjs'
-    import type { ConfigObject } from '$lib/types'
     import PageSection from '$lib/components/layout/PageSection.svelte'
     import EmailListForm from '$lib/components/forms/EmailListForm.svelte'
     import RsvpForm from '$lib/components/forms/RsvpForm.svelte'
-    import { formatDate } from '$data/functions'
-    import { rsvpTitles } from '$data/strings'
-
-    export let config: ConfigObject
-
-    const rsvpCutoffDate = dayjs(config.rsvpDate)
+    import { stringsRepo } from '$src/lib/repos/strings'
+    import { configRepo } from '$src/lib/repos/config'
+    
+    let rsvpTitles = stringsRepo.getRsvpTitles()
+    let config = configRepo.getConfig()
 
     $: sectionTitle = config.canRsvp ? rsvpTitles.canRsvp : rsvpTitles.canNotRsvp
 </script>
@@ -18,10 +15,7 @@
     <div class="mb-8 font-light text-center rsvp-info">
         {#if config.canRsvp}
             <p>
-                We would greatly appreciate if you could RSVP before {formatDate(
-                    rsvpCutoffDate,
-                    "Do of MMMM 'YY",
-                )}
+                We would greatly appreciate if you could RSVP before 8th of August '23
             </p>
         {:else}
             <p>
@@ -36,7 +30,7 @@
     </div>
 
     {#if config.canRsvp}
-        <RsvpForm {config} />
+        <RsvpForm />
     {:else}
         <EmailListForm />
     {/if}

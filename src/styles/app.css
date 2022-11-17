@@ -32,6 +32,14 @@
     .btn-raspberry {
         @apply bg-raspberry hover:bg-raspberry-900 text-white;
     }
+
+    .btn-pink-lavender {
+        @apply bg-pink-lavender-600 hover:bg-pink-lavender-900 text-white;
+    }
+
+    .btn-peach {
+        @apply bg-peach hover:bg-peach-900 text-white;
+    }
 }
 
 label {
@@ -55,4 +63,14 @@ label {
     100% {
         transform: scale(1);
     }
+}
+
+section:nth-of-type(even) {
+  /* background: red; */
+  /* @apply bg-opacity-12 bg-accent border-y border-accent; */
+}
+
+section:nth-of-type(odd) {
+    /* background: green; */
+    /* @apply bg-opacity-12 bg-primary border-y border-primary; */
 }

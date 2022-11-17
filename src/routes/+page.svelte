@@ -8,38 +8,40 @@
     import Venue from '$lib/components/sections/Venue.svelte'
     import Registry from '$lib/components/sections/Registry.svelte'
     import Rsvp from '$lib/components/sections/Rsvp.svelte'
+    import HotelInfo from '$lib/components/sections/HotelInfo.svelte'
 
-    import type { PageData, Errors } from './$types'
-    export let data: PageData
-    export let errors: Errors
+    import { configRepo } from '$src/lib/repos/config'
+
+    const config = configRepo.getConfig()
 </script>
 
 <svelte:head>
-    <title>{data.config.bride} & {data.config.groom} are getting hitched!</title>
+    <title>Joni & Cory are getting hitched!</title>
 </svelte:head>
 
-{#if !errors}
-    <Navigation config={data.config} />
-    <Hero config={data.config} />
-    {#if data.config.saveTheDate}
-        <SaveTheDate config={data.config} />
-    {/if}
-    {#if data.config.showStory}
-        <OurStory story={data.story} />
-    {/if}
-    {#if data.config.showEvents}
-        <Events events={data.events} />
-    {/if}
-    {#if data.config.showPictures}
-        <Photos photos={data.photos} />
-    {/if}
-    {#if data.config.showMap}
-        <Venue config={data.config} />
-    {/if}
-    {#if data.config.showRegistry}
-        <Registry registry={data.registry} />
-    {/if}
-    {#if data.config.showRsvp}
-        <Rsvp config={data.config} />
-    {/if}
+<Navigation />
+<Hero />
+{#if config.saveTheDate}
+    <SaveTheDate />
+{/if}
+{#if config.showStory}
+    <OurStory />
+{/if}
+{#if config.showEvents}
+    <Events />
+{/if}
+{#if config.showPictures}
+    <Photos />
+{/if}
+{#if config.showMap}
+    <Venue />
+{/if}
+{#if config.showRegistry}
+    <Registry />
+{/if}
+{#if config.showHotel}
+    <HotelInfo />
+{/if}
+{#if config.showRsvp}
+    <Rsvp />
 {/if}

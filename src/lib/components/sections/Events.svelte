@@ -3,7 +3,7 @@
     import EventsItem from '$lib/components/elements/EventsItem.svelte'
     import { animate, stagger, inView, spring } from 'motion'
     import { onMount } from 'svelte'
-    import type { EventItem } from '$lib/types'
+    import { EVENTS } from '$src/lib/types/events'
 
     onMount(() => {
         inView('#events-container .event-item', (info) => {
@@ -14,15 +14,13 @@
             )
         })
     })
-
-    export let events: EventItem[]
 </script>
 
 <PageSection title="Events" ref="events" lg primary>
     <div class="grid grid-rows-4 md:grid-rows-2 grid-flow-col" id="events-container">
-        {#each events as event, i}
+        {#each EVENTS as event, i}
             <div
-                class="event-item mx-auto {i < events.length / 2
+                class="event-item mx-auto {i < EVENTS.length / 2
                     ? 'event-left-col'
                     : 'event-right-col'}">
                 <EventsItem {event} />

@@ -2,7 +2,7 @@
     import FormField from '$lib/components/elements/FormField.svelte'
     import FormButton from '$lib/components/elements/FormButton.svelte'
 
-    import { emailListSubmitIsDisabled } from '$data/functions'
+    import { emailListSubmitIsDisabled } from '$lib/utils'
     import { handleEmailListSubmit } from './handlers'
     import { loading } from '$lib/stores/loading'
 

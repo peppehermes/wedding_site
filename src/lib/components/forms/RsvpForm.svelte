@@ -4,24 +4,21 @@
     import FormButton from '$lib/components/elements/FormButton.svelte'
     import GuestMealInput from '$lib/components/elements/GuestMealInput.svelte'
 
-    import { lodging, guestMealsInitial } from '$data/data'
-    import { formatDate, rsvpSubmitIsDisabled } from '$data/functions'
+    import { rsvpSubmitIsDisabled } from '$lib/utils'
     import { handleRsvpSubmit } from './handlers'
     import { loading } from '$lib/stores/loading'
-    import dayjs from 'dayjs'
-    import type { ConfigObject } from '$lib/types'
-
-    export let config: ConfigObject
+    import { configRepo } from '$src/lib/repos/config'
 
     let name: string = ''
     let email: string = ''
     let phone: string = ''
     let numGuests: number | undefined
     let transportation: null | string = null
+    let lodging = configRepo.getLodging()
+    let guestMealsInitial = configRepo.getInitialMeals()
     let guestMeals = guestMealsInitial
 
     const transportationModal = 'transportation-info-modal'
-    const modalDateDisplay = formatDate(dayjs(config.weddingDate), 'dddd, MMMM Do')
 
     const resetForm = () => {
         name = ''
@@ -105,7 +102,7 @@
         <h3 class="font-bold text-lg text-black-87">Transportation</h3>
         <p class="py-4 text-black-60">
             Transportation will be provided for all to the ceremony and reception at Oak Hill Farm
-            on {modalDateDisplay}. No hotel stay required for transportation. It departs from {lodging.length ==
+            on Sunday, October 8th. No hotel stay required for transportation. It departs from {lodging.length ==
             1
                 ? 'this'
                 : 'these'}

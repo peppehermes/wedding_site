@@ -1,7 +1,9 @@
 import { loading } from '$lib/stores/loading'
-import { toastMessages } from '$src/data/strings'
 import type { RsvpData } from '$lib/types'
+import { stringsRepo } from '$src/lib/repos/strings'
 import toast from 'svelte-french-toast'
+
+const toastMessages = stringsRepo.getToastMessages()
 
 const toastOptions: Record<string, unknown> = {
     duration: 8000,

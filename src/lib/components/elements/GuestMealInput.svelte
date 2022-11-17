@@ -1,9 +1,11 @@
 <script lang="ts">
+    import { configRepo } from '$src/lib/repos/config'
     import FormField from './FormField.svelte'
-    import { meals } from '$data/data'
     export let name: string | number | undefined | null
     export let meal: string | number | undefined | null
     export let index: number
+
+    let meals = configRepo.getMeals()
 </script>
 
 <div class="flex flex-wrap -mx-3 mb-4">
