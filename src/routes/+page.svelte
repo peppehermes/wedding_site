@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-    <title>Joni & Cory are getting hitched!</title>
+    <title>Joni & Cory are getting married!</title>
 </svelte:head>
 
 <Navigation />

@@ -10,7 +10,7 @@
     <div class="max-w-prose mx-auto">
         <p class="hotel-info">
             For your comfort and convenience, a special group rate has been arranged with DoubleTree
-            by Hilton in Skokis, IL. Please reference code WMR (Moon Wedding) when calling to make
+            by Hilton in Skokie, IL. Please reference code WMR (Moon Wedding) when calling to make
             your reservation.
         </p>
         <p class="hotel-info">Wedding Rate: $289/night ($399 Jr. Suites)</p>
