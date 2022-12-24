@@ -10,6 +10,8 @@
     onMount(() => {
         heroVideo.loop = true
     })
+
+    const venueTypeClasses = 'uppercase font-thin tracking-[12px] opacity-75'
 </script>
 
 <section class="showcase max-h-[500px] md:max-h-[600px] lg:max-h-[80vh]" id={ref}>
@@ -19,12 +21,14 @@
     <div class="content hero text-white bg-eucalyptus-900/40">
         <div class="hero-content text-center">
             <div class="max-w-md">
+                <p class={venueTypeClasses}>Ceremony</p>
                 <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
                     {venueInfo.ceremony.name}
                 </h4>
                 <p class="font-thin text-lg text-white-90 mb-6">
                     {getCityState(venueInfo.ceremony.address)}
                 </p>
+                <p class={venueTypeClasses}>Reception</p>
                 <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
                     {venueInfo.reception.name}
                 </h4>

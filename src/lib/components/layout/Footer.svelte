@@ -17,7 +17,10 @@
         <p class="font-light text-lg py-10">
             <span class="inline-block">Crafted by Cory with lots of</span>
             <HeartIcon class="inline-block pulse w-6 fill-raspberry-800" />
-            <span class="inline-block">for Joni</span>
+            <span class="inline-block">for Joni</span><br />
+
+            <span class="inline-block pt-2"
+                >Header photo by <a href="http://conniemarina.com/" class="text-lavernder-900 underline">Connie Marina</a></span>
         </p>
     </div>
 </footer>
