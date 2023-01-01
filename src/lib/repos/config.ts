@@ -30,7 +30,7 @@ class ConfigRepo {
         rsvpDate: '2023-08-08',
         weddingDate: '2023-10-08',
         canRsvp: false,
-        showPictures: true,
+        showPictures: false,
         saveTheDate: true,
         showRegistry: false,
         showEvents: false,
