@@ -20,6 +20,9 @@ const svgPlugin = svg({
 
 /** @type {import('vite').UserConfig} */
 const config = {
+    optimizeDeps: {
+        include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'],
+    },
     plugins: [sveltekit(), svgPlugin],
 }
 

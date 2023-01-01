@@ -1,57 +1,37 @@
 <script lang="ts">
     import { photosRepo } from '$src/lib/repos/photos'
-    import { onMount } from 'svelte'
+    import Carousel from 'svelte-carousel'
+    import { browser } from '$app/environment'
+    let carousel: any // for calling methods of the carousel instance
+
     export const name = 'wedding-photos'
 
     let photos = photosRepo.getPhotos()
 
     export const itemId = (index: number) => `${name}-${index + 1}`
 
-    let slider: HTMLElement
-    let isDown = false
-    let startX: number
-    let scrollLeft: number
-
-    onMount(() => {
-        slider.addEventListener('mousedown', (e: MouseEvent) => {
-            isDown = true
-            slider.classList.add('active')
-            startX = e.pageX - slider.offsetLeft
-            scrollLeft = slider.scrollLeft
-        })
-        slider.addEventListener('mouseleave', () => {
-            isDown = false
-            slider.classList.remove('active')
-        })
-        slider.addEventListener('mouseup', () => {
-            isDown = false
-            slider.classList.remove('active')
-        })
-        slider.addEventListener('mousemove', (e: MouseEvent) => {
-            if (!isDown) return
-            e.preventDefault()
-            const x = e.pageX - slider.offsetLeft
-            const walk = (x - startX) * 3 //scroll-fast
-            slider.scrollLeft = scrollLeft - walk
-            console.log(walk)
-        })
-    })
+    let innerWidth = 0
+    let innerHeight = 0
+    
+    $: medScreen = innerWidth >= 1024
 </script>
 
-<div id="photos">
-    <ul id="photoList" class="flex overflow-x-auto" bind:this={slider}>
-        {#each photos as { name, url }, index}
-            <li id={`${itemId(index)}`} class="shrink-0 snap-center">
+<svelte:window bind:innerWidth bind:innerHeight />
+
+<div id="photos" class="bg-base-100 bg-opacity-12">
+    {#if browser}
+        <Carousel bind:this={carousel} particlesToShow={medScreen ? 2 : 1} dots={false}>
+            {#each photos as { name, url }, index}
                 <label for="photo-modal-{index}">
                     <img
                         src={url}
-                        class="max-h-[400px] md:max-h-[600px] lg:max-h-[80vh]"
+                        class="max-h-[400px] md:max-h-[600px] lg:max-h-[80vh] mx-auto"
                         alt={name}
                         title={name} />
                 </label>
-            </li>
-        {/each}
-    </ul>
+            {/each}
+        </Carousel>
+    {/if}
 </div>
 
 {#each photos as { name, url }, index}

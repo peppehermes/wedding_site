@@ -20,10 +20,16 @@
             {@html venueDisplayAddress('9599 Skokie Blvd, Skokie, IL 60077')}
         </p>
         <p class="hotel-info">
-            <a href={hotelInfo.mapUrl} target="_blank" class="btn btn-pink-lavender btn-sm mx-1 my-2"
-                >Map</a>
-            <a href="tel:18002228733" target="_blank" class="btn btn-peach btn-sm mx-1 my-2"
-                >Phone</a>
+            <a
+                href={hotelInfo.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-pink-lavender btn-sm mx-1 my-2">Map</a>
+            <a
+                href="tel:18002228733"
+                target="_blank"
+                rel="noreferrer"
+                class="btn btn-peach btn-sm mx-1 my-2">Phone</a>
         </p>
         <!-- </p> -->
         <p class="hotel-info">

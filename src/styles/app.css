@@ -64,13 +64,3 @@ label {
         transform: scale(1);
     }
 }
-
-section:nth-of-type(even) {
-  /* background: red; */
-  /* @apply bg-opacity-12 bg-accent border-y border-accent; */
-}
-
-section:nth-of-type(odd) {
-    /* background: green; */
-    /* @apply bg-opacity-12 bg-primary border-y border-primary; */
-}

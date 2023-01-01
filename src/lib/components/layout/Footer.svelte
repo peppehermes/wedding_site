@@ -20,7 +20,7 @@
             <span class="inline-block">for Joni</span><br />
 
             <span class="inline-block pt-2"
-                >Header photo by <a href="http://conniemarina.com/" class="text-lavernder-900 underline">Connie Marina</a></span>
+                >Photos by <a href="http://conniemarina.com/" class="text-lavernder-900 underline">Connie Marina</a></span>
         </p>
     </div>
 </footer>
