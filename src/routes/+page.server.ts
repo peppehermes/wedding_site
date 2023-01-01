@@ -4,7 +4,7 @@ import type { RsvpData } from '$lib/types'
 import type { RouteParams } from './$types'
 import type { RequestEvent } from '@sveltejs/kit'
 
-export const POST = async ({ request }: RequestEvent<RouteParams>) => {
+export const post = async ({ request }: RequestEvent<RouteParams>) => {
     const config = configRepo.getConfig()
     const json = await request.json()
 
