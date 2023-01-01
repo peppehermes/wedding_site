@@ -49,7 +49,7 @@
     } love to use the provided transportation.`
 </script>
 
-<form class="w-full max-w-lg mx-auto" name="submit-rsvp-to-google-sheet">
+<form class="w-full max-w-lg mx-auto" name="submit-rsvp-to-google-sheet" method="POST">
     <div class="flex flex-wrap -mx-3 mb-4">
         <FormField bind:data={name} label="Name" fieldType="text" />
         <FormField bind:data={email} label="Email" fieldType="text" />
