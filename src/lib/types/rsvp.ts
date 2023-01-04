@@ -8,6 +8,5 @@ export type RsvpData = {
     email: string
     phone: string
     guests: number
-    transportation: string
     meals: RsvpGuest[]
 }

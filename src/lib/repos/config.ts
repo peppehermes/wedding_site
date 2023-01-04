@@ -35,7 +35,7 @@ class ConfigRepo {
         showRegistry: false,
         showEvents: false,
         showStory: false,
-        showRsvp: false,
+        showRsvp: true,
         showMap: true,
         showHotel: true,
         videoUrl: '/video/venues.mp4',

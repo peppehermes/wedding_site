@@ -26,5 +26,5 @@
         <FormField bind:data={name} label="Name" fieldType="text" />
         <FormField bind:data={email} label="Email" fieldType="text" />
     </div>
-    <FormButton loading={$loading} {disabled} {click} />
+    <FormButton loading={$loading} {disabled} />
 </form>

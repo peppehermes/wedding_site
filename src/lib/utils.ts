@@ -22,7 +22,6 @@ export const rsvpSubmitIsDisabled = (
     phone: string,
     numGuests: number,
     guestMeals: RsvpGuest[],
-    transportation: string | null,
 ) => {
     let arrayHasNull = false
     for (let i = 0; i < numGuests; i++) {
@@ -32,7 +31,7 @@ export const rsvpSubmitIsDisabled = (
     }
 
     const g = numGuests < 1 || numGuests == undefined
-    if (!name || !email || !phone || g || transportation === null || arrayHasNull) {
+    if (!name || !email || !phone || g || arrayHasNull) {
         return true
     } else {
         return false
