@@ -14,12 +14,17 @@ class ConfigRepo {
     ]
 
     #registry = [
+        // {
+        //     name: 'Crate & Barrel',
+        //     url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
+        //     description:
+        //         'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
+        // },
         {
-            name: 'Crate & Barrel',
-            url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
-            description:
-                'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
-        },
+            name: 'Blueprint Registry',
+            url: 'https://www.blueprintregistry.com/registry/moon-wedding-registry',
+            description: 'a universal gift registry',
+        }
     ]
 
     #config: ConfigObject = {
@@ -30,9 +35,9 @@ class ConfigRepo {
         rsvpDate: '2023-08-08',
         weddingDate: '2023-10-08',
         canRsvp: false,
-        showPictures: false,
+        showPictures: true,
         saveTheDate: true,
-        showRegistry: false,
+        showRegistry: true,
         showEvents: false,
         showStory: false,
         showRsvp: true,

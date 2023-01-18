@@ -20,6 +20,8 @@ const svgPlugin = svg({
 
 /** @type {import('vite').UserConfig} */
 const config = {
+    ssr: { noExternal: ['svelte-image-gallery'] },
+
     optimizeDeps: {
         include: ['lodash.get', 'lodash.isequal', 'lodash.clonedeep'],
     },

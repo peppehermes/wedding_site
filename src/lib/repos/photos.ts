@@ -11,10 +11,38 @@ class PhotosRepo {
         // { name: '🌅 Winnetka - 2022', url: '/images/photos/007.jpg', order: 7 },
         // { name: '💍 - 2022', url: '/images/photos/008.jpg', order: 8 },
 
-        {name: 'engagement photos - 2022', url: '/images/photos/eng/01.jpg', order: 1},
-        {name: 'engagement photos - 2022', url: '/images/photos/eng/02.jpg', order: 2},
-        {name: 'engagement photos - 2022', url: '/images/photos/eng/03.jpg', order: 3},
-        {name: 'engagement photos - 2022', url: '/images/photos/eng/04.jpg', order: 4},
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/01.jpg',
+            thumbnail: '/images/photos/eng/01_thumb.jpg',
+            order: 1,
+            width: 1440,
+            height: 1800,
+        },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/02.jpg',
+            thumbnail: '/images/photos/eng/02_thumb.jpg',
+            order: 2,
+            width: 1440,
+            height: 1800,
+        },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/03.jpg',
+            thumbnail: '/images/photos/eng/03_thumb.jpg',
+            order: 3,
+            width: 1440,
+            height: 1800,
+        },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/04.jpg',
+            thumbnail: '/images/photos/eng/04_thumb.jpg',
+            order: 4,
+            width: 1440,
+            height: 1800,
+        },
     ]
 
     getPhotos = () => {

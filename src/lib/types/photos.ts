@@ -2,6 +2,9 @@ export type PhotoItem = {
     name: string
     url: string
     order: number
+    width: number
+    height: number
+    thumbnail: string
 }
 
 export type NotionPhotosResult = {

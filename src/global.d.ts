@@ -24,4 +24,4 @@ declare module '*.svg?url' {
 
 declare module 'parse-address'
 declare module 'lodash'
-declare module 'svelte-carousel'
+declare module 'svelte-image-gallery'
