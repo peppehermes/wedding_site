@@ -43,10 +43,44 @@ class PhotosRepo {
             width: 1440,
             height: 1800,
         },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/05.jpg',
+            thumbnail: '/images/photos/eng/05_thumb.jpg',
+            order: 7,
+            width: 1440,
+            height: 1800,
+        },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/06.jpg',
+            thumbnail: '/images/photos/eng/06_thumb.jpg',
+            order: 8,
+            width: 1440,
+            height: 1800,
+        },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/07.jpg',
+            thumbnail: '/images/photos/eng/07_thumb.jpg',
+            order: 5,
+            width: 1440,
+            height: 1800,
+        },
+        {
+            name: 'engagement photos - 2022',
+            url: '/images/photos/eng/08.jpg',
+            thumbnail: '/images/photos/eng/08_thumb.jpg',
+            order: 6,
+            width: 1440,
+            height: 1800,
+        },
     ]
 
     getPhotos = () => {
-        return this.#photos
+        return this.#photos.sort((a, b) => {
+            return a.order - b.order
+        })
     }
 }
 

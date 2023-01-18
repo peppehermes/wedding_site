@@ -20,9 +20,13 @@
 
 <label for="my-modal" />
 <div id="photos" class="bg-base-100 bg-opacity-12 py-12">
-    <Gallery on:click={handleClick} hover={true} loading={'lazy'} maxColumnWidth={150}>
+    <Gallery hover={true} loading={'lazy'} maxColumnWidth={150} on:click={handleClick}>
         {#each photos as p}
-            <img class="max-w-[100px] md:max-w-[180px]" src={p.url} alt={p.name} data-fullsize={p.url} />
+            <img
+                class="max-w-[100px] md:max-w-[180px]"
+                src={p.url}
+                alt={p.name}
+                data-fullsize={p.url} />
         {/each}
     </Gallery>
 </div>
@@ -30,7 +34,7 @@
 <input type="checkbox" id="my-modal" class="modal-toggle" checked={showModal} />
 <div class="modal">
     <div class="modal-box">
-        <img src="{modalImageUrl}" alt="lightbox">
+        <img src={modalImageUrl} alt="lightbox" />
         <div class="modal-action">
             <button
                 on:click={() => {
