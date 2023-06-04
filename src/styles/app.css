@@ -64,3 +64,7 @@ label {
         transform: scale(1);
     }
 }
+
+.body-text {
+    @apply mb-6 font-light text-center text-lg leading-10 max-w-prose mx-auto
+}

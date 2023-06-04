@@ -16,10 +16,17 @@
         modalImageUrl = e.detail.src
         console.log(e.detail.src)
     }
+
+    import { configRepo } from '$lib/repos/config'
+    let config = configRepo.getConfig()
 </script>
 
 <label for="my-modal" />
-<div id="photos" class="bg-base-100 bg-opacity-12 py-12">
+<div
+    id="photos"
+    class="bg-opacity-12 py-12"
+    class:bg-primary={config.showEvents}
+    class:bg-base-100={!config.showEvents}>
     <Gallery hover={true} loading={'lazy'} maxColumnWidth={150} on:click={handleClick}>
         {#each photos as p}
             <img

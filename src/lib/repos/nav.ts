@@ -39,6 +39,11 @@ class NavRepo {
             href: '#hotel',
             display: this.#config.showHotel,
         },
+        {
+            label: 'Dress Code',
+            href: '#dress',
+            display: this.#config.showDressCode,
+        },
     ]
 
     getNavItems = () => this.#allNavItems.filter((n) => n.display)

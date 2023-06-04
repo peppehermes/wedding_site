@@ -16,7 +16,7 @@
     })
 </script>
 
-<PageSection title="Events" ref="events" lg primary>
+<PageSection title="Events" ref="events" lg bordered primary={false}>
     <div class="grid grid-rows-4 md:grid-rows-2 grid-flow-col" id="events-container">
         {#each EVENTS as event, i}
             <div

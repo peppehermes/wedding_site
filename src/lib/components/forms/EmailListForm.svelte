@@ -19,9 +19,17 @@
     }
 
     $: disabled = emailListSubmitIsDisabled(name, email) || $loading
+
+    interface FormData {
+        name: string
+        email: string
+    }
 </script>
 
-<form class="w-full max-w-lg mx-auto" name="submit-email-to-google-sheet" method="POST">
+<form
+    class="w-full max-w-lg mx-auto"
+    name="submit-email-to-google-sheet"
+    method="POST">
     <div class="flex flex-wrap -mx-3 mb-4">
         <FormField bind:data={name} label="Name" fieldType="text" />
         <FormField bind:data={email} label="Email" fieldType="text" />

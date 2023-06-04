@@ -36,6 +36,7 @@ export type ConfigObject = {
     showRsvp: boolean
     showMap: boolean
     showHotel: boolean
+    showDressCode: boolean
     videoUrl: string
     venueMapsUrl: string
 }

@@ -14,17 +14,19 @@ class ConfigRepo {
     ]
 
     #registry = [
-        // {
-        //     name: 'Crate & Barrel',
-        //     url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
-        //     description:
-        //         'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
-        // },
+        {
+            name: 'Crate & Barrel',
+            url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
+            description:
+                'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
+            order: 2,
+        },
         {
             name: 'Blueprint Registry',
             url: 'https://www.blueprintregistry.com/registry/moon-wedding-registry',
             description: 'a universal gift registry',
-        }
+            order: 1,
+        },
     ]
 
     #config: ConfigObject = {
@@ -43,12 +45,13 @@ class ConfigRepo {
         showRsvp: true,
         showMap: true,
         showHotel: true,
+        showDressCode: false,
         videoUrl: '/video/venues.mp4',
         venueMapsUrl:
             'https://www.google.com/maps/place/Oak+Hill+Farm/@42.4889488,-90.1237249,17z/data=!3m1!4b1!4m5!3m4!1s0x87e2adb6f05b85ef:0x98e0a8a1ca4adea6!8m2!3d42.4889488!4d-90.1215362',
     }
 
-    #meals = ['N.Y. Strip', 'Stuffed Chicken Caprese', 'Atlantic Salmon', 'Vegetarian']
+    #meals = ['Beef', 'Salmon', 'Vegetarian']
 
     #guestMealsInitial = [
         { name: null, meal: null },
@@ -63,7 +66,7 @@ class ConfigRepo {
 
     getConfig = () => this.#config
     getLodging = () => this.#lodging
-    getRegistry = () => this.#registry
+    getRegistry = () => this.#registry.sort((a, b) => a.order - b.order)
     getMeals = () => this.#meals
     getInitialMeals = () => this.#guestMealsInitial
     getEvents = () => this.#events

@@ -29,14 +29,14 @@
         <FormField bind:data={numGuests} label="Guests" fieldType="number" />
     </div>
     <!-- transportation -->
-    <p class="text-center mb-6 text-black-60">
+    <!-- <p class="text-center mb-6 text-black-60">
         Please indicate if you intend to use the complimentary shuttle service between our wedding
         hotels and Oak Hill Farm. For more information,
         <label
             for={transportationModal}
             class="text-lavender-900 hover:text-raspberry cursor-pointer">click here</label
         >.
-    </p>
+    </p> -->
     <!-- guest meals -->
     {#if numGuests != undefined}
         <p class="text-center font-semibold font-serif text-lg mb-8">Your Party</p>

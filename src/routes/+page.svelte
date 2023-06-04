@@ -9,6 +9,7 @@
     import Registry from '$lib/components/sections/Registry.svelte'
     import Rsvp from '$lib/components/sections/Rsvp.svelte'
     import HotelInfo from '$lib/components/sections/HotelInfo.svelte'
+    import DressCode from '$lib/components/sections/DressCode.svelte'
 
     import { configRepo } from '$src/lib/repos/config'
 
@@ -41,6 +42,9 @@
 {/if}
 {#if config.showHotel}
     <HotelInfo />
+{/if}
+{#if config.showDressCode}
+    <DressCode />
 {/if}
 {#if config.showRsvp}
     <Rsvp />

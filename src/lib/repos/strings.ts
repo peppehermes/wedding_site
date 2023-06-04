@@ -5,7 +5,8 @@ class StringsRepo {
 
     #hotelInfo = {
         mapUrl: 'https://www.google.com/maps/place/9599+Skokie+Blvd,+Skokie,+IL+60077/@42.0546437,-87.7454935,17z/data=!3m1!4b1!4m5!3m4!1s0x880fcf7d3d9f0bff:0x153a30361b3aca37!8m2!3d42.0546437!4d-87.7454935',
-        webUrl: 'https://www.hilton.com/en/hotels/chiccdt-doubletree-chicago-north-shore-conference-center/',
+        // webUrl: 'https://www.hilton.com/en/hotels/chiccdt-doubletree-chicago-north-shore-conference-center/',
+        webUrl: 'http://hotel.joniandcory.wedding',
     }
 
     #rsvpTitles = {
@@ -44,10 +45,8 @@ class StringsRepo {
             name: 'Michigan Shores Club',
             address: '911 Michigan Ave, Wilmette, IL 60091',
             mapUrl: 'https://www.google.com/maps/place/Michigan+Shores+Club/@42.080159,-87.691314,15z/data=!4m2!3m1!1s0x0:0xc8fe43fbc76028da?sa=X&ved=2ahUKEwjisbSgoa77AhXzCTQIHSSKDS4Q_BJ6BAhsEAg',
-        }
+        },
     }
-
-
 
     getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'Stay Updated')
     getMapMessages = () => this.#mapMessages
