@@ -14,13 +14,25 @@ class ConfigRepo {
     ]
 
     #registry = [
-        {
-            name: 'Crate & Barrel',
-            url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
-            description:
-                'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
-            order: 2,
-        },
+        // {
+        //     name: 'Crate & Barrel',
+        //     url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
+        //     description:
+        //         'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
+        //     order: 2,
+        // },
+        // {
+        //     name: 'Amazon',
+        //     url: 'https://www.amazon.com/wedding/share/joniandcorymoon',
+        //     description: '',
+        //     order: 3,
+        // },
+        // {
+        //     name: 'Wedgewood',
+        //     url: 'https://www.myregistry.com/giftlist/joniandcorymoon',
+        //     description: '',
+        //     order: 4,
+        // },
         {
             name: 'Blueprint Registry',
             url: 'https://www.blueprintregistry.com/registry/moon-wedding-registry',
