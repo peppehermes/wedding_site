@@ -36,7 +36,13 @@ class ConfigRepo {
         {
             name: 'Blueprint Registry',
             url: 'https://www.blueprintregistry.com/registry/moon-wedding-registry',
-            description: 'a universal gift registry',
+            description: '',
+            order: 1,
+        },
+        {
+            name: 'Amazon Registry',
+            url: 'https://www.amazon.com/wedding/share/joniandcorymoon',
+            description: '',
             order: 1,
         },
     ]

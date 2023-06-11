@@ -21,7 +21,11 @@
         <ul>
             {#each providers as provider}
                 <li>
-                    <a href={provider.url}>{provider.name}</a> — {provider.description}
+                    {#if provider.description === ''}
+                        <a href={provider.url} target="_blank">{provider.name}</a>
+                    {:else}
+                        <a href={provider.url} target="_blank">{provider.name}</a> — {provider.description}
+                    {/if}
                 </li>
             {/each}
         </ul>

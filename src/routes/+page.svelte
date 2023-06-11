@@ -1,7 +1,7 @@
 <script lang="ts">
     import Navigation from '$lib/components/layout/Navigation.svelte'
     import Hero from '$lib/components/layout/Hero.svelte'
-    // import SaveTheDate from '$lib/components/sections/SaveTheDate.svelte'
+    import SaveTheDate from '$lib/components/sections/SaveTheDate.svelte'
     import OurStory from '$lib/components/sections/OurStory.svelte'
     import Events from '$lib/components/sections/Events.svelte'
     import Photos from '$lib/components/sections/Photos.svelte'
@@ -22,9 +22,9 @@
 
 <Navigation />
 <Hero />
-<!-- {#if config.saveTheDate}
+{#if config.saveTheDate}
     <SaveTheDate />
-{/if} -->
+{/if}
 {#if config.showStory}
     <OurStory />
 {/if}

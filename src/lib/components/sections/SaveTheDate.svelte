@@ -1,27 +1,16 @@
 <script lang="ts">
     import dayjs from 'dayjs'
-    import { CountUp } from 'countup.js'
-    import { onMount } from 'svelte'
     import PageSection from '$lib/components/layout/PageSection.svelte'
     import { stringsRepo } from '$src/lib/repos/strings'
     import { configRepo } from '$src/lib/repos/config'
 
     let saveTheDate = stringsRepo.getSaveTheDate()
     let config = configRepo.getConfig()
-    
+
     let weddingDay = dayjs(config.weddingDate)
     let today = dayjs()
     let diff = weddingDay.diff(today, 'days') + 1
     let dayDays = diff == 1 ? ' day' : ' days'
-
-    onMount(() => {
-        new CountUp('countup', diff, {
-            enableScrollSpy: true,
-            prefix: '...in ',
-            suffix: dayDays,
-            scrollSpyOnce: true,
-        })
-    })
 </script>
 
 <PageSection ref="save-the-date" lg bordered primary>
@@ -38,6 +27,6 @@
         <span>{saveTheDate.subtitle}</span>
     </div>
     <div class="text-center text-xl opacity-60">
-        <span id="countup" />
+        <span>...in </span> <span>{diff}</span> <span>{dayDays}</span>
     </div>
 </PageSection>
