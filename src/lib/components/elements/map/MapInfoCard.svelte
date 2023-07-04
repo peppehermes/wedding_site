@@ -25,13 +25,13 @@
             <button
                 class="btn btn-pink-lavender btn-sm"
                 on:click|preventDefault={() => window.open(venueInfo.ceremony.mapUrl, '_blank')}
-                >Ceremony</button
+                >Cerimonia</button
             ><button
                 class="btn btn-peach btn-sm"
                 on:click|preventDefault={() => window.open(venueInfo.reception.mapUrl, '_blank')}
-                >Reception</button>
+                >Ricevimento</button>
             <button class="btn btn-primary btn-sm" on:click|preventDefault={toggleMapOverlay}
-                >Show Map</button>
+                >Mostra Mappa</button>
         </div>
     </div>
 </div>

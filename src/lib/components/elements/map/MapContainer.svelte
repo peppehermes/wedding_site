@@ -21,9 +21,9 @@
     }
 
     let markers: { coords: Coordinate; icon: string }[] = [
-        { coords: { lat: 42.1082596, lng: -87.7337915 }, icon: '/ceremony-marker.png' },
-        { coords: { lat: 42.080159, lng: -87.691314 }, icon: '/reception-marker.png' },
-        { coords: { lat: 42.054381, lng: -87.7456764 }, icon: '/hotel-marker.png' },
+        { coords: { lat: 45.0973978, lng: 7.5476249 }, icon: '/ceremony-marker.png' },
+        { coords: { lat: 45.1609687, lng: 7.7566828 }, icon: '/reception-marker.png' },
+        // { coords: { lat: 45.0972442, lng: 7.543849 }, icon: '/hotel-marker.png' },
     ]
 
     let customMarkers = true
