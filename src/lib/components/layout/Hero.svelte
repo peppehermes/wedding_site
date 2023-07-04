@@ -38,10 +38,10 @@
             style={bgStyle}
             alt="Hero" />
         <div class="hero-content text-center text-neutral-content z-20">
-            <div class="max-w-md" bind:this={heroTextContainer}>
-                <h1 class="mb-5 text-5xl font-bold font-serif">Joni and Cory</h1>
+            <div class="max-w-lg" bind:this={heroTextContainer}>
+                <h1 class="mb-5 text-5xl font-bold font-serif">Valentina & Giuseppe</h1>
 
-                <p class="mb-5">October 8th, 2023 | Winnetka, IL</p>
+                <p class="mb-5">8 dicembre, 2023 | Pianezza, TO</p>
             </div>
         </div>
     </div>

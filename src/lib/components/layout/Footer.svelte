@@ -15,12 +15,12 @@
             </button>
         </p>
         <p class="font-light text-lg py-10">
-            <span class="inline-block">Crafted by Cory with lots of</span>
+            <span class="inline-block">Crafted by Peppe with lots of</span>
             <HeartIcon class="inline-block pulse w-6 fill-raspberry-800" />
-            <span class="inline-block">for Joni</span><br />
+            <span class="inline-block">for Vale</span><br />
 
-            <span class="inline-block pt-2"
-                >Photos by <a href="http://conniemarina.com/" class="text-lavernder-900 underline">Connie Marina</a></span>
+            <!-- <span class="inline-block pt-2"
+                >Photos by <a href="http://conniemarina.com/" class="text-lavernder-900 underline">Connie Marina</a></span> -->
         </p>
     </div>
 </footer>

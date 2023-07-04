@@ -10,23 +10,23 @@ class StringsRepo {
     }
 
     #rsvpTitles = {
-        canRsvp: 'What are you waiting for?',
-        canNotRsvp: 'You can RSVP here',
+        canRsvp: 'Cosa aspetti?',
+        canNotRsvp: 'Puoi dare conferma di partecipazione qui',
     }
 
     #mapMessages = {
-        title: 'How do I get there?',
-        subtitle: "It's way easier than you think!",
+        title: 'Come si arriva?',
+        subtitle: "È più facile di quanto si pensi!",
     }
 
     #toastMessages = {
         email: {
-            success: "Thanks! We'll keep you updated!",
-            failure: 'Hmm... Something went wrong. Try again later.',
+            success: "Grazie! Ti terremo aggiornato!",
+            failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
         },
         rsvp: {
-            success: "Thanks! We've recieved your RSVP information.",
-            failure: 'Hmm... Something went wrong. Try again later.',
+            success: "Grazie! Abbiamo ricevuto la tua conferma di partecipazione.",
+            failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
         },
     }
 
@@ -37,14 +37,14 @@ class StringsRepo {
 
     #venueInfo = {
         ceremony: {
-            name: 'Community House Winnetka',
-            address: '620 Lincoln Ave, Winnetka, IL 60093',
-            mapUrl: 'https://www.google.com/maps/place/Community+House+Winnetka/@42.1082596,-87.7337915,15z/data=!4m5!3m4!1s0x0:0xd4f3e8c2892a134a!8m2!3d42.1082596!4d-87.7337915',
+            name: 'Chiesa SS. Pietro & Paolo',
+            address: 'Piazza SS. Pietro e Paolo, 10044 Pianezza TO',
+            mapUrl: 'https://goo.gl/maps/8pbTxvdBocVvx4GJ8',
         },
         reception: {
-            name: 'Michigan Shores Club',
-            address: '911 Michigan Ave, Wilmette, IL 60091',
-            mapUrl: 'https://www.google.com/maps/place/Michigan+Shores+Club/@42.080159,-87.691314,15z/data=!4m2!3m1!1s0x0:0xc8fe43fbc76028da?sa=X&ved=2ahUKEwjisbSgoa77AhXzCTQIHSSKDS4Q_BJ6BAhsEAg',
+            name: "L'Ultimo Borgo",
+            address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
+            mapUrl: 'https://goo.gl/maps/9YYU6uay1H9jZsvm8',
         },
     }
 

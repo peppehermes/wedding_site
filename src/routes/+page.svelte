@@ -17,7 +17,7 @@
 </script>
 
 <svelte:head>
-    <title>Joni & Cory are getting married!</title>
+    <title>Vale & Peppe Sposi</title>
 </svelte:head>
 
 <Navigation />

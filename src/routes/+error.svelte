@@ -4,8 +4,8 @@
 
     $: titleText =
         $page.status === 404
-            ? `${$page.status} - Not found | joniandcory.wedding`
-            : `${$page.status} - Error | joniandcory.wedding`
+            ? `${$page.status} - Not found | valepeppesposi.com`
+            : `${$page.status} - Error | valepeppesposi.com`
 </script>
 
 <svelte:head>

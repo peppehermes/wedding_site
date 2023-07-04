@@ -3,11 +3,11 @@ import type { ConfigObject } from '$lib/types'
 class ConfigRepo {
     #lodging = [
         {
-            name: 'DoubleTree by Hilton',
-            map: 'https://goo.gl/maps/PKECx8u35oz6rdDGA',
-            phone: '+18476797000',
-            web: 'https://www.hilton.com/en/hotels/chiccdt-doubletree-chicago-north-shore-conference-center/?SEO_id=GMB-AMER-DH-CHICCDT&y_source=1_MTM3MjYwMS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D',
-            address: '9599 Skokie Blvd, Skokie, IL 60077',
+            name: 'Villa Lascaris',
+            map: 'https://goo.gl/maps/KAwkyBvBqMjtHp2v5',
+            phone: '0119676145',
+            web: 'http://villalascaris.it/',
+            address: 'Via Lascaris, 4, 10044 Pianezza TO',
             refName: 'Moon Wedding (code WMR)',
             until: 'August 1, 2023',
         },
@@ -48,15 +48,15 @@ class ConfigRepo {
     ]
 
     #config: ConfigObject = {
-        venueAddress: '911 Michigan Ave, Wilmette, IL 60091',
-        venueName: 'Michigan Shores Club',
-        groom: 'Cory',
-        bride: 'Joni',
-        rsvpDate: '2023-08-08',
-        weddingDate: '2023-10-08',
-        canRsvp: false,
+        venueAddress: 'Str. della Cebrosa, 166, 10036 Settimo Torinese TO',
+        venueName: "L'Ultimo Borgo",
+        groom: 'Giuseppe',
+        bride: 'Valentina',
+        rsvpDate: '2023-10-31',
+        weddingDate: '2023-12-08',
+        canRsvp: true,
         showPictures: true,
-        saveTheDate: true,
+        saveTheDate: false,
         showRegistry: true,
         showEvents: false,
         showStory: false,
@@ -66,7 +66,7 @@ class ConfigRepo {
         showDressCode: false,
         videoUrl: '/video/venues.mp4',
         venueMapsUrl:
-            'https://www.google.com/maps/place/Oak+Hill+Farm/@42.4889488,-90.1237249,17z/data=!3m1!4b1!4m5!3m4!1s0x87e2adb6f05b85ef:0x98e0a8a1ca4adea6!8m2!3d42.4889488!4d-90.1215362',
+            "https://www.google.com/maps/embed/v1/place?q=L'Ultimo+Borgo,+Strada+della+Cebrosa,+Settimo+Torinese,+TO,+Italia&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8",
     }
 
     #meals = ['Beef', 'Salmon', 'Vegetarian']

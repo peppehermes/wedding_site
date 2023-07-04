@@ -7,35 +7,35 @@ class NavRepo {
     #allNavItems: NavItem[] = [
         // our story
         {
-            label: 'Our Story',
+            label: 'La Nostra Storia',
             href: '#our-story',
             display: this.#config.showStory,
         },
         // events
         {
-            label: 'Events',
+            label: 'Eventi',
             href: '#events',
             display: this.#config.showEvents,
         },
         // photos
         {
-            label: 'Photos',
+            label: 'Foto',
             href: '#photos',
             display: this.#config.showPictures,
         },
         // registry
         {
-            label: 'Registry',
+            label: 'Regali',
             href: '#registry',
             display: this.#config.showRegistry,
         },
         {
-            label: 'Venue',
+            label: 'Cerimonia',
             href: '#venue',
             display: this.#config.showMap,
         },
         {
-            label: 'Accommodations',
+            label: 'Alloggi',
             href: '#hotel',
             display: this.#config.showHotel,
         },
