@@ -23,12 +23,6 @@ class NavRepo {
             href: '#photos',
             display: this.#config.showPictures,
         },
-        // registry
-        {
-            label: 'Regali',
-            href: '#registry',
-            display: this.#config.showRegistry,
-        },
         {
             label: 'Cerimonia',
             href: '#venue',
@@ -38,6 +32,12 @@ class NavRepo {
             label: 'Alloggi',
             href: '#hotel',
             display: this.#config.showHotel,
+        },
+        // registry
+        {
+            label: 'Regali',
+            href: '#registry',
+            display: this.#config.showRegistry,
         },
         {
             label: 'Dress Code',

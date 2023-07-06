@@ -37,14 +37,14 @@
 {#if config.showMap}
     <Venue />
 {/if}
-{#if config.showRegistry}
-    <Registry />
-{/if}
 {#if config.showHotel}
     <HotelInfo />
 {/if}
 {#if config.showDressCode}
     <DressCode />
+{/if}
+{#if config.showRegistry}
+    <Registry />
 {/if}
 {#if config.showRsvp}
     <Rsvp />
