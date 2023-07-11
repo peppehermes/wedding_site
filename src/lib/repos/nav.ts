@@ -23,22 +23,25 @@ class NavRepo {
             href: '#photos',
             display: this.#config.showPictures,
         },
+        // cerimonia
         {
             label: 'Cerimonia',
             href: '#venue',
             display: this.#config.showMap,
         },
+        // hotel
         {
-            label: 'Alloggi',
+            label: 'Hotel',
             href: '#hotel',
             display: this.#config.showHotel,
         },
-        // registry
+        // regali
         {
-            label: 'Regali',
+            label: 'Idee Regalo',
             href: '#registry',
             display: this.#config.showRegistry,
         },
+        // dress code
         {
             label: 'Dress Code',
             href: '#dress',

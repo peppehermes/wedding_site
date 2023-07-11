@@ -4,42 +4,48 @@
     import { configRepo } from '$src/lib/repos/config'
     import { stringsRepo } from '$src/lib/repos/strings'
 
-    let hotelInfo = stringsRepo.getHotelInfo()
+    let hotelInfo = configRepo.getHotelInfo()
     let config = configRepo.getConfig()
 </script>
 
 <PageSection
-    title="Accommodations for Guests"
+    title="Sistemazioni per gli ospiti"
     ref="hotel"
     lg
-    bordered={!config.showDressCode}
-    primary={!config.showDressCode}>
+    bordered={!config.showRegistry}
+    primary={!config.showRegistry}>
     <div class="max-w-prose mx-auto">
         <p class="body-text">
-            For your comfort and convenience, a special group rate has been arranged with DoubleTree
-            by Hilton in Skokie, IL. Please visit the link below to make your reservation.
+            Per la vostra comodità e convenienza, sono state concordate delle tariffe speciali
+            con alcuni hotel e con il locale in cui festeggeremo, L'Ultimo Borgo.
+            <br/>
+            Visitate i link sottostanti per effettuare la vostra prenotazione.
         </p>
-        <p class="body-text">Wedding Rate: 2 Queen Beds or 1 King Bed $209/night</p>
-        <h2 class="card-title justify-center">DoubleTree by Hilton</h2>
-        <p class="pb-4 text-black-60 text-center">
-            {@html venueDisplayAddress('9599 Skokie Blvd, Skokie, IL 60077')}
-        </p>
-        <p class="body-text">
-            <a
-                href={hotelInfo.mapUrl}
-                target="_blank"
-                rel="noreferrer"
-                class="btn btn-pink-lavender btn-sm mx-1 my-2">Map</a>
-            <a
-                href="tel:18002228733"
-                target="_blank"
-                rel="noreferrer"
-                class="btn btn-peach btn-sm mx-1 my-2">Phone</a>
-        </p>
-        <!-- </p> -->
-        <p class="body-text">
-            <a class="hotel-link" href={hotelInfo.webUrl}>Click here to book a room</a>
-        </p>
+
+        {#each hotelInfo as hotel}
+            
+            <p class="body-text">Tariffa {hotel.name}: Camera Doppia a €{hotel.cost}/notte</p>
+            <h2 class="card-title justify-center">{hotel.name}</h2>
+            <p class="pb-4 text-black-60 text-center">
+                {@html venueDisplayAddress(hotel.address)}
+            </p>
+            <p class="body-text">
+                <a
+                    href={hotel.map}
+                    target="_blank"
+                    rel="noreferrer"
+                    class="btn btn-peach btn-sm mx-1 my-2">Maps</a>
+                <a
+                    href="tel:{hotel.phone}"
+                    target="_blank"
+                    rel="noreferrer"
+                    class="btn btn-raspberry btn-sm mx-1 my-2">Tel</a>
+            </p>
+            <p class="body-text">
+                <a class="hotel-link" href={hotel.web}>Clicca qui per prenotare presso {hotel.name}</a>
+            </p>
+
+        {/each}
     </div>
 </PageSection>
 

@@ -4,8 +4,8 @@
     export let fadeInOptions: Record<string, number>
     export let fadeOutOptions: Record<string, number>
     import { toggleMapOverlay } from '$lib/stores/mapOverlay'
-    import { stringsRepo } from '$src/lib/repos/strings'
-    const venueInfo = stringsRepo.getVenueInfo()
+    import { configRepo } from '$src/lib/repos/config'
+    const venueInfo = configRepo.getVenueInfo()
 </script>
 
 <div

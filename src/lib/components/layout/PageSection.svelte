@@ -44,7 +44,6 @@
     class:md:px-39={lg}
     class:lg:py-24={lg}
     class:lg:px-72={lg}
-    class:text-primary-content={primary || (!peach && !eucalyptus && !raspberry && !periwinkle)}
     class:text-warning-content={peach}
     class:text-error-content={raspberry}
     class:text-success-content={eucalyptus}

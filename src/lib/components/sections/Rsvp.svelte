@@ -15,16 +15,15 @@
     <div class="mb-8 font-light text-center rsvp-info">
         {#if config.canRsvp}
             <p>
-                We would greatly appreciate if you could RSVP before 8th of August '23
+                È gradita conferma entro il 31 ottobre 2023
             </p>
         {:else}
             <p>
-                ...but not yet. Once we send formal invitations, you'll be to provide us your
-                details here.
+                ...Ma non ancora. Una volta che invieremo le partecipazioni, potrai fornirci tutti i dettagli.
             </p>
             <p>
-                If you want to recieve updates about when to RSVP, transportation, lodging, etc,
-                please fill out the form below.
+                Se vuoi ricevere aggiornamenti riguardo RSVP, hotel, cerimonia ecc.
+                puoi compilare il form qui sotto.
             </p>
         {/if}
     </div>

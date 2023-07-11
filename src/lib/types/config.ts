@@ -37,8 +37,8 @@ export type ConfigObject = {
     showMap: boolean
     showHotel: boolean
     showDressCode: boolean
-    videoUrl: string
-    venueMapsUrl: string
+    videoUrl: string,
+    heroUrl: string
 }
 
 export type NotionVideoResult = {

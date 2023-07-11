@@ -1,8 +1,9 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import { getCityState } from '$lib/utils'
     import { stringsRepo } from '$src/lib/repos/strings'
-    const venueInfo = stringsRepo.getVenueInfo()
+    import { configRepo } from '$src/lib/repos/config'
+    const venueInfo = configRepo.getVenueInfo()
+    const videoUrl = configRepo.getConfig().videoUrl
 
     export let ref: string
     let heroVideo: HTMLVideoElement
@@ -11,25 +12,25 @@
         heroVideo.loop = true
     })
 
-    const venueTypeClasses = 'uppercase font-thin tracking-[12px] opacity-75'
+    const venueTypeClasses = 'uppercase font-light tracking-[12px] opacity-85'
 </script>
 
 <section class="showcase max-h-[500px] md:max-h-[600px] lg:max-h-[80vh]" id={ref}>
     <div class="video-container">
-        <video src="/video/venues.mp4" autoplay muted playsinline bind:this={heroVideo} />
+        <video src={videoUrl} autoplay muted playsinline bind:this={heroVideo} />
     </div>
     <div class="content hero text-white bg-eucalyptus-900/40">
         <div class="hero-content text-center">
             <div class="max-w-md">
                 <p class={venueTypeClasses}>Cerimonia</p>
-                <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
+                <h4 class="text-4xl font-light text-white-80 font-serif mb-3">
                     {venueInfo.ceremony.name}
                 </h4>
                 <p class="font-thin text-lg text-white-90 mb-6">
                     {venueInfo.ceremony.address}
                 </p>
                 <p class={venueTypeClasses}>Ricevimento</p>
-                <h4 class="text-4xl font-light text-white-70 font-serif mb-3">
+                <h4 class="text-4xl font-light text-white-80 font-serif mb-3">
                     {venueInfo.reception.name}
                 </h4>
                 <p class="font-thin text-lg text-white-90">

@@ -1,48 +1,52 @@
 import type { ConfigObject } from '$lib/types'
 
 class ConfigRepo {
-    #lodging = [
+    #hotel = [
+        {
+            name: 'Hotel Gallia',
+            map: 'https://www.google.com/maps/place/Hotel+Gallia+-+Centro+Congressi/@45.0958405,7.5654817,17z/data=!3m1!4b1!4m9!3m8!1s0x47886a4d5fde1547:0x46010a0a497db40b!5m2!4m1!1i2!8m2!3d45.0958405!4d7.5654817!16s%2Fg%2F1tf7r03z?entry=ttu',
+            phone: '0119943673',
+            web: 'https://www.galliahotel.it/',
+            address: 'Via Torino 29/A, 10044 Pianezza TO',
+            cost: 60
+        },
+        {
+            name: "L'Ultimo Borgo",
+            map: "https://www.google.com/maps/place/L'Ultimo+Borgo/@45.1609687,7.7566828,17z/data=!3m1!4b1!4m9!3m8!1s0x478871f3036d1883:0x74aa78614f3bc212!5m2!4m1!1i2!8m2!3d45.1609687!4d7.7566828!16s%2Fg%2F1tkv8nfk?entry=ttu",
+            phone: '0118975846',
+            web: 'https://golfsettimo.it/',
+            address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
+            cost: 50
+        },
         {
             name: 'Villa Lascaris',
             map: 'https://goo.gl/maps/KAwkyBvBqMjtHp2v5',
             phone: '0119676145',
             web: 'http://villalascaris.it/',
-            address: 'Via Lascaris, 4, 10044 Pianezza TO',
-            refName: 'Moon Wedding (code WMR)',
-            until: 'August 1, 2023',
+            address: 'Via Lascaris 4, 10044 Pianezza TO',
+            cost: 50
         },
     ]
 
-    #registry = [
-        // {
-        //     name: 'Crate & Barrel',
-        //     url: 'https://www.crateandbarrel.com/gift-registry/cory-moon-and-joni-meeder/r6614947',
-        //     description:
-        //         'Home essentials such as modern furniture, small kitchen appliances & dinnerware',
-        //     order: 2,
-        // },
-        // {
-        //     name: 'Amazon',
-        //     url: 'https://www.amazon.com/wedding/share/joniandcorymoon',
-        //     description: '',
-        //     order: 3,
-        // },
-        // {
-        //     name: 'Wedgewood',
-        //     url: 'https://www.myregistry.com/giftlist/joniandcorymoon',
-        //     description: '',
-        //     order: 4,
-        // },
-        {
-            name: 'Blueprint Registry',
-            url: 'https://www.blueprintregistry.com/registry/moon-wedding-registry',
-            description: '',
-            order: 1,
+    #venueInfo = {
+        ceremony: {
+            name: 'Chiesa SS. Pietro & Paolo',
+            address: 'Piazza SS. Pietro e Paolo, 10044 Pianezza TO',
+            mapUrl: 'https://goo.gl/maps/8pbTxvdBocVvx4GJ8',
         },
+        reception: {
+            name: "L'Ultimo Borgo",
+            address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
+            mapUrl: 'https://goo.gl/maps/9YYU6uay1H9jZsvm8',
+            tel: '0118975846'
+        },
+    }
+
+    #registry = [
         {
-            name: 'Amazon Registry',
-            url: 'https://www.amazon.com/wedding/share/joniandcorymoon',
-            description: '',
+            name: 'IT92W0306930410100000091380',
+            url: 'https://tenor.com/it/view/domo-arigato-ladybug-brad-pitt-bullet-train-thank-you-gif-25179225',
+            description: 'Giuseppe Mercurio,  Valentina Marangon',
             order: 1,
         },
     ]
@@ -54,7 +58,7 @@ class ConfigRepo {
         bride: 'Valentina',
         rsvpDate: '2023-10-31',
         weddingDate: '2023-12-08',
-        canRsvp: true,
+        canRsvp: false,
         showPictures: true,
         saveTheDate: false,
         showRegistry: true,
@@ -65,8 +69,7 @@ class ConfigRepo {
         showHotel: true,
         showDressCode: false,
         videoUrl: '/video/venues.mp4',
-        venueMapsUrl:
-            "https://www.google.com/maps/embed/v1/place?q=L'Ultimo+Borgo,+Strada+della+Cebrosa,+Settimo+Torinese,+TO,+Italia&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8",
+        heroUrl: '/header/hero.jpg'
     }
 
     #meals = ['Beef', 'Salmon', 'Vegetarian']
@@ -83,11 +86,13 @@ class ConfigRepo {
     #events = []
 
     getConfig = () => this.#config
-    getLodging = () => this.#lodging
+    getHotel = () => this.#hotel
     getRegistry = () => this.#registry.sort((a, b) => a.order - b.order)
     getMeals = () => this.#meals
     getInitialMeals = () => this.#guestMealsInitial
     getEvents = () => this.#events
+    getVenueInfo = () => this.#venueInfo
+    getHotelInfo = () => this.#hotel
 }
 
 export const configRepo = new ConfigRepo()

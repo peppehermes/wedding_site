@@ -113,6 +113,29 @@ const colors = {
         800: '#f0ece5',
         900: '#eee8e0',
     },
+    crail: {
+        100: '#faeae9',
+        200: '#f6d5d5',
+        300: '#eeb3b3',
+        400: '#e48889',
+        500: '#d65d63',
+        600: '#c2414d',
+        700: '#a12f3d',
+        DEFAULT: '#872a38',
+        900: '#742735',
+    },
+    stromboli: {
+        100: '#dfece1',
+        200: '#c1d9c7',
+        300: '#98bda3',
+        400: '#6b9c7c',
+        500: '#4b7e5e',
+        600: '#386349',
+        DEFAULT: '#305640',
+        800: '#254030',
+        900: '#1f3529',
+    },
+    
 }
 
 const makeOpacity = () => {
@@ -142,7 +165,7 @@ module.exports = {
         themes: [
             {
                 mytheme: {
-                    primary: colors.lavender.DEFAULT,
+                    primary: colors.crail.DEFAULT,
                     secondary: colors['pink-lavender'].DEFAULT,
                     accent: colors['soft-orange'].DEFAULT,
                     neutral: colors.ivory.DEFAULT,

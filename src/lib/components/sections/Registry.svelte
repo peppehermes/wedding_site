@@ -7,16 +7,18 @@
 </script>
 
 <PageSection
-    title="Registry"
+    title="Idee Regalo"
     ref="registry"
     lg
-    bordered={config.showDressCode}
-    primary={config.showDressCode}>
+    bordered={config.showRsvp}
+    primary={config.showRsvp}>
     <div class="registry-content">
         <p class="body-text">
-            We are thrilled that you are coming to celebrate with us — and that's the best gift of
-            all! But, if you feel like you would like to help us spruce up our place or contribute
-            to our honeymoon, we've registered with the following:
+            Siamo entusiasti di avervi insieme a noi per celebrare il nostro giorno più importante,
+            e questo è già il più bel regalo che possiate farci!
+            <br/>
+            Ma se voleste contribuire alla nostra futura vita insieme o alla nostra luna di miele (il Giappone ci aspetta!) potete
+            farlo al seguente IBAN
         </p>
         <ul>
             {#each providers as provider}
@@ -40,6 +42,6 @@
         @apply leading-8 font-light;
     }
     .registry-content ul li a {
-        @apply font-normal text-lavender-900 hover:text-raspberry-600;
+        @apply font-normal text-crail-500 hover:text-crail-900;
     }
 </style>
