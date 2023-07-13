@@ -6,6 +6,7 @@
     import { handleEmailListSubmit } from './handlers'
     import { loading } from '$lib/stores/loading'
     import { stringsRepo } from '$src/lib/repos/strings'
+    import { enhance } from '$app/forms';
 
     const emailListLabels = stringsRepo.getEmailListLabels()
 
@@ -29,7 +30,7 @@
     }
 </script>
 
-<form
+<form use:enhance={click}
     class="w-full max-w-lg mx-auto"
     name="submit-email-to-google-sheet"
     method="POST">

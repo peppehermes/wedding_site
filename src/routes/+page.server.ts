@@ -3,10 +3,9 @@ import { rsvpRepo } from '$lib/repos/rsvp'
 import { stringsRepo } from '$src/lib/repos/strings'
 import type { Actions } from './$types'
 
-const emailListLabels = stringsRepo.getEmailListLabels()
-
 export const actions: Actions = {
     default: async ({ request }) => {
+        const emailListLabels = stringsRepo.getEmailListLabels()
         const config = configRepo.getConfig()
         const data = await request.formData()
 

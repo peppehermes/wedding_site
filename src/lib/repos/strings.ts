@@ -34,6 +34,13 @@ class StringsRepo {
         emailLabel: 'Email',
     }
 
+    #rsvpLabels = {
+        nameLabel: this.#emailListLabels.nameLabel,
+        emailLabel: this.#emailListLabels.emailLabel,
+        phoneLabel: 'Tel',
+        guestsLabel: 'Partecipanti',
+    }
+
 
     getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'Stay Updated')
     getMapMessages = () => this.#mapMessages
@@ -41,6 +48,7 @@ class StringsRepo {
     getToastMessages = () => this.#toastMessages
     getSaveTheDate = () => this.#saveTheDate
     getEmailListLabels = () => this.#emailListLabels
+    getRsvpLabels = () => this.#rsvpLabels
 }
 
 export const stringsRepo = new StringsRepo()

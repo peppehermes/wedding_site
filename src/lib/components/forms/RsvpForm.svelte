@@ -6,6 +6,9 @@
     import { rsvpSubmitIsDisabled } from '$lib/utils'
     import { loading } from '$lib/stores/loading'
     import { configRepo } from '$src/lib/repos/config'
+    import { stringsRepo } from '$src/lib/repos/strings'
+
+    const rsvpLabels = stringsRepo.getRsvpLabels()
 
     let name: string = ''
     let email: string = ''
@@ -21,12 +24,12 @@
 
 <form class="w-full max-w-lg mx-auto" name="submit-rsvp-to-google-sheet" method="POST">
     <div class="flex flex-wrap -mx-3 mb-4">
-        <FormField bind:data={name} label="Name" fieldType="text" />
-        <FormField bind:data={email} label="Email" fieldType="text" />
+        <FormField bind:data={name} label={rsvpLabels.nameLabel} fieldType="text" />
+        <FormField bind:data={email} label={rsvpLabels.emailLabel} fieldType="text" />
     </div>
     <div class="flex flex-wrap -mx-3 mb-4">
-        <FormField bind:data={phone} label="Phone" fieldType="text" />
-        <FormField bind:data={numGuests} label="Guests" fieldType="number" />
+        <FormField bind:data={phone} label={rsvpLabels.phoneLabel} fieldType="text" />
+        <FormField bind:data={numGuests} label={rsvpLabels.guestsLabel} fieldType="number" />
     </div>
     <!-- transportation -->
     <!-- <p class="text-center mb-6 text-black-60">
