@@ -58,7 +58,7 @@ class ConfigRepo {
         bride: 'Valentina',
         rsvpDate: '2023-10-31',
         weddingDate: '2023-12-08',
-        canRsvp: false,
+        canRsvp: true,
         showPictures: true,
         saveTheDate: false,
         showRegistry: true,
@@ -72,7 +72,7 @@ class ConfigRepo {
         heroUrl: '/header/hero.jpg'
     }
 
-    #meals = ['Beef', 'Salmon', 'Vegetarian']
+    #meals = ['Carne', 'Vegetariano', 'Senza Glutine']
 
     #guestMealsInitial = [
         { name: null, meal: null },

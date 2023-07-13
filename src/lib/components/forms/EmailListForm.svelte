@@ -8,7 +8,6 @@
     import { stringsRepo } from '$src/lib/repos/strings'
     import { enhance } from '$app/forms';
     import toast from 'svelte-french-toast'
-    import { text } from '@sveltejs/kit'
 
     const toastMessages = stringsRepo.getToastMessages()
 

@@ -5,7 +5,7 @@
 </script>
 
 <button
-    class="btn btn-success w-full text-white"
+    class="btn btn-primary w-full text-white"
     class:loading
     {disabled}>
     {label}

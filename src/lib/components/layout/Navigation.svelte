@@ -2,7 +2,9 @@
     import { scrollIntoView, scrollToTop } from '$lib/utils'
     import MenuIcon from '$lib/icons/menu.svg'
     import MoonIcon from '$lib/icons/moon.svg'
+    import MoonBgIcon from '$lib/icons/moon-bg.svg'
     import ToTopIcon from '$lib/icons/to-top.svg'
+    import HeartIcon from '$lib/icons/heart.svg'
     import { navRepo } from '$src/lib/repos/nav'
     import { stringsRepo } from '$src/lib/repos/strings'
     import { configRepo } from '$src/lib/repos/config'
@@ -59,7 +61,7 @@
         <a
             class="btn btn-ghost btn-circle rounded-full opacity-70"
             on:click|preventDefault={scrollToTop}>
-            <ToTopIcon class="w-8" />
+            <MoonIcon class="w-8" />
         </a>
     </div>
     <div class="navbar-center hidden lg:flex">

@@ -37,18 +37,25 @@ class StringsRepo {
     #rsvpLabels = {
         nameLabel: this.#emailListLabels.nameLabel,
         emailLabel: this.#emailListLabels.emailLabel,
-        phoneLabel: 'Tel',
-        guestsLabel: 'Partecipanti',
+        phoneLabel: 'Telefono',
+        guestsLabel: 'Ospiti',
+    }
+
+    #guestLabels = {
+        partyLabel: "Il tuo gruppo",
+        guestLabel: "Nome ospite",
+        menuLabel: "Menu ospite",
     }
 
 
-    getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'Stay Updated')
+    getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'STAY TUNED')
     getMapMessages = () => this.#mapMessages
     getRsvpTitles = () => this.#rsvpTitles
     getToastMessages = () => this.#toastMessages
     getSaveTheDate = () => this.#saveTheDate
     getEmailListLabels = () => this.#emailListLabels
     getRsvpLabels = () => this.#rsvpLabels
+    getGuestLabels = () => this.#guestLabels
 }
 
 export const stringsRepo = new StringsRepo()
