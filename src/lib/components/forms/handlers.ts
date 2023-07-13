@@ -62,20 +62,20 @@ export const handleRsvpSubmit = async (data: RsvpData) => {
 
 export const handleEmailListSubmit = async (name: string, email: string) => {
     loading.set(true)
-    await fetch('/', {
+    const response = await fetch('/', {
         method: 'POST',
         body: JSON.stringify({ name: name, email: email }),
         headers: {
             'Content-Type': 'application/json',
         },
     })
-        .then(() => {
-            toast.success(toastMessages.email.success, { ...toastOptions, ...successIconTheme })
-            loading.set(false)
-        })
-        .catch((err) => {
-            console.error('Error!', err.message)
-            toast.error(toastMessages.email.failure, { ...toastOptions, ...errorIconTheme })
-            loading.set(false)
-        })
+
+    if (response.ok) {
+        toast.success(toastMessages.email.success, { ...toastOptions, ...successIconTheme })
+        loading.set(false)
+    } else {
+        console.error('Error!', response.statusText)
+        toast.error(toastMessages.email.failure, { ...toastOptions, ...errorIconTheme })
+        loading.set(false)
+    }
 }
