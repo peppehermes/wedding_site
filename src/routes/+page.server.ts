@@ -1,14 +1,17 @@
 import { configRepo } from '$lib/repos/config'
 import { rsvpRepo } from '$lib/repos/rsvp'
+import { stringsRepo } from '$src/lib/repos/strings'
 import type { Actions } from './$types'
+
+const emailListLabels = stringsRepo.getEmailListLabels()
 
 export const actions: Actions = {
     default: async ({ request }) => {
         const config = configRepo.getConfig()
         const data = await request.formData()
 
-        const name = data.get('Name') as string
-        const email = data.get('Email') as string
+        const name = data.get(emailListLabels.nameLabel) as string
+        const email = data.get(emailListLabels.emailLabel) as string
 
         if (config.canRsvp) {
             const res = await rsvpRepo.addToRsvpList(data)

@@ -5,6 +5,9 @@
     import { emailListSubmitIsDisabled } from '$lib/utils'
     import { handleEmailListSubmit } from './handlers'
     import { loading } from '$lib/stores/loading'
+    import { stringsRepo } from '$src/lib/repos/strings'
+
+    const emailListLabels = stringsRepo.getEmailListLabels()
 
     let name: string = ''
     let email: string = ''
@@ -31,8 +34,8 @@
     name="submit-email-to-google-sheet"
     method="POST">
     <div class="flex flex-wrap -mx-3 mb-4">
-        <FormField bind:data={name} label="Name" fieldType="text" />
-        <FormField bind:data={email} label="Email" fieldType="text" />
+        <FormField bind:data={name} label={emailListLabels.nameLabel} fieldType="text" />
+        <FormField bind:data={email} label={emailListLabels.emailLabel} fieldType="text" />
     </div>
     <FormButton loading={$loading} {disabled} />
 </form>

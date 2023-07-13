@@ -29,6 +29,10 @@ class StringsRepo {
         subtitle: 'We are getting married',
     }
 
+    #emailListLabels = {
+        nameLabel: 'Nome',
+        emailLabel: 'Email',
+    }
 
 
     getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'Stay Updated')
@@ -36,6 +40,7 @@ class StringsRepo {
     getRsvpTitles = () => this.#rsvpTitles
     getToastMessages = () => this.#toastMessages
     getSaveTheDate = () => this.#saveTheDate
+    getEmailListLabels = () => this.#emailListLabels
 }
 
 export const stringsRepo = new StringsRepo()
