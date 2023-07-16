@@ -13,8 +13,16 @@ export const actions: Actions = {
         const email = data.get(emailListLabels.emailLabel) as string
 
         if (config.canRsvp) {
-            const res = await rsvpRepo.addToRsvpList(data)
-            return res
+            const rsvpLabels = stringsRepo.getRsvpLabels()
+            const phone = data.get(rsvpLabels.phoneLabel) as string
+            const numGuests = parseInt(data.get(rsvpLabels.guestsLabel) as string)
+
+            const res = await rsvpRepo.addToRsvpList(name, email, phone, numGuests)
+            if (res.object !== 'page') {
+                return {
+                    status: 200,
+                }
+            }
         } else {
             const res = await rsvpRepo.addToEmailList(name, email)
             if (res.object !== 'page') {

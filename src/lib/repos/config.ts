@@ -58,7 +58,7 @@ class ConfigRepo {
         bride: 'Valentina',
         rsvpDate: '2023-10-31',
         weddingDate: '2023-12-08',
-        canRsvp: true,
+        canRsvp: false,
         showPictures: true,
         saveTheDate: false,
         showRegistry: true,
@@ -66,7 +66,7 @@ class ConfigRepo {
         showStory: false,
         showRsvp: true,
         showMap: true,
-        showHotel: true,
+        showHotel: false,
         showDressCode: false,
         videoUrl: '/video/venues.mp4',
         heroUrl: '/header/hero.jpg'

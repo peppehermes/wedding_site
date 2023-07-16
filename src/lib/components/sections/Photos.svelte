@@ -18,8 +18,28 @@
     }
 
     import { configRepo } from '$lib/repos/config'
+    import { onMount } from 'svelte'
     let config = configRepo.getConfig()
+
+    let innerWidth = 0
+    let maxColumnWidth = 0
+
+    function changeColumnsOnResize() {}
+
+    onMount(() => {
+        innerWidth < 1024
+            ? (maxColumnWidth = innerWidth / 4 - 10)
+            : (maxColumnWidth = innerWidth / 6 - 10)
+    })
+
+    $: {
+        innerWidth < 1024
+            ? (maxColumnWidth = innerWidth / 4 - 10)
+            : (maxColumnWidth = innerWidth / 6 - 10)
+    }
 </script>
+
+<svelte:window bind:innerWidth />
 
 <label for="my-modal" />
 <div
@@ -27,13 +47,9 @@
     class="bg-opacity-12 py-12"
     class:bg-primary={config.showEvents}
     class:bg-base-100={!config.showEvents}>
-    <Gallery hover={true} loading={'lazy'} maxColumnWidth={150} on:click={handleClick}>
+    <Gallery hover={true} loading={'lazy'} {maxColumnWidth} on:click={handleClick}>
         {#each photos as p}
-            <img
-                class="max-w-[100px] md:max-w-[180px]"
-                src={p.url}
-                alt={p.name}
-                data-fullsize={p.url} />
+            <img class="max-w-[100]" src={p.url} alt={p.name} data-fullsize={p.url} />
         {/each}
     </Gallery>
 </div>

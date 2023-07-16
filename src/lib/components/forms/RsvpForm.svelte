@@ -7,24 +7,55 @@
     import { loading } from '$lib/stores/loading'
     import { configRepo } from '$src/lib/repos/config'
     import { stringsRepo } from '$src/lib/repos/strings'
-    import { enhance } from '$app/forms';
+    import { enhance } from '$app/forms'
     import toast from 'svelte-french-toast'
+    import { toastOptions, successIconTheme, errorIconTheme } from './handlers'
 
     const rsvpLabels = stringsRepo.getRsvpLabels()
     const guestLabels = stringsRepo.getGuestLabels()
+    const toastMessages = stringsRepo.getToastMessages()
+    let guestMealsInitial = configRepo.getInitialMeals()
 
     let name: string = ''
     let email: string = ''
     let phone: string = ''
     let numGuests: number | undefined
-    let guestMealsInitial = configRepo.getInitialMeals()
     let guestMeals = guestMealsInitial
+
+    function resetForm() {
+        name = ''
+        email = ''
+        phone = ''
+        numGuests = undefined
+        guestMeals = guestMealsInitial
+    }
 
     $: disabled = rsvpSubmitIsDisabled(name, email, phone, numGuests || 0, guestMeals) || $loading
 </script>
 
-<form 
-    use:enhance
+<form
+    use:enhance={({ formElement, formData, action, cancel, submitter }) => {
+        // `formElement` is this `<form>` element
+        // `formData` is its `FormData` object that's about to be submitted
+        // `action` is the URL to which the form is posted
+        // calling `cancel()` will prevent the submission
+        // `submitter` is the `HTMLElement` that caused the form to be submitted
+        loading.set(true)
+
+        return async ({ result, update }) => {
+            // `result` is an `ActionResult` object
+            // `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
+            if (result.type === 'success') {
+                toast.success(toastMessages.email.success, { ...toastOptions, ...successIconTheme })
+            } else if (result.type === 'error') {
+                console.error('Error!', result.error, result.status)
+                toast.error(toastMessages.email.failure, { ...toastOptions, ...errorIconTheme })
+            }
+
+            loading.set(false)
+            resetForm()
+        }
+    }}
     class="w-full max-w-lg mx-auto"
     name="submit-rsvp-to-google-sheet"
     method="POST">
