@@ -26,7 +26,7 @@ class StringsRepo {
 
     #saveTheDate = {
         title: ['Save', 'the', 'Date'],
-        subtitle: 'We are getting married',
+        subtitle: 'Stiamo per sposarci',
     }
 
     #emailListLabels = {

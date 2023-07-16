@@ -12,7 +12,10 @@ const config = {
     ],
 
     kit: {
-        adapter: adapter(),
+        adapter: adapter({
+            edge: false,
+            split: false,
+        }),
         alias: {
             $src: 'src',
             $data: 'src/data',

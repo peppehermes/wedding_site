@@ -10,7 +10,7 @@
     let weddingDay = dayjs(config.weddingDate)
     let today = dayjs()
     let diff = weddingDay.diff(today, 'days') + 1
-    let dayDays = diff == 1 ? ' day' : ' days'
+    let dayDays = diff == 1 ? ' giorno' : ' giorni'
 </script>
 
 <PageSection ref="save-the-date" lg bordered primary>
@@ -27,6 +27,6 @@
         <span>{saveTheDate.subtitle}</span>
     </div>
     <div class="text-center text-xl opacity-60">
-        <span>...in </span> <span>{diff}</span> <span>{dayDays}</span>
+        <span>...tra </span> <span>{diff}</span> <span>{dayDays}</span>
     </div>
 </PageSection>
