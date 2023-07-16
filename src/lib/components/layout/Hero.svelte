@@ -7,7 +7,7 @@
     //     .min-h-[100vh] and .min-w-[130vh]
     //
     //    current: 3365 × 2387 (W x H) = 1.40971931
-    //    current mine: 6589 x 4398 (W x H) = 2.89784221
+    //    current mine: 4778 x 3583 (W x H) = 1.7119574
 
     import { configRepo } from '$src/lib/repos/config'
     import { animate, stagger, spring } from 'motion'
@@ -23,7 +23,6 @@
             { duration: 1, delay: stagger(0.3), easing: spring() },
         )
     })
-    
 
     let currentY: number
     $: translateAmount = Math.floor(currentY * 0.4)
@@ -36,7 +35,7 @@
     <div class="hero min-h-screen relative">
         <div class="hero-overlay z-10" />
         <img
-            class="absolute top-0 z-0 min-h-[100vh] min-w-[289.78vh]"
+            class="absolute top-0 z-0 min-h-[100vh] min-w-[171.19vh]"
             src={config.heroUrl}
             style={bgStyle}
             alt="Hero" />
