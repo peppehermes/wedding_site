@@ -1,6 +1,4 @@
 import { Client } from '@notionhq/client'
-import { loading } from '$lib/stores/loading'
-import { handleSubmit } from '../components/forms/handlers'
 import { stringsRepo } from './strings'
 
 export const rsvpLabels = stringsRepo.getRsvpLabels()
