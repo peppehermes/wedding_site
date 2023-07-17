@@ -3,9 +3,9 @@
     import { GoogleMap, GoogleMapMarker } from 'svelte-cartographer'
     import { mapOverlay, mapOverlayClasses } from '$lib/stores/mapOverlay'
     import type { Coordinate } from '$lib/types'
+    import { PUBLIC_VITE_GOOGLE_MAPS_API_KEY } from '$env/static/public'
 
-    // const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-    const apiKey = ""
+    const apiKey = PUBLIC_VITE_GOOGLE_MAPS_API_KEY
 
     const getCenter = (...args: Coordinate[]) => {
         let lat =
