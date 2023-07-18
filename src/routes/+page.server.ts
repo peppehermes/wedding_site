@@ -14,10 +14,18 @@ export const actions: Actions = {
 
         if (config.canRsvp) {
             const rsvpLabels = stringsRepo.getRsvpLabels()
+            const guestsLabels = stringsRepo.getGuestLabels()
             const phone = data.get(rsvpLabels.phoneLabel) as string
             const numGuests = parseInt(data.get(rsvpLabels.guestsLabel) as string)
 
-            const res = await rsvpRepo.addToRsvpList(name, email, phone, numGuests)
+            const guestsArray: {guestName: string, guestMeal: string}[] = []
+            for (let index = 1; index < numGuests + 1; index++) {
+                const guestName = data.get(guestsLabels.guestLabel + " " + index) as string
+                const guestMeal = data.get(guestsLabels.menuLabel + " " + index) as string
+                guestsArray.push({guestName:guestName, guestMeal:guestMeal})
+            }
+
+            const res = await rsvpRepo.addToRsvpList(name, email, phone, numGuests, guestsArray)
             if (res.object !== 'page') {
                 return {
                     status: 200,

@@ -23,11 +23,11 @@
     let guestMeals = guestMealsInitial
 
     function resetForm() {
+        guestMeals = guestMealsInitial
         name = ''
         email = ''
         phone = ''
         numGuests = undefined
-        guestMeals = guestMealsInitial
     }
 
     $: disabled = rsvpSubmitIsDisabled(name, email, phone, numGuests || 0, guestMeals) || $loading
@@ -46,10 +46,10 @@
             // `result` is an `ActionResult` object
             // `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
             if (result.type === 'success') {
-                toast.success(toastMessages.email.success, { ...toastOptions, ...successIconTheme })
+                toast.success(toastMessages.rsvp.success, { ...toastOptions, ...successIconTheme })
             } else if (result.type === 'error') {
                 console.error('Error!', result.error, result.status)
-                toast.error(toastMessages.email.failure, { ...toastOptions, ...errorIconTheme })
+                toast.error(toastMessages.rsvp.failure, { ...toastOptions, ...errorIconTheme })
             }
 
             loading.set(false)
