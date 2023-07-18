@@ -2,6 +2,7 @@
     import { stringsRepo } from './strings'
 
     export const rsvpLabels = stringsRepo.getRsvpLabels()
+    const sleep = (time: number) => new Promise(resolve => setTimeout(resolve, time))
 
     class RsvpRepo {
         #client = new Client({
@@ -74,11 +75,15 @@
                         }
                     },                    
                 })
+
+                // sleep to avoid 409 conflict_error on notion database
+                await sleep(1000)
                 
                 // save guest page id
                 guestsPagesId.push({id: guestPage.id})
             }))
-
+            
+            // update partyPage relation to include all previous pages
             const partyPageUpdate = await this.#client.pages.update({
                 page_id: partyPage.id,
                 properties: {

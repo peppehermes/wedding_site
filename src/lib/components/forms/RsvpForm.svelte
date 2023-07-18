@@ -14,7 +14,7 @@
     const rsvpLabels = stringsRepo.getRsvpLabels()
     const guestLabels = stringsRepo.getGuestLabels()
     const toastMessages = stringsRepo.getToastMessages()
-    let guestMealsInitial = configRepo.getInitialMeals()
+    const guestMealsInitial = configRepo.getInitialMeals()
 
     let name: string = ''
     let email: string = ''
