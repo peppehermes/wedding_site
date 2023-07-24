@@ -15,7 +15,7 @@ class StringsRepo {
 
     #toastMessages = {
         email: {
-            success: "Grazie! Ti terremo aggiornato! Controlla la SPAM se non ricevi una nostra mail",
+            success: "Grazie! Controlla la SPAM se non ricevi una nostra mail...",
             failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
         },
         rsvp: {

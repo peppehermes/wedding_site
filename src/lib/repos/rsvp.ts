@@ -68,11 +68,10 @@ class RsvpRepo {
             })
             return response
         }
-        else {
-            return {
-                object: "error",
-                status: 500
-            }
+
+        return {
+            object: "error",
+            status: 500
         }
     }
 }
