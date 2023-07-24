@@ -1,12 +1,13 @@
 import { Client } from '@notionhq/client'
 import { stringsRepo } from './strings'
-import { VITE_OCTOPUS_NEWSLETTER_API_KEY, VITE_OCTOPUS_NEWSLETTER_LIST_ID, VITE_EMAIL_LIST_DB_ID } from '$env/static/private';
+import { emailOctopus } from "email-octopus-ts";
+import { VITE_OCTOPUS_NEWSLETTER_API_KEY, VITE_OCTOPUS_NEWSLETTER_LIST_ID, VITE_EMAIL_LIST_DB_ID, VITE_NOTION_SECRET } from '$env/static/private';
 
 export const rsvpLabels = stringsRepo.getRsvpLabels()
 
 class RsvpRepo {
     #client = new Client({
-        auth: import.meta.env.VITE_NOTION_SECRET,
+        auth: VITE_NOTION_SECRET,
     })
 
     addToRsvpList = async (name: string, email: string, phone: string, numGuests: number) => {
@@ -34,29 +35,19 @@ class RsvpRepo {
     }
 
     addToEmailList = async (name: string, email: string) => {
-        const postData = {
-            api_key: VITE_OCTOPUS_NEWSLETTER_API_KEY,
-            email_address: email,
-            fields: { FirstName: name },
-        }
+        const EmailOctopus = emailOctopus(VITE_OCTOPUS_NEWSLETTER_API_KEY);
 
-        const emailOctopusEndpoint = 'https://emailoctopus.com/api/1.6/lists/' + { VITE_OCTOPUS_NEWSLETTER_LIST_ID } + '/contacts'
+        const contact = await EmailOctopus.lists.createContact({
+            listId: VITE_OCTOPUS_NEWSLETTER_LIST_ID,
+            emailAddress: email,
+            fields: {
+                FirstName: name
+            }
+            // tags?: Array<string>;
+            // status?: "SUBSCRIBED" | "UNSUBSCRIBED" | "PENDING";
+          });
 
-        const res = await fetch(emailOctopusEndpoint, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                api_key: VITE_OCTOPUS_NEWSLETTER_API_KEY,
-                email_address: email,
-                fields: { "FirstName": name },
-            })
-        })
-
-        const json = await res.json()
-
-        if (json.id !== undefined) {
+        if (contact.id !== undefined) {
             const response = await this.#client.pages.create({
                 parent: {
                     type: 'database_id',
@@ -78,10 +69,9 @@ class RsvpRepo {
             return response
         }
         else {
-            console.log(json)
             return {
                 object: "error",
-                status: json.error.code
+                status: 500
             }
         }
     }
