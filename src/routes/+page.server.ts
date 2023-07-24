@@ -25,9 +25,13 @@ export const actions: Actions = {
             }
         } else {
             const res = await rsvpRepo.addToEmailList(name, email)
-            if (res.object !== 'page') {
+            if (res.object === 'page') {
                 return {
                     status: 200,
+                }
+            } else {
+                return {
+                    status: 500
                 }
             }
         }
