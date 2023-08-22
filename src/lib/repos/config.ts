@@ -45,7 +45,7 @@ class ConfigRepo {
     #registry = [
         {
             name: 'IT92W0306930410100000091380',
-            url: 'https://tenor.com/it/view/domo-arigato-ladybug-brad-pitt-bullet-train-thank-you-gif-25179225',
+            url: '',
             description: 'Giuseppe Mercurio,  Valentina Marangon',
             order: 1,
         },
