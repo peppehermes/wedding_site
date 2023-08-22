@@ -1,9 +1,14 @@
 <script lang="ts">
     import PageSection from '$lib/components/layout/PageSection.svelte'
     import { configRepo } from '$src/lib/repos/config'
+    import { copy } from 'svelte-copy'
+    import { stringsRepo } from '$src/lib/repos/strings'
+    import toast from 'svelte-french-toast'
+    import { toastOptions, successIconTheme, errorIconTheme } from '../forms/handlers'
 
     let providers = configRepo.getRegistry()
     let config = configRepo.getConfig()
+    const toastMessages = stringsRepo.getToastMessages()
 </script>
 
 <PageSection
@@ -16,17 +21,31 @@
         <p class="body-text">
             Siamo entusiasti di avervi insieme a noi per celebrare il nostro giorno più importante,
             e questo è già il più bel regalo che possiate farci!
-            <br/>
-            Ma se voleste contribuire alla nostra futura vita insieme o alla nostra luna di miele (il Giappone ci aspetta!) potete
-            farlo al seguente IBAN
+            <br />
+            Ma se voleste contribuire alla nostra futura vita insieme o alla nostra luna di miele (il
+            Giappone ci aspetta!) potete farlo al seguente IBAN
         </p>
         <ul>
             {#each providers as provider}
                 <li>
                     {#if provider.description === ''}
-                        <a href={provider.url} target="_blank">{provider.name}</a>
+                        <a
+                            href={null}
+                            use:copy={'Hello from alert'}
+                            on:svelte-copy={(event) => alert(event.detail)}
+                            target="_blank">{provider.name}</a>
                     {:else}
-                        <a href={provider.url} target="_blank">{provider.name}</a> — {provider.description}
+                        <a
+                            class="cursor-pointer"
+                            href={null}
+                            use:copy={provider.name}
+                            on:svelte-copy={(event) =>
+                                toast.success(toastMessages.iban.success, {
+                                    ...toastOptions,
+                                    ...successIconTheme,
+                                })}
+                            target="_blank">{provider.name}</a>
+                        — {provider.description}
                     {/if}
                 </li>
             {/each}

@@ -22,6 +22,10 @@ class StringsRepo {
             success: "Grazie! Abbiamo ricevuto la tua conferma di partecipazione.",
             failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
         },
+        iban: {
+            success: "Grazie! IBAN copiato.",
+            failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
+        }
     }
 
     #saveTheDate = {
