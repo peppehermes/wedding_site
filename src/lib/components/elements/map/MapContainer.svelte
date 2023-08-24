@@ -56,7 +56,7 @@
         {apiKey}
         options={{
             center,
-            zoom: 12,
+            zoom: 11,
         }}>
         {#each markers as marker}
             <GoogleMapMarker
