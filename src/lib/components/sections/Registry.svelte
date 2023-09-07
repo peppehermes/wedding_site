@@ -4,11 +4,12 @@
     import { copy } from 'svelte-copy'
     import { stringsRepo } from '$src/lib/repos/strings'
     import toast from 'svelte-french-toast'
-    import { toastOptions, successIconTheme, errorIconTheme } from '../forms/handlers'
+    import { toastOptions, ibanIconTheme } from '../forms/handlers'
 
     let providers = configRepo.getRegistry()
     let config = configRepo.getConfig()
     const toastMessages = stringsRepo.getToastMessages()
+
 </script>
 
 <PageSection
@@ -42,7 +43,7 @@
                             on:svelte-copy={(event) =>
                                 toast.success(toastMessages.iban.success, {
                                     ...toastOptions,
-                                    ...successIconTheme,
+                                    ...ibanIconTheme,
                                 })}
                             target="_blank">{provider.name}</a>
                         — {provider.description}

@@ -52,7 +52,7 @@ class StringsRepo {
     }
 
 
-    getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'STAY TUNED')
+    getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'NEWSLETTER')
     getMapMessages = () => this.#mapMessages
     getRsvpTitles = () => this.#rsvpTitles
     getToastMessages = () => this.#toastMessages
