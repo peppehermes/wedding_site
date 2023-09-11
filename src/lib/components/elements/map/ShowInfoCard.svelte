@@ -14,6 +14,6 @@
         <button
             class="btn btn-ghost w-full gap-2 rounded-lg"
             on:click|preventDefault={toggleMapOverlay}>
-            <InfoIcon class="w-6 fill-black/70" />Show Info</button>
+            <InfoIcon class="w-6 fill-black/70" />Mostra Info</button>
     </div>
 </div>
