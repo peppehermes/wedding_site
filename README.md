@@ -1,8 +1,8 @@
 # Wedding Website
 
-Our wedding website, built with SvelteKit and DaisyUI. Shamelessly visually adapted from [rampatra's wedding website](https://github.com/rampatra/wedding-website) with modifications. [Video](https://www.youtube.com/watch?v=JXFqkEcMkT8) in the video background section was shot by [Rhys McIntyre Videography LLC](https://www.youtube.com/channel/UCXHmqIWniKmHLdX4tBHDQnw). Uses Google Apps Script to submit email list form and RSVP form to Google Sheets. Generally the code's a bit of a mess, but it works.
+Our wedding website, built with SvelteKit and DaisyUI.
 
-Also integrated with a Notion database to toggle visibility of sections and configure dates, names, and locations.
+Integrated with a Notion database to save email list for newsletter and RSVP responses.
 
 > ## Sveltekit Typescript Tailwindcss Template
 > 
