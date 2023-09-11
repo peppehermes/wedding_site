@@ -8,7 +8,6 @@ class ConfigRepo {
             phone: '0119943673',
             web: 'https://www.galliahotel.it/',
             address: 'Via Torino 29/A, 10044 Pianezza TO',
-            cost: 60
         },
         {
             name: "L'Ultimo Borgo",
@@ -16,15 +15,6 @@ class ConfigRepo {
             phone: '0118975846',
             web: 'https://golfsettimo.it/',
             address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
-            cost: 50
-        },
-        {
-            name: 'Villa Lascaris',
-            map: 'https://goo.gl/maps/KAwkyBvBqMjtHp2v5',
-            phone: '0119676145',
-            web: 'http://villalascaris.it/',
-            address: 'Via Lascaris 4, 10044 Pianezza TO',
-            cost: 50
         },
     ]
 
@@ -45,7 +35,7 @@ class ConfigRepo {
     #registry = [
         {
             name: 'IT92W0306930410100000091380',
-            url: 'https://tenor.com/it/view/domo-arigato-ladybug-brad-pitt-bullet-train-thank-you-gif-25179225',
+            url: '',
             description: 'Giuseppe Mercurio,  Valentina Marangon',
             order: 1,
         },
@@ -72,7 +62,7 @@ class ConfigRepo {
         heroUrl: '/header/hero.jpg'
     }
 
-    #meals = ['Carne', 'Vegetariano', 'Senza Glutine']
+    #meals = ['Carne', 'Vegetariano', 'Vegano', 'Senza Glutine', 'Altro']
 
     #guestMealsInitial = [
         { name: null, meal: null },

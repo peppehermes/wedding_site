@@ -4,7 +4,7 @@ class StringsRepo {
     #config = configRepo.getConfig()
 
     #rsvpTitles = {
-        canRsvp: 'Cosa aspetti?',
+        canRsvp: 'Puoi dare conferma di partecipazione qui',
         canNotRsvp: 'Puoi dare conferma di partecipazione qui',
     }
 
@@ -15,13 +15,17 @@ class StringsRepo {
 
     #toastMessages = {
         email: {
-            success: "Grazie! Ti terremo aggiornato!",
+            success: "Grazie! Controlla la SPAM se non ricevi una nostra mail...",
             failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
         },
         rsvp: {
             success: "Grazie! Abbiamo ricevuto la tua conferma di partecipazione.",
             failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
         },
+        iban: {
+            success: "Grazie! IBAN copiato.",
+            failure: 'Hmm... Qualcosa è andato storto. Meglio riprovare più tardi.',
+        }
     }
 
     #saveTheDate = {
@@ -38,17 +42,17 @@ class StringsRepo {
         nameLabel: this.#emailListLabels.nameLabel,
         emailLabel: this.#emailListLabels.emailLabel,
         phoneLabel: 'Telefono',
-        guestsLabel: 'Ospiti',
+        guestsLabel: 'N. Ospiti',
     }
 
     #guestLabels = {
         partyLabel: "Il tuo gruppo",
         guestLabel: "Nome ospite",
-        menuLabel: "Menu ospite",
+        menuLabel: "Intolleranze ospite",
     }
 
 
-    getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'STAY TUNED')
+    getRsvpButtonText = () => (this.#config.canRsvp ? 'RSVP' : 'NEWSLETTER')
     getMapMessages = () => this.#mapMessages
     getRsvpTitles = () => this.#rsvpTitles
     getToastMessages = () => this.#toastMessages

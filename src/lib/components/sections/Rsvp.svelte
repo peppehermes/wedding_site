@@ -16,6 +16,7 @@
         {#if config.canRsvp}
             <p>
                 È gradita conferma entro il 31 ottobre 2023
+                <br/> Inserite eventuali intolleranze per ogni ospite
             </p>
         {:else}
             <p>
@@ -23,7 +24,7 @@
             </p>
             <p>
                 Se vuoi ricevere aggiornamenti riguardo RSVP, hotel, cerimonia ecc.
-                puoi compilare il form qui sotto.
+                puoi iscriverti alla nostra newsletter!
             </p>
         {/if}
     </div>
