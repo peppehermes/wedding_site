@@ -8,7 +8,6 @@ class ConfigRepo {
             phone: '0119943673',
             web: 'https://www.galliahotel.it/',
             address: 'Via Torino 29/A, 10044 Pianezza TO',
-            cost: 60
         },
         {
             name: "L'Ultimo Borgo",
@@ -16,15 +15,6 @@ class ConfigRepo {
             phone: '0118975846',
             web: 'https://golfsettimo.it/',
             address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
-            cost: 50
-        },
-        {
-            name: 'Villa Lascaris',
-            map: 'https://goo.gl/maps/KAwkyBvBqMjtHp2v5',
-            phone: '0119676145',
-            web: 'http://villalascaris.it/',
-            address: 'Via Lascaris 4, 10044 Pianezza TO',
-            cost: 50
         },
     ]
 
@@ -58,21 +48,21 @@ class ConfigRepo {
         bride: 'Valentina',
         rsvpDate: '2023-10-31',
         weddingDate: '2023-12-08',
-        canRsvp: false,
+        canRsvp: true,
         showPictures: true,
-        saveTheDate: true,
+        saveTheDate: false,
         showRegistry: true,
         showEvents: false,
         showStory: false,
         showRsvp: true,
         showMap: true,
-        showHotel: false,
+        showHotel: true,
         showDressCode: false,
         videoUrl: '/video/venues.mp4',
         heroUrl: '/header/hero.jpg'
     }
 
-    #meals = ['Carne', 'Vegetariano', 'Senza Glutine']
+    #meals = ['Carne', 'Vegetariano', 'Vegano', 'Senza Glutine', 'Altro']
 
     #guestMealsInitial = [
         { name: null, meal: null },

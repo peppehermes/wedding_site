@@ -18,6 +18,13 @@ export const successIconTheme = {
     },
 }
 
+export const ibanIconTheme = {
+    iconTheme: {
+        primary: '#872a38',
+        secondary: '#FFFAEE',
+    },
+}
+
 export const errorIconTheme = {
     iconTheme: {
         primary: '#d48c97',
