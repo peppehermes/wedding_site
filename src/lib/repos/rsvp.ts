@@ -59,7 +59,7 @@ class RsvpRepo {
                                 },
                             ],
                         },
-                        Menu: { 
+                        Allergies: { 
                             rich_text: [
                                 {
                                     text: {

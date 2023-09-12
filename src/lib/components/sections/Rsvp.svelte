@@ -15,8 +15,8 @@
     <div class="mb-8 font-light text-center rsvp-info">
         {#if config.canRsvp}
             <p>
-                È gradita conferma entro il 31 ottobre 2023
-                <br/> Inserite eventuali intolleranze per ogni ospite
+                È gradita conferma entro il 31 ottobre 2023.
+                <br/> Inserisci eventuali allergie/intolleranze per ogni ospite.
             </p>
         {:else}
             <p>

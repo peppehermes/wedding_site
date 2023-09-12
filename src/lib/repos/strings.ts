@@ -41,8 +41,9 @@ class StringsRepo {
     #rsvpLabels = {
         nameLabel: this.#emailListLabels.nameLabel,
         emailLabel: this.#emailListLabels.emailLabel,
+        newsletterLabel: 'Voglio iscrivermi alla vostra newsletter',
         phoneLabel: 'Telefono',
-        guestsLabel: 'N. Ospiti',
+        guestsLabel: 'Num. Ospiti',
     }
 
     #guestLabels = {

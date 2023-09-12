@@ -16,7 +16,6 @@
             
         </p>
         <img src="/images/proposal.gif" alt="" />
-        <h3></h3>
     </div>
 </PageSection>
 
