@@ -7,6 +7,7 @@ export const actions: Actions = {
     default: async ({ request }) => {
         const emailListLabels = stringsRepo.getEmailListLabels()
         const config = configRepo.getConfig()
+
         const data = await request.formData()
 
         const name = data.get(emailListLabels.nameLabel) as string
@@ -17,6 +18,9 @@ export const actions: Actions = {
             const guestsLabels = stringsRepo.getGuestLabels()
             const phone = data.get(rsvpLabels.phoneLabel) as string
             const numGuests = parseInt(data.get(rsvpLabels.guestsLabel) as string)
+            
+            // Check if a value exists (useful for boolean checkboxes):
+            const agreedToNewsletter = data.has(rsvpLabels.newsletterLabel);
 
             const guestsArray: {guestName: string, guestMeal: string}[] = []
             for (let index = 1; index < numGuests + 1; index++) {
@@ -25,8 +29,18 @@ export const actions: Actions = {
                 guestsArray.push({guestName:guestName, guestMeal:guestMeal})
             }
 
-            const res = await rsvpRepo.addToRsvpList(name, email, phone, numGuests, guestsArray)
-            if (res.object !== 'page') {
+            const resRsvp = await rsvpRepo.addToRsvpList(name, email, phone, numGuests, guestsArray)
+
+            if (agreedToNewsletter) {
+                const resNewsletter = await rsvpRepo.addToEmailList(name, email)
+                if (resRsvp.object !== 'page' && resNewsletter.object !== 'page') {
+                    return {
+                        status: 200,
+                    }
+                }
+            }
+
+            if (resRsvp.object !== 'page') {
                 return {
                     status: 200,
                 }

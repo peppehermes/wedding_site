@@ -18,14 +18,16 @@
 
     let name: string = ''
     let email: string = ''
+    let newsletter: boolean = false
     let phone: string = ''
     let numGuests: number | undefined
     let guestMeals = guestMealsInitial
 
     function resetForm() {
-        guestMeals = guestMealsInitial
+        guestMeals = configRepo.getInitialMeals()
         name = ''
         email = ''
+        newsletter = false
         phone = ''
         numGuests = undefined
     }
@@ -62,6 +64,7 @@
     <div class="flex flex-wrap -mx-3 mb-4">
         <FormField bind:data={name} label={rsvpLabels.nameLabel} fieldType="text" />
         <FormField bind:data={email} label={rsvpLabels.emailLabel} fieldType="text" />
+        <FormField bind:checked={newsletter} label={rsvpLabels.newsletterLabel} fieldType="checkbox" />
     </div>
     <div class="flex flex-wrap -mx-3 mb-4">
         <FormField bind:data={phone} label={rsvpLabels.phoneLabel} fieldType="text" />

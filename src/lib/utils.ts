@@ -25,7 +25,7 @@ export const rsvpSubmitIsDisabled = (
 ) => {
     let arrayHasNull = false
     for (let i = 0; i < numGuests; i++) {
-        if (guestMeals[i].name == null || guestMeals[i].meal == null) {
+        if (guestMeals[i].name == null || guestMeals[i].meal == null || guestMeals[i].name?.trim().length === 0 || guestMeals[i].meal?.trim().length === 0) {
             arrayHasNull = true
         }
     }
