@@ -36,7 +36,6 @@
         "svelte": "^3.44.0",
         "svelte-cartographer": "^0.0.12",
         "svelte-check": "^3.0.1",
-        "svelte-command-palette": "^1.1.6",
         "svelte-copy": "^1.4.1",
         "svelte-french-toast": "^1.1.0",
         "svelte-image-gallery": "^1.7.0",
@@ -53,10 +52,10 @@
     },
     "type": "module",
     "dependencies": {
-        "axios": "^1.4.0",
+        "axios": "^1.5.0",
         "daisyui": "^2.19.0",
         "dotenv": "^16.3.1",
-        "email-octopus-ts": "^1.0.0",
+        "email-octopus-ts": "^1.1.1",
         "motion": "^10.13.1"
     }
 }

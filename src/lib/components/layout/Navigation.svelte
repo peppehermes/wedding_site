@@ -35,13 +35,11 @@
             <div class="dropdown" id="dropdown-container">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
                 <label
-                    tabindex="0"
                     class="btn btn-ghost btn-circle lg:hidden swap swap-rotate"
                     id="menu-button">
                     <MenuIcon class="w-6 fill-base-content" />
                 </label>
                 <ul
-                    tabindex="0"
                     id="dropdown-menu"
                     class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <!-- dropdown menu -->
@@ -55,11 +53,11 @@
         {/if}
 
         <!-- svelte-ignore a11y-missing-attribute -->
-        <a
+        <button
             class="btn btn-ghost btn-circle rounded-full opacity-70"
             on:click|preventDefault={scrollToTop}>
             <MoonIcon class="w-8" />
-        </a>
+        </button>
     </div>
     <div class="navbar-center hidden lg:flex">
         <ul class="menu menu-horizontal p-0">
