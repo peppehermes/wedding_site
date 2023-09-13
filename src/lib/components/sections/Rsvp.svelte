@@ -16,7 +16,8 @@
         {#if config.canRsvp}
             <p>
                 È gradita conferma entro il 31 ottobre 2023.
-                <br/> Inserisci eventuali allergie/intolleranze per ogni ospite.
+                <br/><br/>
+                <i>Dopo aver scritto il numero degli ospiti, potrai inserire eventuali allergie/intolleranze per ognuno di loro.</i>
             </p>
         {:else}
             <p>

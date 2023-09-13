@@ -21,7 +21,7 @@
                 class="inline-block text-8xl mt-4 mb-8 text-base-content/60 tracking-[-1rem] -ml-3"
                 >(·_·)</span>
             <h1 class="text-5xl mb-8">{$page.status}</h1>
-            <p class="mb-8">a page wan't found at {$page.url.pathname}</p>
+            <p class="mb-8">Cannot find page at {$page.url.pathname}</p>
         {:else}
             <span class="inline-block text-8xl mt-4 mb-8 text-raspberry/60 tracking-[-1rem] -ml-3"
                 >(x_x)</span>

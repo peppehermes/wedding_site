@@ -18,9 +18,6 @@
             <span class="inline-block">Crafted by Peppe with lots of</span>
             <HeartIcon class="inline-block pulse w-6 fill-raspberry-800" />
             <span class="inline-block">for Vale</span><br />
-
-            <!-- <span class="inline-block pt-2"
-                >Photos by <a href="http://conniemarina.com/" class="text-lavernder-900 underline">Connie Marina</a></span> -->
         </p>
     </div>
 </footer>
