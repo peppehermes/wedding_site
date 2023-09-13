@@ -45,10 +45,6 @@
 </PageSection>
 
 <style lang="postcss">
-    /* .hotel-info {
-        @apply mb-6 font-light text-center text-lg leading-10;
-    } */
-
     .hotel-link {
         @apply text-crail-900 underline text-xl;
     }
