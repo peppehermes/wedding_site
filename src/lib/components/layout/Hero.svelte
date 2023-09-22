@@ -43,7 +43,7 @@
             <div class="max-w-lg" bind:this={heroTextContainer}>
                 <h1 class="mb-5 text-5xl font-bold font-serif">Valentina & Giuseppe</h1>
 
-                <p class="mb-5">8 dicembre, 2023 | Pianezza, TO</p>
+                <p class="mb-5">8 dicembre, 2023 | Pianezza, TO<br>Ore 11:45</p>
             </div>
         </div>
     </div>
