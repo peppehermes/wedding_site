@@ -56,7 +56,7 @@ class ConfigRepo {
         showStory: false,
         showRsvp: true,
         showMap: true,
-        showHotel: true,
+        showHotel: false,
         showDressCode: false,
         videoUrl: '/video/venues.mp4',
         heroUrl: '/header/hero.jpg'
