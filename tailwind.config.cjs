@@ -114,6 +114,7 @@ const colors = {
         900: '#eee8e0',
     },
     crail: {
+        DEFAULT: '#872a38',
         100: '#faeae9',
         200: '#f6d5d5',
         300: '#eeb3b3',
@@ -122,7 +123,6 @@ const colors = {
         600: '#c2414d',
         700: '#a12f3d',
         800: '#872a38',
-        DEFAULT: '#872a38',
         900: '#742735',
     },
     stromboli: {
@@ -132,17 +132,18 @@ const colors = {
         400: '#6b9c7c',
         500: '#4b7e5e',
         600: '#386349',
-        DEFAULT: '#305640',
+        DEFAULT: '#4b7e5e',
+        700: '#305640',
         800: '#254030',
         900: '#1f3529',
     },
-    
+
 }
 
 const makeOpacity = () => {
     let o = {}
     for (let i = 0; i < 100; i++) {
-        o[`${i}`] = `${i/100}`
+        o[`${i}`] = `${i / 100}`
     }
     return o
 }
