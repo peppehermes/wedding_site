@@ -9,7 +9,7 @@
 </script>
 
 <div
-    class="card w-96 bg-neutral text-neutral-content shadow-xl z-50"
+    class="card w-auto bg-neutral text-neutral-content shadow-xl z-50 m-4"
     in:fade={fadeInOptions}
     out:fade={fadeOutOptions}>
     <div class="card-body items-center text-center">
@@ -23,11 +23,11 @@
         </p>
         <div class="card-actions justify-center">
             <button
-                class="btn btn-pink-lavender btn-sm"
+                class="btn btn-secondary text-white hover:bg-pink-lavender-900 btn-sm"
                 on:click|preventDefault={() => window.open(venueInfo.ceremony.mapUrl, '_blank')}
                 >Cerimonia</button
             ><button
-                class="btn btn-peach btn-sm"
+                class="btn btn-warning text-white hover:bg-peach-900 btn-sm"
                 on:click|preventDefault={() => window.open(venueInfo.reception.mapUrl, '_blank')}
                 >Ricevimento</button>
             <button class="btn btn-primary btn-sm" on:click|preventDefault={toggleMapOverlay}

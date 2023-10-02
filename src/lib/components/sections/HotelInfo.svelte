@@ -15,9 +15,11 @@
     primary={!config.showRegistry}>
     <div class="max-w-prose mx-auto">
         <p class="body-text">
-            Per chi avesse necessità, sono state concordate delle tariffe speciali con
-            un hotel vicino alla chiesa e con il locale in cui festeggeremo, L'Ultimo Borgo.
-            Ai link sottostanti troverete i siti web e le informazioni per raggiungere gli hotel.
+            Per chi avesse necessità di pernottare, vi consigliamo un hotel in zona con un buon
+            rapporto qualità prezzo, il <i>Rivoli Hotel</i>. <br />
+            Se volete prenotare una stanza, non esitate a contattarci. <br /><br />
+            Cliccando sul nome dell'hotel sarete reindirizzati sul suo sito web; sotto trovate il numero
+            di telefono e le indicazioni per raggiungere l'hotel. <br /> <br />
         </p>
 
         {#each hotelInfo as hotel}
@@ -33,12 +35,12 @@
                     href={hotel.map}
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-peach btn-sm mx-1 my-2">Maps</a>
+                    class="btn btn-warning text-white hover:bg-peach-900 btn-sm mx-1 my-2">Maps</a>
                 <a
                     href="tel:{hotel.phone}"
                     target="_blank"
                     rel="noreferrer"
-                    class="btn btn-raspberry btn-sm mx-1 my-2">Tel</a>
+                    class="btn btn-error hover:bg-raspberry-900 btn-sm mx-1 my-2">Tel</a>
             </p>
         {/each}
     </div>

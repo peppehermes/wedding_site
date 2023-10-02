@@ -3,19 +3,19 @@ import type { ConfigObject } from '$lib/types'
 class ConfigRepo {
     #hotel = [
         {
-            name: 'Hotel Gallia',
-            map: 'https://www.google.com/maps/place/Hotel+Gallia+-+Centro+Congressi/@45.0958405,7.5654817,17z/data=!3m1!4b1!4m9!3m8!1s0x47886a4d5fde1547:0x46010a0a497db40b!5m2!4m1!1i2!8m2!3d45.0958405!4d7.5654817!16s%2Fg%2F1tf7r03z?entry=ttu',
-            phone: '0119943673',
-            web: 'https://www.galliahotel.it/',
-            address: 'Via Torino 29/A, 10044 Pianezza TO',
+            name: 'Rivoli Hotel',
+            map: 'https://maps.app.goo.gl/9y69jgqGmVsdxn787',
+            phone: '0119566586',
+            web: 'https://www.rivolihotel.it/?utm_source=google_maps&utm_medium=organic&utm_campaign=mybusiness',
+            address: 'C.so Primo Levi, 150, 10098 Rivoli TO',
         },
-        {
-            name: "L'Ultimo Borgo",
-            map: "https://www.google.com/maps/place/L'Ultimo+Borgo/@45.1609687,7.7566828,17z/data=!3m1!4b1!4m9!3m8!1s0x478871f3036d1883:0x74aa78614f3bc212!5m2!4m1!1i2!8m2!3d45.1609687!4d7.7566828!16s%2Fg%2F1tkv8nfk?entry=ttu",
-            phone: '0118975846',
-            web: 'https://golfsettimo.it/',
-            address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
-        },
+        // {
+        //     name: "L'Ultimo Borgo",
+        //     map: "https://www.google.com/maps/place/L'Ultimo+Borgo/@45.1609687,7.7566828,17z/data=!3m1!4b1!4m9!3m8!1s0x478871f3036d1883:0x74aa78614f3bc212!5m2!4m1!1i2!8m2!3d45.1609687!4d7.7566828!16s%2Fg%2F1tkv8nfk?entry=ttu",
+        //     phone: '0118975846',
+        //     web: 'https://golfsettimo.it/',
+        //     address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
+        // },
     ]
 
     #venueInfo = {
@@ -56,7 +56,7 @@ class ConfigRepo {
         showStory: false,
         showRsvp: true,
         showMap: true,
-        showHotel: false,
+        showHotel: true,
         showDressCode: false,
         videoUrl: '/video/venues.mp4',
         heroUrl: '/header/hero.jpg'
