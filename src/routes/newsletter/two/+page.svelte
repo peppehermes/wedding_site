@@ -1,5 +1,9 @@
-<html lang="en" prefix="og: https://ogp.me/ns#"
-    ><head>
+<svelte:head>
+    <title>Newsletter</title>
+</svelte:head>
+
+<html lang="en" prefix="og: https://ogp.me/ns#">
+    <head>
         <meta charset="UTF-8" />
 
         <!-- Sets size and scale of the viewport. -->
@@ -23,6 +27,11 @@
         </style>
     <![endif]-->
 
+        <!--[if mso]>
+        <style>
+            * { font-family: sans-serif !important; }
+        </style>
+    <![endif]-->
         <!--[if mso]>
         <style>
             * { font-family: sans-serif !important; }
