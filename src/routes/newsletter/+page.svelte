@@ -2,14 +2,11 @@
     import PageSection from '$lib/components/layout/PageSection.svelte'
 </script>
 
-<PageSection
-    title="Newsletter precedenti"
-    ref="newsletter"
-    lg
-    classes="min-h-screen"
-    image
-    >
+<svelte:head>
+    <title>Newsletter</title>
+</svelte:head>
 
+<PageSection title="Newsletter precedenti" ref="newsletter" lg classes="min-h-screen" image>
     <div class="max-w-prose mx-auto">
         <ul>
             <li>
@@ -24,7 +21,6 @@
             </li>
         </ul>
     </div>
-
 </PageSection>
 
 <style lang="postcss">
@@ -32,4 +28,3 @@
         @apply text-crail-900 underline text-xl;
     }
 </style>
-
