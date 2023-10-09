@@ -34,12 +34,14 @@
         {#if navItems.length != 0}
             <div class="dropdown" id="dropdown-container">
                 <!-- svelte-ignore a11y-label-has-associated-control -->
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <label
                     tabindex="0"
                     class="btn btn-ghost btn-circle lg:hidden swap swap-rotate"
                     id="menu-button">
                     <MenuIcon class="w-6 fill-base-content" />
                 </label>
+                <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
                 <ul
                     tabindex="0"
                     id="dropdown-menu"

@@ -1,30 +1,29 @@
 <script lang="ts">
-    import { photosRepo } from '$src/lib/repos/photos'
     import Gallery from 'svelte-image-gallery'
-
-    export const name = 'wedding-photos'
+    import { Swipe, SwipeItem } from "svelte-swipe"
+    import { onMount } from 'svelte'
+    import { configRepo } from '$lib/repos/config'
+    import { photosRepo } from '$src/lib/repos/photos'
 
     let photos = photosRepo.getPhotos()
-
-    export const itemId = (index: number) => `${name}-${index + 1}`
-
-    let showModal = false
-    let modalImageUrl = ''
-
-    const handleClick = (e: any) => {
-        showModal = true
-        modalImageUrl = e.detail.src
-        console.log(e.detail.src)
-    }
-
-    import { configRepo } from '$lib/repos/config'
-    import { onMount } from 'svelte'
     let config = configRepo.getConfig()
 
+    let swipe_holder_height = 0
+    let active_item = 0
+    let SwipeComp: { goTo: (arg0: any) => void };
+    let showModal = false
     let innerWidth = 0
     let maxColumnWidth = 0
 
-    function changeColumnsOnResize() {}
+    function heightChanged(e : any) {
+        swipe_holder_height = e.detail.height
+    }
+
+    const handleClick = (e: any) => {
+        active_item = Number(e.detail.src.split("/").pop()?.split(".")[0])
+        SwipeComp.goTo(active_item - 1)
+        showModal = true
+    }
 
     onMount(() => {
         innerWidth < 1024
@@ -54,16 +53,29 @@
     </Gallery>
 </div>
 
-<input type="checkbox" id="my-modal" class="modal-toggle" checked={showModal} />
-<div class="modal">
+<input type="checkbox" id="my-modal" class="modal-toggle" checked={showModal}/>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<div class="modal" tabindex="-1" on:click={() => {showModal = false}}>
     <div class="modal-box">
-        <img src={modalImageUrl} alt="lightbox" />
+        <div class="swipe-holder" style="height:{swipe_holder_height}px">
+            <Swipe bind:this={SwipeComp} bind:active_item>
+              {#each photos as item, i}
+                <SwipeItem
+                  allow_dynamic_height={true}
+                  on:swipe_item_height_change={heightChanged}
+                  >
+                  <img src={item.url} alt="lightbox" />
+                </SwipeItem>
+              {/each}
+            </Swipe>
+        </div>
+        
         <div class="modal-action">
             <button
                 on:click={() => {
                     showModal = false
                 }}
-                class="btn">Close</button>
+                class="btn btn-primary">Close</button>
         </div>
     </div>
 </div>
@@ -77,5 +89,15 @@
         justify-content: center;
         align-items: center;
         justify-items: center;
+    }
+
+    .swipe-holder {
+        height: 30vh;
+        width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
     }
 </style>
