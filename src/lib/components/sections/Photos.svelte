@@ -55,7 +55,7 @@
 
 <input type="checkbox" id="my-modal" class="modal-toggle" checked={showModal}/>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="modal" tabindex="-1" on:click={() => {showModal = false}}>
+<div class="modal" tabindex="-1">
     <div class="modal-box">
         <div class="swipe-holder" style="height:{swipe_holder_height}px">
             <Swipe bind:this={SwipeComp} bind:active_item>
