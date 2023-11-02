@@ -20,8 +20,8 @@ class ConfigRepo {
 
     #venueInfo = {
         ceremony: {
-            name: 'Chiesa S.S. Pietro e Paolo',
-            address: 'Piazza S.S. Pietro e Paolo, 10044 Pianezza TO',
+            name: 'Chiesa SS. Pietro e Paolo',
+            address: 'Piazza SS. Pietro e Paolo, 10044 Pianezza TO',
             mapUrl: 'https://goo.gl/maps/8pbTxvdBocVvx4GJ8',
         },
         reception: {
