@@ -1,6 +1,5 @@
 <script lang="ts">
     import { onMount } from 'svelte'
-    import { stringsRepo } from '$src/lib/repos/strings'
     import { configRepo } from '$src/lib/repos/config'
     const venueInfo = configRepo.getVenueInfo()
     const videoUrl = configRepo.getConfig().videoUrl

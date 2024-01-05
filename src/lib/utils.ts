@@ -2,6 +2,8 @@ import { parseLocation } from 'parse-address'
 import type { RsvpGuest } from '$lib/types'
 import dayjs, { Dayjs } from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat.js'
+import { configRepo } from './repos/config'
+
 dayjs.extend(advancedFormat)
 
 export const formatDate = (date: Dayjs, format: string) => {
@@ -59,3 +61,11 @@ export function scrollIntoView({ target }: any): void {
 export function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
 }
+
+export const weddingIsOver = (): boolean => daysLeft() <= 0;
+
+export const daysLeft = (): number => {
+    const weddingDay = dayjs(configRepo.getConfig().weddingDate);
+    const today = dayjs();
+    return weddingDay.diff(today, 'days') + 1;
+};
