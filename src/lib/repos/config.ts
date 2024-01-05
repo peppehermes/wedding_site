@@ -9,13 +9,6 @@ class ConfigRepo {
             web: 'https://www.rivolihotel.it/?utm_source=google_maps&utm_medium=organic&utm_campaign=mybusiness',
             address: 'C.so Primo Levi, 150, 10098 Rivoli TO',
         },
-        // {
-        //     name: "L'Ultimo Borgo",
-        //     map: "https://www.google.com/maps/place/L'Ultimo+Borgo/@45.1609687,7.7566828,17z/data=!3m1!4b1!4m9!3m8!1s0x478871f3036d1883:0x74aa78614f3bc212!5m2!4m1!1i2!8m2!3d45.1609687!4d7.7566828!16s%2Fg%2F1tkv8nfk?entry=ttu",
-        //     phone: '0118975846',
-        //     web: 'https://golfsettimo.it/',
-        //     address: 'Str. della Cebrosa 166, 10036 Settimo Torinese TO',
-        // },
     ]
 
     #venueInfo = {

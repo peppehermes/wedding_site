@@ -5,6 +5,7 @@
     import { navRepo } from '$src/lib/repos/nav'
     import { stringsRepo } from '$src/lib/repos/strings'
     import { configRepo } from '$src/lib/repos/config'
+    import { weddingIsOver } from '$lib/utils'
 
     let config = configRepo.getConfig()
     let navItems = navRepo.getNavItems()
@@ -73,7 +74,7 @@
         </ul>
     </div>
     <div class="navbar-end text-right">
-        {#if config.showRsvp}
+        {#if config.showRsvp  && !weddingIsOver()}
             <a
                 href="#rsvp"
                 class="btn btn-primary text-white"
